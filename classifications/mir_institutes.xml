@@ -2,14 +2,190 @@
 <mycoreclass xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="mir_institutes">
   <label xml:lang="de" text="Institutionen" description="Liste der Einrichtungen" />
   <label xml:lang="x-uri" text="http://www.mycore.org/classifications/mir_institutes" />
-  <label xml:lang="en" text="Sample Institutions" description="A list of institutions" />
+  <label xml:lang="en" text="Institutions" description="A list of institutions" />
   <categories>
-    <category ID="SUB_Göttingen">
-      <label xml:lang="de" text="SUB Göttingen" />
+    <category ID="archive">
+      <label xml:lang="de" text="Archiv" />
     </category>
-    <category ID="Other">
-      <label xml:lang="de" text="Andere" />
-      <label xml:lang="en" text="Other" />
+    <category ID="library">
+      <label xml:lang="de" text="Bibliothek" />
+    </category>
+    <category ID="promotion_program">
+      <label xml:lang="de" text="Förderprogramm" />
+    </category>
+    <category ID="office">
+      <label xml:lang="de" text="Generalsekretariat" />
+    </category>
+    <category ID="international_relations">
+      <label xml:lang="de" text="Internationale Beziehungen" />
+      <category ID="human_rights_committee">
+        <label xml:lang="de" text="Human Rights Committee" />
+      </category>
+      <category ID="west_balkan_process">
+        <label xml:lang="de" text="Westbalkan-Prozess" />
+      </category>
+      <category ID="european_science_advisors_forum">
+        <label xml:lang="de" text="European Science Advisors Forum" />
+      </category>
+      <category ID="sa_board_of_un_secretary_general">
+        <label xml:lang="de" text="Wissenschaftlicher Beirat des UN-Generalsekretärs" />
+      </category>
+    </category>
+    <category ID="presidents_office">
+      <label xml:lang="de" text="Präsidialbüro" />
+      <category ID="alliance_of_science_organizations">
+        <label xml:lang="de" text="Allianz der Wissenschaftsorganisationen" />
+      </category>
+      <category ID="dual_use">
+        <label xml:lang="de" text="Gemeinsamer Ausschuss 'Dual Use'" />
+      </category>
+    </category>
+    <category ID="press_public_relations">
+      <label xml:lang="de" text="Presse- und Öffentlichkeitsarbeit" />
+    </category>
+    <category ID="study_center">
+      <label xml:lang="de" text="Studienzentrum" />
+    </category>
+    <category ID="science_politics_society">
+      <label xml:lang="de" text="Wissenschaft - Politik - Gesellschaft" />
+      <category ID="scientific_commissions">
+        <label xml:lang="de" text="Wissenschaftliche Kommissionen" />
+        <category ID="health">
+          <label xml:lang="de" text="Gesundheit" />
+        </category>
+        <category ID="demographic_change">
+          <label xml:lang="de" text="Demografischer Wandel" />
+        </category>
+        <category ID="digitized_society">
+          <label xml:lang="de" text="Digitalisierte Gesellschaft" />
+        </category>
+        <category ID="individual_society">
+          <label xml:lang="de" text="Individuum und Gesellschaft" />
+        </category>
+        <category ID="life_sciences">
+          <label xml:lang="de" text="Lebenswissenschaften" />
+        </category>
+        <category ID="climate_energy">
+          <label xml:lang="de" text="Klima und Energie" />
+        </category>
+        <category ID="environment">
+          <label xml:lang="de" text="Umwelt" />
+        </category>
+        <category ID="ethics_of_science">
+          <label xml:lang="de" text="Wissenschaftsethik" />
+        </category>
+        <category ID="future_report_science">
+          <label xml:lang="de" text="Zukunftsreport Wissenschaft" />
+        </category>
+      </category>
+      <category ID="working_groups">
+        <label xml:lang="de" text="Arbeitsgruppen" />
+        <category ID="additive_manufacturing">
+          <label xml:lang="de" text="Additive Fertigung" />
+        </category>
+        <category ID="work_mental_illness">
+          <label xml:lang="de" text="Arbeit und psychische Erkrankungen" />
+        </category>
+        <category ID="archaeological_heritage">
+          <label xml:lang="de" text="Archäologisches Kulturerbe" />
+        </category>
+        <category ID="big_data">
+          <label xml:lang="de" text="Big Data - Datenschutz - Privatsphäre" />
+        </category>
+        <category ID="reproduction_medicine_law">
+          <label xml:lang="de" text="Eckpunkte für ein Fortpflanzungsmedizingesetz" />
+        </category>
+        <category ID="energy_systems_future">
+          <label xml:lang="de" text="Energiesysteme der Zukunft" />
+        </category>
+        <category ID="earth_system_research">
+          <label xml:lang="de" text="Erdsystemforschung" />
+        </category>
+        <category ID="artificial_photosynthesis">
+          <label xml:lang="de" text="Künstliche Fotosynthese" />
+        </category>
+        <category ID="perspectives_security_policy">
+          <label xml:lang="de" text="Perspektiven der Sicherheitspolitik" />
+        </category>
+        <category ID="vaccinations">
+          <label xml:lang="de" text="Schutzimpfungen" />
+        </category>
+        <category ID="supply_mental_health_refugees">
+          <label xml:lang="de" text="Versorgung der psychischen Gesundheit Geflüchteter" />
+        </category>
+        <category ID="aging_in_germany">
+          <label xml:lang="de" text="Altern in Deutschland" />
+        </category>
+        <category ID="antibiotic_research">
+          <label xml:lang="de" text="Antibiotika-Forschung" />
+        </category>
+        <category ID="longitudinal_studies">
+          <label xml:lang="de" text="Bedeutung bevölkerungsweiter Längsschnittstudien" />
+        </category>
+        <category ID="bioenergy">
+          <label xml:lang="de" text="Bioenergie" />
+        </category>
+        <category ID="early_childhood_socialization">
+          <label xml:lang="de" text="Frühkindliche Sozialisation" />
+        </category>
+        <category ID="energy_research">
+          <label xml:lang="de" text="Energieforschung" />
+        </category>
+        <category ID="challenges_taxonomic_research">
+          <label xml:lang="de" text="Herausforderungen für die taxonomische Forschung" />
+        </category>
+        <category ID="individualized_medicine">
+          <label xml:lang="de" text="Individualisierte Medizin" />
+        </category>
+        <category ID="clinical_trials_humans">
+          <label xml:lang="de" text="Klinische Prüfungen mit Arzneimitteln am Menschen" />
+        </category>
+        <category ID="medical_care_age">
+          <label xml:lang="de" text="Medizinische Versorgung im Alter" />
+        </category>
+        <category ID="palliative_care_germany">
+          <label xml:lang="de" text="Palliativversorgung in Deutschland" />
+        </category>
+        <category ID="predictive_genetic_diagnosis">
+          <label xml:lang="de" text="Prädiktive genetische Diagnostik" />
+        </category>
+        <category ID="preimplantation_genetic_diagnosis">
+          <label xml:lang="de" text="Präimplantationsdiagnostik" />
+        </category>
+        <category ID="public_health_germany">
+          <label xml:lang="de" text="Public Health in Deutschland" />
+        </category>
+        <category ID="quantum technologies">
+          <label xml:lang="de" text="Quantentechnologien" />
+        </category>
+        <category ID="state_debt">
+          <label xml:lang="de" text="Staatsschulden" />
+        </category>
+        <category ID="animal_experiments_research">
+          <label xml:lang="de" text="Tierversuche in der Forschung" />
+        </category>
+        <category ID="safety_relevant_research_results">
+          <label xml:lang="de" text="Umgang mit sicherheitsrelevanten Forschungsergebnissen" />
+        </category>
+        <category ID="science_public_media">
+          <label xml:lang="de" text="Wissenschaft, Öffentlichkeit, Medien" />
+        </category>
+        <category ID="future_with_children">
+          <label xml:lang="de" text="Zukunft mit Kindern" />
+        </category>
+      </category>
+    </category>
+    <category ID="scientific_editor">
+      <label xml:lang="de" text="Wissenschaftliche Redaktion" />
+    </category>
+    <category ID="global_young_academy">
+      <label xml:lang="de" text="Global Young Academy" />
+    </category>
+    <category ID="young_academy">
+      <label xml:lang="de" text="Die Junge Akademie" />
+    </category>
+    <category ID="easac">
+      <label xml:lang="de" text="EASAC" />
     </category>
   </categories>
 </mycoreclass>
