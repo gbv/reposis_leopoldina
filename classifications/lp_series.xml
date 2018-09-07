@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mycoreclass xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="lp_series">
+  <label xml:lang="de" text="Reihen der Leopoldina" />
+  <label xml:lang="x-uri" text="https://publications.leopoldina.org/api/v1/classifications/lp_series" />
+  <categories>
+    <category ID="declaration">
+      <label xml:lang="de" text="Stellungnahmen" />
+      <category ID="national_recommendations">
+        <label xml:lang="de" text="Nationale Empfehlungen" />
+      </category>
+      <category ID="international_statements">
+        <label xml:lang="de" text="Internationale Stellungnahmen" />
+      </category>
+      <category ID="discussion_papers">
+        <label xml:lang="de" text="Diskussionspapiere" />
+      </category>
+      <category ID="allianz_declaration">
+        <label xml:lang="de" text="Allianz-Stellungnahmen" />
+      </category>
+      <category ID="easac_recommendations">
+        <label xml:lang="de" text="EASAC-Empfehlungen" />
+      </category>
+      <category ID="g7g8_statements">
+        <label xml:lang="de" text="G7/G8-Statements" />
+      </category>
+    </category>
+    <category ID="scientific_journals">
+      <label xml:lang="de" text="Wissenschaftliche Zeitschriften" />
+      <category ID="nova_acta_leopoldina">
+        <label xml:lang="de" text="Nova Acta Leopoldina" />
+      </category>
+      <category ID="acta_historica_leopoldina">
+        <label xml:lang="de" text="Acta Historica Leopoldina" />
+      </category>
+    </category>
+    <category ID="expert_lists">
+      <label xml:lang="de" text="Expertenlisten" />
+    </category>
+    <category ID="leopoldina_publications">
+      <label xml:lang="de" text="Publikationen zur Leopoldina" />
+      <category ID="yearbooks">
+        <label xml:lang="de" text="Jahrbücher" />
+      </category>
+      <category ID="leopoldina_booklet">
+        <label xml:lang="de" text="Leopoldina-Broschüren" />
+      </category>
+      <category ID="members_directories">
+        <label xml:lang="de" text="Mitgliederverzeichnisse" />
+      </category>
+    </category>
+    <category ID="goethe_edition">
+      <label xml:lang="de" text="Goethe-Ausgabe" />
+    </category>
+    <category ID="newsletter">
+      <label xml:lang="de" text="Newsletter" />
+    </category>
+  </categories>
+</mycoreclass>

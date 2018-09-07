@@ -61,6 +61,10 @@
       <label xml:lang="de">Dokumenttypen</label>
       <label xml:lang="en">Genres</label>
     </item>
+    <item href="/content/browse/lp_series.xml" type="intern">
+      <label xml:lang="de">Reihen der Leopoldina</label>
+      <label xml:lang="en">Series of Leopoldina</label>
+    </item>
     <item href="/content/browse/sdnb.xml" type="intern">
       <label xml:lang="de">Sachgruppen</label>
       <label xml:lang="en">SNDB</label>

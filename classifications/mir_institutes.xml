@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mycoreclass xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="mir_institutes">
   <label xml:lang="de" text="Institutionen" description="Liste der Einrichtungen" />
-  <label xml:lang="x-uri" text="http://www.mycore.org/classifications/mir_institutes" />
+  <label xml:lang="x-uri" text="https://publications.leopoldina.org/api/v1/classifications/mir_institutes" />
   <label xml:lang="en" text="Institutions" description="A list of institutions" />
   <categories>
     <category ID="archive">
