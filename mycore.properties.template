@@ -21,7 +21,11 @@
   MCR.Metadata.Languages=de,en
 
 # SOLR-URL
-  MCR.Module-solr.ServerURL=http\://esx-183.gbv.de:8080/solr/collection1/
+# MCR.Solr.ServerURL=http://esx-127.gbv.de:8983/
+  MCR.Solr.ServerURL=http://esx-91.gbv.de:8983/
+  MCR.Solr.Core.main.Name=leopoldina
+  MCR.Solr.Core.classification.Name=leopoldina_class
+  MCR.Solr.Indexer.ThreadCount=1
 
 # Datadirecotry
   MCR.datadir=/mcr/leopoldina/data
