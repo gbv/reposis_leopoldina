@@ -43,8 +43,8 @@
     <category ID="press_public_relations">
       <label xml:lang="de" text="Presse- und Öffentlichkeitsarbeit" />
     </category>
-    <category ID="study_center">
-      <label xml:lang="de" text="Studienzentrum" />
+    <category ID="lzfw">
+      <label xml:lang="de" text="Leopoldina-Zentrum für Wissenschaftsforschung" />
     </category>
     <category ID="science_politics_society">
       <label xml:lang="de" text="Wissenschaft - Politik - Gesellschaft" />

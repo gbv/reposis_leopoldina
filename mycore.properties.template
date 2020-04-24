@@ -43,6 +43,17 @@
 
 ##############################################################################
 #                                                                            #
+# Google - ReCaptcha (https://www.google.com/recaptcha)                      #
+# registered for: reposis-test.gbv.de, reposis.gbv.de                        #
+#                                                                            #
+##############################################################################
+
+  MIR.ReCaptcha.secret.key=6LcXrv4SAAAAAA-sdi8gEu8lASMUQxQF0ajuOTUv
+  MIR.ReCaptcha.site.key=6LcXrv4SAAAAAHcQzQOpn1Vj88sxgRqfkjn2BKSw
+
+
+##############################################################################
+#                                                                            #
 # Sherpa/Romeo API Key                                                       #
 # http://www.sherpa.ac.uk/romeo/api29.php?ak=                                #
 #                                                                            #
