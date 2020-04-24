@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MyCoReWebPage>
+
+  <section xml:lang="de" title="Willkommen auf den Seiten der Leopoldina">
+    <div class="row">
+      <div class="col" lang="de">
+        <h2>
+          Publikationsserver der Leopoldina
+        </h2>
+        <p>
+          Diese Seiten befinden sich aktuell im Aufbau.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section xml:lang="en" title="Welcome to Leopoldina">
+    <div class="row">
+      <div class="col" lang="en">
+        <h1>
+          Repository
+        </h1>
+        <p>
+          this page is coming soon ...
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <meta>
+    <log lastEditor="administrator" date="2020-04-24" time="10:15"/>
+  </meta>
+
+</MyCoReWebPage>
