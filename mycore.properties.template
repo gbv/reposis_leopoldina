@@ -32,7 +32,6 @@
   MCR.Save.FileSystem=/mcr/leopoldina/.mycore/leopoldina/save
 
 # Layout
-  MIR.CustomLayout.CSS=leopoldina.css
   MIR.CustomLayout.JS=leopoldina.js
 
 # Set PIWIK-ID in mycore.properties for productive to xx, default is 0 (no tracking)
@@ -40,17 +39,6 @@
 
 # this is a productive environment
   MIR.testEnvironment=false
-
-
-##############################################################################
-#                                                                            #
-# Google - ReCaptcha (https://www.google.com/recaptcha)                      #
-# registered for: reposis-test.gbv.de, reposis.gbv.de                        #
-#                                                                            #
-##############################################################################
-
-  MIR.ReCaptcha.secret.key=6LcXrv4SAAAAAA-sdi8gEu8lASMUQxQF0ajuOTUv
-  MIR.ReCaptcha.site.key=6LcXrv4SAAAAAHcQzQOpn1Vj88sxgRqfkjn2BKSw
 
 
 ##############################################################################

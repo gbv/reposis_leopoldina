@@ -12,7 +12,7 @@
     <div id="header_box" class="clearfix container">
       <div id="options_nav_box" class="mir-prop-nav">
         <nav>
-          <ul class="nav navbar-nav pull-right">
+          <ul class="navbar-nav ml-auto flex-row">
             <xsl:call-template name="mir.loginMenu" />
             <xsl:call-template name="mir.languageMenu" />
           </ul>
@@ -29,26 +29,49 @@
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="navbar navbar-default mir-main-nav">
+    <div class="mir-main-nav bg-primary">
       <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 
-        <div class="navbar-header">
-          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".mir-main-nav-entries">
-            <span class="sr-only"> Toggle navigation </span>
-            <span class="icon-bar">
-            </span>
-            <span class="icon-bar">
-            </span>
-            <span class="icon-bar">
-            </span>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target=".mir-main-nav__entries"
+            aria-controls="mir-main-nav__entries"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
           </button>
-        </div>
 
-        <div class="searchfield_box">
-          <form action="{$WebApplicationBaseURL}servlets/solr/find" class="navbar-form navbar-left pull-right" role="search">
-            <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
-            <div class="form-group">
-              <input name="condQuery" placeholder="{i18n:translate('mir.navsearch.placeholder')}" class="form-control search-query" id="searchInput" type="text" />
+          <div class="collapse navbar-collapse mir-main-nav__entries">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+              <xsl:for-each select="$loaded_navigation_xml/menu">
+                <xsl:choose>
+                  <!-- Ignore some menus, they are shown elsewhere in the layout -->
+                  <xsl:when test="@id='main'"/>
+                  <xsl:when test="@id='brand'"/>
+                  <xsl:when test="@id='below'"/>
+                  <xsl:when test="@id='user'"/>
+                  <xsl:otherwise>
+                    <xsl:apply-templates select="."/>
+                  </xsl:otherwise>
+                </xsl:choose>
+              </xsl:for-each>
+              <xsl:call-template name="mir.basketMenu" />
+            </ul>
+
+            <form
+              action="{$WebApplicationBaseURL}servlets/solr/find"
+              class="searchfield_box form-inline my-2 my-lg-0"
+              role="search">
+              <input
+                name="condQuery"
+                placeholder="{i18n:translate('mir.navsearch.placeholder')}"
+                class="form-control mr-sm-2 search-query"
+                id="searchInput"
+                type="text"
+                aria-label="Search" />
               <xsl:choose>
                 <xsl:when test="mcrxsl:isCurrentUserInRole('admin') or mcrxsl:isCurrentUserInRole('editor')">
                   <input name="owner" type="hidden" value="createdby:*" />
@@ -57,28 +80,15 @@
                   <input name="owner" type="hidden" value="createdby:{$CurrentUser}" />
                 </xsl:when>
               </xsl:choose>
-            </div>
-          </form>
-        </div>
+              <button type="submit" class="btn btn-primary my-2 my-sm-0">
+                <i class="fas fa-search"></i>
+              </button>
+            </form>
 
-        <nav class="collapse navbar-collapse mir-main-nav-entries">
-          <ul class="nav navbar-nav pull-left">
-            <xsl:for-each select="$loaded_navigation_xml/menu">
-              <xsl:choose>
-                <xsl:when test="@id='main'"/> <!-- Ignore some menus, they are shown elsewhere in the layout -->
-                <xsl:when test="@id='brand'"/>
-                <xsl:when test="@id='below'"/>
-                <xsl:when test="@id='user'"/>
-                <xsl:otherwise>
-                  <xsl:apply-templates select="."/>
-                </xsl:otherwise>
-              </xsl:choose>
-            </xsl:for-each>
-            <xsl:call-template name="mir.basketMenu" />
-          </ul>
+          </div>
+
         </nav>
-
-      </div><!-- /container -->
+      </div>
     </div>
   </xsl:template>
 
@@ -97,7 +107,7 @@
   <xsl:template name="mir.footer">
     <div class="container">
       <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="col-4">
           <h4>Über uns</h4>
           <p>
             MIR ein klassicher institutioneller Publikations- bzw.
@@ -108,13 +118,13 @@
             </span>
           </p>
         </div>
-        <div class="col-xs-6 col-sm-3 col-md-2">
+        <div class="col-2">
           <h4>Navigation</h4>
           <ul class="internal_links">
             <xsl:apply-templates select="$loaded_navigation_xml/menu[@id='brand']/*" />
           </ul>
         </div>
-        <div class="col-xs-6 col-sm-3 col-md-2">
+        <div class="col-2">
           <h4>Netzwerke</h4>
           <ul class="social_links">
             <li><a href="#"><button type="button" class="social_icons social_icon_fb"></button>Facebook</a></li>
@@ -122,7 +132,7 @@
             <li><a href="#"><button type="button" class="social_icons social_icon_gg"></button>Google+</a></li>
           </ul>
         </div>
-        <div class="col-xs-6 col-sm-3 col-md-2">
+        <div class="col-2">
           <h4>Layout based on</h4>
           <ul class="internal_links">
             <li><a href="{$WebApplicationBaseURL}mir-layout/template/flatmir.xml">flatmir</a></li>
