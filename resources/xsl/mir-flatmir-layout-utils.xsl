@@ -21,9 +21,9 @@
       <div id="project_logo_box">
         <a href="{concat($WebApplicationBaseURL,substring($loaded_navigation_xml/@hrefStartingPage,2),$HttpSession)}"
            class="">
-          <span id="logo_mir">mir</span>
-          <span id="logo_modul">mycore</span>
-          <span id="logo_slogan">mods institutional repository</span>
+          <span id="logo_mir">Leopoldina</span>
+          <span id="logo_modul">Institutional</span>
+          <span id="logo_slogan">Repository</span>
         </a>
       </div>
     </div>
