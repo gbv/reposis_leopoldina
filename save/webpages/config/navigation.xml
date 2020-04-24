@@ -27,9 +27,9 @@
       <label xml:lang="de">Datenschutz</label>
       <label xml:lang="en">Privacy Notice</label>
     </item>
-    <item href="/content/below/terms_of_use.xml" replaceMenu="false" constrainPopUp="false">
-      <label xml:lang="de">Nutzungsbedingungen</label>
-      <label xml:lang="en">Terms of Use</label>
+    <item href="/content/below/guidelines.xml" replaceMenu="false" constrainPopUp="false">
+      <label xml:lang="de">Leitlinien</label>
+      <label xml:lang="en">Guidelines</label>
     </item>
   </menu>
   <menu id="current" dir="/content/current">
@@ -86,10 +86,6 @@
     <item href="/content/publish/importPPN.xml" type="intern">
       <label xml:lang="de">Publizieren (PPN Import)</label>
       <label xml:lang="en">Publish (PPN Import)</label>
-    </item>
-    <item href="/content/publish/guidelines.xml" type="intern">
-      <label xml:lang="de">Leitlinien</label>
-      <label xml:lang="en">Guidelines</label>
     </item>
     <item href="/content/publish/contract.xml" type="intern">
       <label xml:lang="de">Vertragsbedingungen</label>
