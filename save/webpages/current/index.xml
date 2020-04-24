@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MyCoReWebPage>
+<MyCoReWebPage>
+  <section xml:lang="de" title="Neueste Publikationen">
+    <div class="row">
+      <div class="col" lang="de">
+        
+        <h2>Neueste Publikationen</h2>
+        <p>
+          ... damit sollen die jüngsten Publikationen als Suchergebnis angezeigt werden -> können wir die
+          Anzahl flexibel handhaben, sodass wir selbst im System hinterlegen können, ob es die neuesten 10
+          oder die neuesten 5 sind?
+        </p>
+
+      </div>
+    </div>
+  
+  </section>
+
+<meta>
+  <log date="2020-04-24" time="16:26" labelPath=" » Admin" lastEditor="Kathleen Neumann" />
+</meta>
+</MyCoReWebPage>
