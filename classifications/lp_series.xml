@@ -7,22 +7,10 @@
     <category ID="declaration">
       <label xml:lang="de" text="Stellungnahmen" />
       <category ID="national_recommendations">
-        <label xml:lang="de" text="Nationale Empfehlungen" />
+        <label xml:lang="de" text="Nationale Stellungnahmen" />
       </category>
       <category ID="international_statements">
         <label xml:lang="de" text="Internationale Stellungnahmen" />
-      </category>
-      <category ID="discussion_papers">
-        <label xml:lang="de" text="Diskussionspapiere" />
-      </category>
-      <category ID="allianz_declaration">
-        <label xml:lang="de" text="Allianz-Stellungnahmen" />
-      </category>
-      <category ID="easac_recommendations">
-        <label xml:lang="de" text="EASAC-Empfehlungen" />
-      </category>
-      <category ID="g7g8_statements">
-        <label xml:lang="de" text="G7/G8-Statements" />
       </category>
     </category>
     <category ID="scientific_journals">
@@ -33,9 +21,9 @@
       <category ID="acta_historica_leopoldina">
         <label xml:lang="de" text="Acta Historica Leopoldina" />
       </category>
-    </category>
-    <category ID="expert_lists">
-      <label xml:lang="de" text="Expertenlisten" />
+      <category ID="nal_live">
+        <label xml:lang="de" text="NAL live" />
+      </category>
     </category>
     <category ID="leopoldina_publications">
       <label xml:lang="de" text="Publikationen zur Leopoldina" />
@@ -48,12 +36,12 @@
       <category ID="members_directories">
         <label xml:lang="de" text="Mitgliederverzeichnisse" />
       </category>
+      <category ID="newsletter">
+        <label xml:lang="de" text="Newsletter" />
+      </category>
     </category>
-    <category ID="goethe_edition">
-      <label xml:lang="de" text="Goethe-Ausgabe" />
-    </category>
-    <category ID="newsletter">
-      <label xml:lang="de" text="Newsletter" />
+    <category ID="discussion_papers">
+      <label xml:lang="de" text="Diskussionspapiere" />
     </category>
   </categories>
 </mycoreclass>
