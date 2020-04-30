@@ -6,6 +6,24 @@
 // set the defaults for all responsive levels here
 // no (xl) media query necessary (desktop first)
 
+body > section {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-image: url('../../../../images/background-library-fullHD.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment:fixed;
+}
+
+#page {
+  padding-bottom: 3rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  background-color: rgba(255,255,255,0.95);
+}
+
+
 // Large devices (desktops) and below: <= 1200px
 @include media-breakpoint-down(lg) {
   // add/overwrite styles for responsive level lg and lower

@@ -21,12 +21,45 @@
         </nav>
       </div>
       <div id="project_logo_box">
+        <a
+          href="https://www.leopoldina.org"
+          class="leo-logo__link">
+          <img
+            src="{$WebApplicationBaseURL}images/logo-leopoldina-blue-1024.jpg"
+            class="leo-logo__figure"
+            alt="" />
+        </a>
         <a href="{concat($WebApplicationBaseURL,substring($loaded_navigation_xml/@hrefStartingPage,2),$HttpSession)}"
-           class="">
+           class="d-none">
           <span id="logo_mir">Leopoldina</span>
           <span id="logo_modul">Institutional</span>
           <span id="logo_slogan">Repository</span>
         </a>
+      </div>
+      <div class="searchBox">
+        <form
+          action="{$WebApplicationBaseURL}servlets/solr/find"
+          class="searchfield_box form-inline my-2 my-lg-0"
+          role="search">
+          <input
+            name="condQuery"
+            placeholder="{i18n:translate('mir.navsearch.placeholder')}"
+            class="form-control mr-sm-2 search-query"
+            id="searchInput"
+            type="text"
+            aria-label="Search" />
+          <xsl:choose>
+            <xsl:when test="mcrxsl:isCurrentUserInRole('admin') or mcrxsl:isCurrentUserInRole('editor')">
+              <input name="owner" type="hidden" value="createdby:*" />
+            </xsl:when>
+            <xsl:when test="not(mcrxsl:isCurrentUserGuestUser())">
+              <input name="owner" type="hidden" value="createdby:{$CurrentUser}" />
+            </xsl:when>
+          </xsl:choose>
+          <button type="submit" class="btn btn-primary my-2 my-sm-0">
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
       </div>
     </div>
 
@@ -48,37 +81,16 @@
 
           <div class="collapse navbar-collapse mir-main-nav__entries">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-              <xsl:apply-templates select="$loaded_navigation_xml/menu[@id='brand']/*" />
-              <xsl:apply-templates select="$loaded_navigation_xml/menu[@id='current']/*" />
+              <xsl:call-template name="leo.generate_single_menu_entry">
+                <xsl:with-param name="menuID" select="'brand'"/>
+              </xsl:call-template>
+              <xsl:call-template name="leo.generate_single_menu_entry">
+                <xsl:with-param name="menuID" select="'current'"/>
+              </xsl:call-template>
               <xsl:apply-templates select="$loaded_navigation_xml/menu[@id='search']" />
               <xsl:apply-templates select="$loaded_navigation_xml/menu[@id='publish']" />
               <xsl:call-template name="mir.basketMenu" />
             </ul>
-
-            <form
-              action="{$WebApplicationBaseURL}servlets/solr/find"
-              class="searchfield_box form-inline my-2 my-lg-0"
-              role="search">
-              <input
-                name="condQuery"
-                placeholder="{i18n:translate('mir.navsearch.placeholder')}"
-                class="form-control mr-sm-2 search-query"
-                id="searchInput"
-                type="text"
-                aria-label="Search" />
-              <xsl:choose>
-                <xsl:when test="mcrxsl:isCurrentUserInRole('admin') or mcrxsl:isCurrentUserInRole('editor')">
-                  <input name="owner" type="hidden" value="createdby:*" />
-                </xsl:when>
-                <xsl:when test="not(mcrxsl:isCurrentUserGuestUser())">
-                  <input name="owner" type="hidden" value="createdby:{$CurrentUser}" />
-                </xsl:when>
-              </xsl:choose>
-              <button type="submit" class="btn btn-primary my-2 my-sm-0">
-                <i class="fas fa-search"></i>
-              </button>
-            </form>
-
           </div>
 
         </nav>
@@ -101,7 +113,7 @@
   <xsl:template name="mir.footer">
     <div class="container">
       <div class="row">
-        <div class="col-xs-6 col-sm-9">
+        <div class="col">
           <ul class="internal_links nav navbar-nav">
             <xsl:apply-templates select="$loaded_navigation_xml/menu[@id='below']/*" mode="footerMenu" />
           </ul>
@@ -109,7 +121,33 @@
       </div>
     </div>
   </xsl:template>
-  
+
+  <xsl:template name="leo.generate_single_menu_entry">
+    <xsl:param name="menuID" />
+    <li class="nav-item">
+      <xsl:variable name="activeClass">
+        <xsl:choose>
+          <xsl:when test="$loaded_navigation_xml/menu[@id=$menuID]/item[@href = $browserAddress ]">
+          <xsl:text>active</xsl:text>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:text>not-active</xsl:text>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:variable>
+      <a id="{$menuID}" href="{$WebApplicationBaseURL}{$loaded_navigation_xml/menu[@id=$menuID]/item/@href}" class="nav-link {$activeClass}" >
+        <xsl:choose>
+          <xsl:when test="$loaded_navigation_xml/menu[@id=$menuID]/item/label[lang($CurrentLang)] != ''">
+            <xsl:value-of select="$loaded_navigation_xml/menu[@id=$menuID]/item/label[lang($CurrentLang)]" />
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="$loaded_navigation_xml/menu[@id=$menuID]/item/label[lang($DefaultLang)]" />
+          </xsl:otherwise>
+        </xsl:choose>
+      </a>
+    </li>
+  </xsl:template>
+
   <xsl:template name="mir.powered_by">
     <xsl:variable name="mcr_version" select="concat('MyCoRe ',mcrver:getCompleteVersion())" />
     <div id="powered_by">
@@ -117,7 +155,7 @@
         <img src="{$WebApplicationBaseURL}mir-layout/images/mycore_logo_small_invert.png" title="{$mcr_version}" alt="powered by MyCoRe" />
       </a>
     </div>
-    
+
     <!-- Matomo -->
     <xsl:if test="$piwikID &gt; 0">
       <script type="text/javascript">

@@ -7,7 +7,27 @@
 // no (xl) media query necessary (desktop first)
 
 // logo and menu container
-
+#header_box {
+  position: relative;
+}
+.leo-logo__figure {
+  width: 260px;
+}
+#project_logo_box {
+  float: none;
+}
+#options_nav_box {
+  float: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.searchBox {
+  float: none;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
 
 // Large devices (desktops) and below: <= 1200px
 @include media-breakpoint-down(lg) {

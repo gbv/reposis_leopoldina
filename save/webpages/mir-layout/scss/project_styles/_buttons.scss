@@ -6,7 +6,32 @@
 // set the defaults for all responsive levels here
 // no (xl) media query necessary (desktop first)
 
-
+.form-login .form-actions .btn:first-child {
+  margin-right: 0;
+}
+.btn:not(:first-child) {
+  margin-left: 0.5rem;
+}
+.btn-primary {
+  background-color: $secondary;
+  border-color: $secondary;
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: darken($secondary,10%);
+    border-color: darken($secondary,10%);
+  }
+}
+.btn-secondary {
+  background-color: $leoBlueHover;
+  border-color: $leoBlueHover;
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: darken($leoBlueHover,10%);
+    border-color: darken($leoBlueHover,10%);
+  }
+}
 
 // Large devices (desktops) and below: <= 1200px
 @include media-breakpoint-down(lg) {

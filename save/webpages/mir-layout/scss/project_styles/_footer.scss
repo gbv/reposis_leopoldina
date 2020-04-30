@@ -6,6 +6,38 @@
 // set the defaults for all responsive levels here
 // no (xl) media query necessary (desktop first)
 
+.flatmir-footer {
+  position: relative;
+  padding-top: 20px;
+  margin-top: 0px;
+  border: none;
+  &::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    width: 50vw;
+    height: 40px;
+    border-top: 20px solid $leoMenuBorder;
+    background-color: $leoFooterGold;
+  }
+  .nav-link {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: transparent;
+    }
+  }
+}
+
+.internal_links {
+  &.navbar-nav {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
 
 // Large devices (desktops) and below: <= 1200px
 @include media-breakpoint-down(lg) {

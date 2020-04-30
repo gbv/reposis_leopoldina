@@ -16,14 +16,27 @@
 
 //  Brand colors
 // -------------------------
-// style guide
-$primary:       #005489;  // primary
-$secondary:     #877948;  // primary accent
 
-$success:      #6EBA6B;
-$info:         #4B8FBC;
-$warning:      #CB1D1D;
-$danger:       #CB1D1D;
+// style guide
+$leoBlue:       rgba(0,69,125,0.8);
+$leoYellow:     rgb(226,185,0);
+$leoGold:       rgb(178,146,88);
+
+// from website
+$leoMenu:       #005489;
+$leoMenuBorder: #EED376;
+$leoBlueHover:  #146d9d;
+$leoDropHover:  #598BB3;
+$leoFooterGold: #928356;
+$leoLink:       #003F6A;
+
+
+$primary:      $leoMenu;
+$secondary:    #877948;
+$success:      $leoMenuBorder;
+$info:         $leoBlueHover;
+$warning:      $leoMenuBorder;
+$danger:       $leoMenuBorder;
 $gray-light:   #CCCCCC;
 
 // keep deprecated variables alive
@@ -38,3 +51,23 @@ $brand-danger:  $danger;
 // --------------------------------------------------
 //  Projects settings
 // --------------------------------------------------
+
+// typo
+$web-font-path: "https://webfonts.gbv.de/css?family=Open+Sans";
+$font-family-sans-serif: Calibri, "Open Sans", sans-serif;
+$font-family-serif: Georgia, serif;
+$font-size-base: 1rem;
+
+$dropdown-color: white;
+$dropdown-bg: $leoBlueHover;
+$dropdown-link-color: white;
+$dropdown-link-hover-color: white;
+$dropdown-link-hover-bg: $leoDropHover;
+$dropdown-border-radius: 0;
+$dropdown-border-width: 0;
+$dropdown-spacer: 0;
+
+$link-color: $leoLink;
+$link-hover-color: darken($link-color, 15%);
+
+$btn-border-radius: 0;

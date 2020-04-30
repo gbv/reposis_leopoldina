@@ -5,6 +5,10 @@
 // set the defaults for all responsive levels here
 // no (xl) media query necessary (desktop first)
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-serif;
+  color: $leoLink;
+}
 
 // Large devices (desktops) and below: <= 1200px
 @include media-breakpoint-down(lg) {
