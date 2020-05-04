@@ -39,69 +39,11 @@
         <label xml:lang="x-hosts" text="journal newspaper collection festschrift proceedings standalone" />
       </category>
     </category>
-    <category ID="thesis">
-      <label xml:lang="en" text="Thesis" />
-      <label xml:lang="de" text="Hochschulschriften" />
-      <label xml:lang="x-group" text="true" />
+    <category ID="dissertation">
+      <label xml:lang="de" text="Hochschulschrift" />
+      <label xml:lang="x-mapping" text="marcgt:thesis diniPublType:doctoralThesis XMetaDissPlusThesisLevel:thesis.doctoral" />
       <label xml:lang="x-hosts" text="series standalone" />
-      <label xml:lang="x-mapping" text="marcgt:thesis diniPublType:workingPaper XMetaDissPlusThesisLevel:other" />
-      <label xml:lang="it" text="Tesi universitaria" />
-      <category ID="exam">
-        <label xml:lang="x-mapping" text="marcgt:thesis diniPublType:masterThesis XMetaDissPlusThesisLevel:Staatsexamen" />
-        <label xml:lang="en" text="Exam" />
-        <label xml:lang="it" text="Esame" />
-        <label xml:lang="x-hosts" text="series standalone" />
-        <label xml:lang="de" text="Staatsexamensarbeit" />
-      </category>
-      <category ID="dissertation">
-        <label xml:lang="it" text="Tesi di Dottorato di ricerca" />
-        <label xml:lang="de" text="Dissertation" />
-        <label xml:lang="x-mapping" text="marcgt:thesis diniPublType:doctoralThesis XMetaDissPlusThesisLevel:thesis.doctoral" />
-        <label xml:lang="x-hosts" text="series standalone" />
-        <label xml:lang="en" text="Dissertation" />
-      </category>
-      <category ID="habilitation">
-        <label xml:lang="de" text="Habilitation" />
-        <label xml:lang="x-mapping" text="marcgt:thesis diniPublType:doctoralThesis XMetaDissPlusThesisLevel:thesis.habilitation" />
-        <label xml:lang="x-hosts" text="series standalone" />
-        <label xml:lang="it" text="Tesi di abilitazione alla libera docenza" />
-        <label xml:lang="en" text="Habilitation" />
-      </category>
-      <category ID="diploma_thesis">
-        <label xml:lang="it" text="Tesi di diploma" />
-        <label xml:lang="x-mapping" text="marcgt:thesis diniPublType:masterThesis XMetaDissPlusThesisLevel:Diplom" />
-        <label xml:lang="en" text="Diploma thesis" />
-        <label xml:lang="x-hosts" text="series standalone diniPublType:masterThesis" />
-        <label xml:lang="de" text="Diplomarbeit" />
-      </category>
-      <category ID="master_thesis">
-        <label xml:lang="it" text="Tesi di specializzazione" />
-        <label xml:lang="en" text="Master thesis" />
-        <label xml:lang="de" text="Abschlussarbeit (Master)" />
-        <label xml:lang="x-hosts" text="series standalone" />
-        <label xml:lang="x-mapping" text="marcgt:thesis diniPublType:masterThesis XMetaDissPlusThesisLevel:master" />
-      </category>
-      <category ID="bachelor_thesis">
-        <label xml:lang="it" text="Tesi di laurea triennale" />
-        <label xml:lang="x-mapping" text="marcgt:thesis diniPublType:bachelorThesis XMetaDissPlusThesisLevel:bachelor" />
-        <label xml:lang="de" text="Abschlussarbeit (Bachelor)" />
-        <label xml:lang="en" text="Bachelor thesis" />
-        <label xml:lang="x-hosts" text="series standalone" />
-      </category>
-      <category ID="student_resarch_project">
-        <label xml:lang="it" text="Tesina" />
-        <label xml:lang="en" text="Student research project" />
-        <label xml:lang="x-mapping" text="marcgt:thesis diniPublType:StudyThesis XMetaDissPlusThesisLevel:other" />
-        <label xml:lang="x-hosts" text="series standalone" />
-        <label xml:lang="de" text="Studienarbeit" />
-      </category>
-      <category ID="magister_thesis">
-        <label xml:lang="en" text="Magister thesis" />
-        <label xml:lang="x-mapping" text="marcgt:thesis diniPublType:masterThesis XMetaDissPlusThesisLevel:M.A." />
-        <label xml:lang="de" text="Magisterarbeit" />
-        <label xml:lang="it" text="Magisterarbeit" />
-        <label xml:lang="x-hosts" text="series standalone" />
-      </category>
+      <label xml:lang="en" text="Thesis" />
     </category>
     <category ID="collection">
       <label xml:lang="de" text="Sammelwerk" />
