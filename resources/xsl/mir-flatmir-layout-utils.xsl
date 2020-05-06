@@ -72,14 +72,14 @@
             class="navbar-toggler"
             type="button"
             data-toggle="collapse"
-            data-target=".mir-main-nav__entries"
+            data-target="#mir-main-nav__entries"
             aria-controls="mir-main-nav__entries"
             aria-expanded="false"
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
 
-          <div class="collapse navbar-collapse mir-main-nav__entries">
+          <div id="mir-main-nav__entries" class="collapse navbar-collapse mir-main-nav__entries">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
               <xsl:call-template name="leo.generate_single_menu_entry">
                 <xsl:with-param name="menuID" select="'brand'"/>
@@ -158,7 +158,7 @@
 
     <!-- Matomo -->
     <xsl:if test="$piwikID &gt; 0">
-      <script type="text/javascript">
+      <script>
         var _paq = _paq || [];
         _paq.push(['setDoNotTrack', true]);
         _paq.push(['trackPageView']);
