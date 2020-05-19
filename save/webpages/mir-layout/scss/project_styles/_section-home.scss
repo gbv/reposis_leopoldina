@@ -6,7 +6,32 @@
 // set the defaults for all responsive levels here
 // no (xl) media query necessary (desktop first)
 
-
+.mir-start_page {
+  .searchBox {
+    display: none;
+  }
+  #page {
+    background-color: transparent;
+  }
+  #leo-index-search {
+    h1 {
+      color: white;
+      text-shadow: 5px 5px 10px black;
+      margin-bottom: 2rem;
+    }
+    .input-group {
+      -webkit-box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
+      -moz-box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
+      box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
+    }
+    .form-control {
+      border-radius: 0;
+    }
+    .btn {
+      height: 100%;
+    }
+  }
+}
 
 // Large devices (desktops) and below: <= 1200px
 @include media-breakpoint-down(lg) {

@@ -14,7 +14,7 @@
 }
 .btn-primary {
   background-color: $secondary;
-  border-color: $secondary;
+  border: 1px solid $secondary;
   &:hover,
   &:focus,
   &:active {

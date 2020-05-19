@@ -15,7 +15,8 @@
     content: "";
     position: absolute;
     top: -20px;
-    width: 70vw;
+    width: 1050px;
+    max-width: 100vw;
     height: 40px;
     border-top: 20px solid $leoMenuBorder;
     background-color: $leoFooterGold;
