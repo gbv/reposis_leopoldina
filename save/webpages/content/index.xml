@@ -9,16 +9,31 @@
             Publikations&#x00AD;server der Leopoldina
           </h1>
           <form action="../servlets/solr/find" id="leo-searchMainPage" class="form-inline mt-3" role="search">
-          <div class="input-group w-100">
-            <input name="condQuery" placeholder="Suche in 19.360 Dokumenten" class="form-control search-query" id="leo-searchInput" type="text" />
-            <div class="input-group-btn">
-              <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+            <div class="input-group w-100">
+              <input name="condQuery" placeholder="Suche in 16.000 Dokumenten" class="form-control search-query" id="leo-searchInput" type="text" />
+              <div class="input-group-btn">
+                <button type="submit" class="btn btn-primary">
+                  <i class="fa fa-search"></i>
+                </button>
+              </div>
             </div>
-          </div>
           </form>
         </div>
       </div>
     </div>
+    <script src="../js/jquery.number.js"></script>
+    <script>
+      $( document ).ready(function() {
+        $.ajax({
+          type: "GET",
+          url: "../api/v1/search?q=objectType:mods AND state:published&amp;rows=0&amp;wt=json&amp;json.wrf=?",
+          dataType: "jsonp",
+          success: function (data) {
+            $('#leo-searchInput').attr('placeholder', 'Suche in ' + $.number(data.response.numFound,0, ',', '.') + ' Dokumenten');
+          },
+        });
+      });
+    </script>
   </section>
 
   <section xml:lang="en" title="Welcome to Leopoldina">
