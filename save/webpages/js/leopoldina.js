@@ -9,4 +9,12 @@ $(document).ready(function() {
       $(this).remove();
   });
 
+  // activate empty search on start page
+  $("#bs-searchMainPage").submit(function (evt) {
+    $(this).find(":input").filter(function () {
+          return !this.value;
+      }).attr("disabled", true);
+    return true;
+  });
+
 });
