@@ -15,20 +15,26 @@
   }
   #leo-index-search {
     h1 {
-      color: white;
-      text-shadow: 5px 5px 10px black;
-      margin-bottom: 2rem;
+      color: $leoMenu;
+      margin-bottom: 0rem;
+      padding: 0.5rem 1rem;
+      background-color: rgba(255,255,255,.8);
+    }
+    form {
+      margin-top: 0px;
     }
     .input-group {
-      -webkit-box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
-      -moz-box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
-      box-shadow: 10px 10px 30px 0px rgba(0,0,0,0.75);
+      border-color: white;
     }
+    .btn,
     .form-control {
       border-radius: 0;
+      border: 1px solid white;
     }
     .btn {
-      height: 100%;
+      color: $leoMenu;
+      background-color: white;
+      border-color: white;
     }
   }
 }

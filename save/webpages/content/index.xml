@@ -5,13 +5,18 @@
     <div class="jumbotwo" id="leo-index-search" style="margin-top:50px;">
       <div class="row">
         <div class="col-md-9 offset-md-2" lang="de">
-          <h1 class="text-center">
+          <h1>
             Publikations&#x00AD;server der Leopoldina
           </h1>
-          <form action="../servlets/solr/find" id="leo-searchMainPage" class="form-inline mt-3" role="search">
-            <div class="input-group w-100">
-              <input name="condQuery" placeholder="Suche in 16.000 Dokumenten" class="form-control search-query" id="leo-searchInput" type="text" />
-              <div class="input-group-btn">
+          <form action="../servlets/solr/find" id="leo-searchMainPage" class="form-inline" role="search">
+            <div class="input-group input-group-lg w-100">
+              <input
+                name="condQuery"
+                placeholder="Suche in 16.000 Dokumenten"
+                class="form-control search-query"
+                id="leo-searchInput"
+                type="text" />
+              <div class="input-group-append">
                 <button type="submit" class="btn btn-primary">
                   <i class="fa fa-search"></i>
                 </button>
@@ -37,16 +42,43 @@
   </section>
 
   <section xml:lang="en" title="Welcome to Leopoldina">
-    <div class="row">
-      <div class="col" lang="en">
-        <h1>
-          Repository
-        </h1>
-        <p>
-          this page is coming soon ...
-        </p>
+    <div class="jumbotwo" id="leo-index-search" style="margin-top:50px;">
+      <div class="row">
+        <div class="col-md-9 offset-md-2" lang="de">
+          <h1>
+            Publikations&#x00AD;server der Leopoldina
+          </h1>
+          <form action="../servlets/solr/find" id="leo-searchMainPage" class="form-inline" role="search">
+            <div class="input-group input-group-lg w-100">
+              <input
+                name="condQuery"
+                placeholder="Search in 16.000 documents"
+                class="form-control search-query"
+                id="leo-searchInput"
+                type="text" />
+              <div class="input-group-append">
+                <button type="submit" class="btn btn-primary">
+                  <i class="fa fa-search"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
+    <script src="../js/jquery.number.js"></script>
+    <script>
+      $( document ).ready(function() {
+        $.ajax({
+          type: "GET",
+          url: "../api/v1/search?q=objectType:mods AND state:published&amp;rows=0&amp;wt=json&amp;json.wrf=?",
+          dataType: "jsonp",
+          success: function (data) {
+            $('#leo-searchInput').attr('placeholder', 'Search in ' + $.number(data.response.numFound,0, ',', '.') + ' dokuments');
+          },
+        });
+      });
+    </script>
   </section>
 
   <meta>

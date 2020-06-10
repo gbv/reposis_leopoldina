@@ -4,17 +4,90 @@
   <section xml:lang="de" title="Kontakt">
     <div class="row">
       <div class="col" lang="de">
-        
+
         <h2>Kontakt</h2>
         <p>
-          In Arbeit ...
+          Abteilungsleitung Archiv und Bibliothek der Leopoldina:<br />
+          <br />
+          Dr. Danny Weber<br />
+          <a href="mailto:danny.weber@leopoldina.org">danny.weber@leopoldina.org</a><br />
+          fon: 0345 47239 120<br />
+          <br />
+          Für Fragen zur Publikation von elektronischen Dokumenten wenden Sie sich bitte an:<br />
+          <br />
+          <a href="mailto:bibliothek@leopoldina.org">bibliothek@leopoldina.org</a><br />
+          fon: 0345 47239 147<br />
+          <br />
+          Die Abteilung Presse- und Öffentlichkeitsarbeit der Leopoldina erreichen Sie unter:<br />
+          <br />
+          <a href="mailto:presse@leopoldina.org">presse@leopoldina.org</a><br />
+          fon: 0345 47239 800
+        </p>
+
+        <p>
+          Fragen zum Repositoryframework MyCoRe und dem Datenbankserver beantwortet Ihnen:<br />
+          <br />
+          Verbundzentrale des GBV (VZG)<br />
+          Platz der Göttinger Sieben 1<br />
+          37073 Göttingen<br />
+          fon: 0551 39 5207<br />
+          Fax: 0551 39 13980<br />
+          <br />
+          Digitale Bibliothek, Reposis<br />
+          <br />
+          Internet: <a href="https://www.gbv.de/Verbundzentrale/serviceangebote/reposis-repository-service">https://www.gbv.de/Verbundzentrale/serviceangebote/reposis-repository-service</a><br />
+          <br />
+          E-Mail: <a href="mailto:dms-list@lists.gbv.de">dms-list@lists.gbv.de</a>
         </p>
 
       </div>
     </div>
-  
+
   </section>
 
+  <section xml:lang="en" title="Contact">
+    <div class="row">
+      <div class="col" lang="en">
+
+        <h2>Contact</h2>
+        <p>
+          Head of Department Archive and Library:<br />
+          <br />
+          Dr. Danny Weber<br />
+          <a href="mailto:danny.weber@leopoldina.org">danny.weber@leopoldina.org</a><br />
+          fon: 0345 47239 120<br />
+          <br />
+          If you have questions about the publication of electronic documents, please contact:<br />
+          <br />
+          <a href="mailto:bibliothek@leopoldina.org">bibliothek@leopoldina.org</a><br />
+          fon: 0345 47239 147<br />
+          <br />
+          You can reach the Leopoldina Press and Public Relations Department at:<br />
+          <br />
+          <a href="mailto:presse@leopoldina.org">presse@leopoldina.org</a><br />
+          fon: 0345 47239 800
+        </p>
+
+        <p>
+          If you have questions about the Repositoryframework MyCoRe and the database server, please contact:<br />
+          <br />
+          Verbundzentrale des GBV (VZG)<br />
+          Platz der Göttinger Sieben 1<br />
+          37073 Göttingen<br />
+          fon: 0551 39 5207<br />
+          fax: 0551 39 13980<br />
+          <br />
+          Digitale Bibliothek, Reposis<br />
+          <br />
+          internet: <a href="https://www.gbv.de/Verbundzentrale/serviceangebote/reposis-repository-service">https://www.gbv.de/Verbundzentrale/serviceangebote/reposis-repository-service</a><br />
+          <br />
+          email: <a href="mailto:dms-list@lists.gbv.de">dms-list@lists.gbv.de</a>
+        </p>
+
+      </div>
+    </div>
+
+  </section>
 <meta>
   <log date="2020-04-24" time="16:26" labelPath=" » Admin" lastEditor="Kathleen Neumann" />
 </meta>

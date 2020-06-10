@@ -4,13 +4,13 @@
   <section xml:lang="de" title="Leitlinien für den Betrieb der digitalen Bibliothek der Leopoldina">
     <div class="row">
       <div class="col" lang="de">
-        
+
         <h2>1. Ziele und inhaltliche Kriterien für die digitale Bibliothek</h2>
         <p>
           Die digitale Bibliothek versteht sich als Publikationsserver der Leopoldina und bietet der Akademie und ihren
           Kooperationspartnern die organisatorischen und technischen Rahmenbedingungen zur elektronischen Veröffentlichung.
         </p>
-    
+
         <h2>2. Der Sammelauftrag des Betreibers</h2>
         <p>Der Sammelauftrag des Betreibers des Publikationsservers umfasst die Speicherung, Katalogisierung und Bereitstellung
           aller elektronischen Dokumente, die durch die Akademie bzw. durch die Akademie zusammen mit ihren Kooperationspartnern
@@ -20,7 +20,7 @@
           einer weiteren Veröffentlichung der Dokumente in Fachzeitschriften oder Monografien sowie auf anderen Servern nicht entgegen.</p>
         <p>Die Einhaltung von Urheber- und Verwertungsrechten Dritter liegt in der Verantwortung der Autorinnen und Autoren bzw. der
           Herausgeber/innen der elektronischen Dokumente. </p>
-    
+
         <h2>3. Das elektronische Dokument</h2>
         <p>Unter dem Begriff „elektronisches Dokument” wird im Sinne dieser Leitlinien ein Dokument verstanden, welches auf Text,
           Grafik, Audio- oder Video-Sequenzen basiert, in digitaler Form auf einem Datenträger gespeichert ist und über Rechnernetze
@@ -32,13 +32,13 @@
             Version gespeichert.</li>
           <li>Es entspricht den vom Betreiber vorgegebenen technischen Parametern.</li>
         </ol>
-    
+
         <h2>4. Status der Dokumente, die über den Publikationsserver veröffentlicht werden</h2>
         <p>Die auf dem Publikationsserver veröffentlichten Dokumente haben teils den Status offizieller Veröffentlichungen der Leopoldina,
           teils geben sie als sog. Namenspapiere ausschließlich die Meinung der Verfasser und nicht zwingend die Position der Akademie wieder.
           Weitere Veröffentlichungen haben dokumentarischen Charakter.</p>
-    
-    
+
+
         <h2>5. Technische Besonderheiten des Publikationsservers</h2>
         <ol>
           <li>Die elektronischen Dokumente werden mit individuellen und dauerhaften Adressen versehen, welche einen unmittelbaren
@@ -57,7 +57,47 @@
 
       </div>
     </div>
-  
+
+  </section>
+
+  <section xml:lang="en" title="Guidelines for using the digital library of the Leopoldina">
+    <div class="row">
+      <div class="col" lang="en">
+
+        <h2>1. Aims and content-related criteria for the digital library</h2>
+        <p>
+          The digital library functions as the publication server of the Leopoldina and provides the Academy and its cooperation partners with the organisational and technical framework conditions for electronic publication.
+        </p>
+
+        <h2>2. The collection and acquisition work of the operator</h2>
+        <p>The collection and acquisition work of the operator of the publication server comprises collecting, cataloguing and making available all electronic documents which are published by the Academy or by the Academy with its cooperation partners. This applies to both purely electronic publications and electronic versions of printed documents.</p>
+        <p>The copyright of the authors is not affected. Publication on the publication server does not preclude additional publication of the documents in specialist journals, monographs or on other servers.</p>
+        <p>Compliance with copyright and the utilisation rights of third parties is the responsibility of the authors and/or the editors of the electronic documents.</p>
+
+        <h2>3. The electronic document</h2>
+        <p>These guidelines define an “electronic document” as a document which is based on text, images, audio or video sequences, which is saved in digital form on a data carrier and is disseminated via computer networks.</p>
+        <p>An electronic document which is to be published via the publication server fulfils the following conditions:</p>
+        <ol>
+          <li>It is intended for dissemination in the public realm. </li>
+          <li>It is not a dynamic document. If changes are necessary, the edited electronic document is saved as a new version.</li>
+          <li>It complies with the technical requirements specified by the operator.</li>
+        </ol>
+
+        <h2>4. Status of the documents which are published on the publication server</h2>
+        <p>Some documents which are published on the publication server have the status of official Leopoldina publications, while others reflect exclusively the views of the author and not necessarily those of the Academy. Additional publications are of documentary value only.</p>
+
+
+        <h2>5. Technical features of the publication server</h2>
+        <ol>
+          <li>1.	The electronic documents are assigned individual and permanent addresses which permit direct access to the documents. The addresses are registered as DataCite Digital Object Identifiers (DOIs). The administration and maintenance of the DOIs is guaranteed by the operator.</li>
+          <li>2.	It is possible to locate the electronic documents via the library catalogue, by searching in bibliographic metadata, via alphabetical and classification-based systems as well as dynamically-created lists and indexes. </li>
+          <li>3.	The formal and content-related metadata can be transmitted via a standardised interface (OAI-PMH 2.0) to a well-established academic search engine (e.g. BASE and OAIster). In addition, search bots will be specially supported by special tags in the web pages and a sitemap in order to, for example, increase their visibility on Google Scholar. This ensures global visibility for the data which are posted on the server.</li>
+        </ol>
+        <p>We wish to thank the Elektronisches Publizieren working group at the Humboldt University of Berlin and colleagues at the Technical University of Clausthal. Their guidelines for university publication servers provided the model for these guidelines.</p>
+
+      </div>
+    </div>
+
   </section>
 
 <meta>
