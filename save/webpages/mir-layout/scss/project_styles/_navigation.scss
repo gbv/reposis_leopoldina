@@ -55,8 +55,8 @@
   color: white !important;
 }
 
-html[lang="en"] .flatmir-footer .nav-link:first-child a,
-html[lang="de"] .flatmir-footer .nav-link:nth-child(2) a {
+html[lang="en"] .flatmir-footer .nav-link:first-child,
+html[lang="de"] .flatmir-footer .nav-link:nth-child(2) {
   display: none;
 }
 
