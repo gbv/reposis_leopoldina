@@ -17,6 +17,8 @@
         <label xml:lang="en">Footer menu</label>
         <item href="https://www.leopoldina.org/service/impressum/" type="extern" replaceMenu="false" constrainPopUp="false">
             <label xml:lang="de">Impressum</label>
+        </item>
+        <item href="https://www.leopoldina.org/en/service/imprint/" type="extern" replaceMenu="false" constrainPopUp="false">
             <label xml:lang="en">Legal Notice</label>
         </item>
         <item href="/content/below/contact.xml" type="intern" replaceMenu="false" constrainPopUp="false">

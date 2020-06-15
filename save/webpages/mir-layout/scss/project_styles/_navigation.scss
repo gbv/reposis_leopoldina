@@ -55,6 +55,10 @@
   color: white !important;
 }
 
+html[lang="en"] .flatmir-footer .nav-link:first-child a,
+html[lang="de"] .flatmir-footer .nav-link:nth-child(2) a {
+  display: none;
+}
 
 // Large devices (desktops) and below: <= 1200px
 @include media-breakpoint-down(lg) {
