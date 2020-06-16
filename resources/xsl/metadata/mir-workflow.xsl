@@ -38,6 +38,7 @@
               </xsl:when>
             </xsl:choose>
           </xsl:when>
+          
           <xsl:when test="$currentStatus='submitted'">
             <xsl:choose>
               <xsl:when test="$CurrentUser=$creator">
@@ -48,6 +49,7 @@
               </xsl:when>
             </xsl:choose>
           </xsl:when>
+          
           <xsl:when test="$currentStatus='review'">
             <xsl:choose>
               <xsl:when test="key('rights', mycoreobject/@ID)/@write">
@@ -89,7 +91,7 @@
           <ul>
             <li>
               <a href="{$editURL}">
-                <xsl:value-of select="i18n:translate('object.editObject')"/>
+                <xsl:value-of select="i18n:translate('mir.workflow.editObject')"/>
               </a>
             </li>
             <xsl:apply-templates select="." mode="creatorNewAdd" />
