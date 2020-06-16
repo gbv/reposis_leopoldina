@@ -169,6 +169,12 @@
     <xsl:variable name="message">
       <p>
         <xsl:value-of select="i18n:translate('mir.workflow.editor.submitted')"/>
+        <ul>
+          <xsl:apply-templates select="." mode="editorSubmittedAdd" />
+          <xsl:call-template name="listStatusChangeOptions">
+            <xsl:with-param name="class" select="''"/>
+          </xsl:call-template>
+        </ul>
       </p>
     </xsl:variable>
     <xsl:call-template name="buildLayout">
