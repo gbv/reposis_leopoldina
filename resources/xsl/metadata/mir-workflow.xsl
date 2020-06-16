@@ -96,8 +96,7 @@
             </li>
             <xsl:apply-templates select="." mode="creatorNewAdd" />
             <xsl:choose>
-              <xsl:when
-                  test="normalize-space($MIR.Workflow.ReviewDerivateRequired) = 'true' and count(structure/derobject[string-length(@maindoc)&gt;0])=0">
+              <xsl:when test="normalize-space($MIR.Workflow.ReviewDerivateRequired) = 'true' and not(structure/derobjects/derobject/maindoc)">
                 <li>
                   <a href="#">
                     <xsl:attribute name="onclick">document.querySelector('[data-upload-object]').scrollIntoView({behavior: 'smooth', block: 'center', inline: 'nearest'}); return false;</xsl:attribute>
@@ -129,8 +128,35 @@
         Dokument new
       </xsl:message>
     </xsl:if>
+    <xsl:variable name="message">
+      <p>
+        <xsl:value-of select="i18n:translate('mir.workflow.editor.new')"/>
+      </p>
+    </xsl:variable>
+    <xsl:call-template name="buildLayout">
+      <xsl:with-param name="content" select="exslt:node-set($message)"/>
+      <xsl:with-param name="heading" select="''"/>
+    </xsl:call-template>
   </xsl:template>
 
+  <xsl:template match="mycoreobject" mode="creatorSubmitted" priority="10">
+    <xsl:if test="normalize-space($MIR.Workflow.Debug)='true'">
+      <xsl:message>
+        editorSubmitted
+        Nutzer editor
+        Dokument submitted
+      </xsl:message>
+    </xsl:if>
+    <xsl:variable name="message">
+      <p>
+        <xsl:value-of select="i18n:translate('mir.workflow.creator.submitted')"/>
+      </p>
+    </xsl:variable>
+    <xsl:call-template name="buildLayout">
+      <xsl:with-param name="content" select="exslt:node-set($message)"/>
+      <xsl:with-param name="heading" select="''"/>
+    </xsl:call-template>
+  </xsl:template>
 
   <xsl:template match="mycoreobject" mode="editorSubmitted" priority="10">
     <xsl:if test="normalize-space($MIR.Workflow.Debug)='true'">
@@ -140,6 +166,15 @@
         Dokument submitted
       </xsl:message>
     </xsl:if>
+    <xsl:variable name="message">
+      <p>
+        <xsl:value-of select="i18n:translate('mir.workflow.editor.submitted')"/>
+      </p>
+    </xsl:variable>
+    <xsl:call-template name="buildLayout">
+      <xsl:with-param name="content" select="exslt:node-set($message)"/>
+      <xsl:with-param name="heading" select="''"/>
+    </xsl:call-template>
   </xsl:template>
 
   <xsl:template match="mycoreobject" mode="creatorReview" priority="10">
