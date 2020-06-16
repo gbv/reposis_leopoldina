@@ -23,21 +23,21 @@ $leoYellow:     rgb(226,185,0);
 $leoGold:       rgb(178,146,88);
 
 // from website
-$leoMenu:       #005489;
+$primary:      #005489;
+$secondary:    #877948;
+$success:      $leoYellow;
+$info:         #146d9d;
+$warning:      $success;
+$danger:       $success;
+$gray-light:   #CCCCCC;
+
+
+$leoMenu:       $primary;
 $leoMenuBorder: #EED376;
-$leoBlueHover:  #146d9d;
+$leoBlueHover:  $info;
 $leoDropHover:  #598BB3;
 $leoFooterGold: #928356;
 $leoLink:       #003F6A;
-
-
-$primary:      $leoMenu;
-$secondary:    #877948;
-$success:      $leoMenuBorder;
-$info:         $leoBlueHover;
-$warning:      $leoMenuBorder;
-$danger:       $leoMenuBorder;
-$gray-light:   #CCCCCC;
 
 // keep deprecated variables alive
 $brand-primary: $primary;
@@ -45,8 +45,6 @@ $brand-success: $success;
 $brand-info:    $info;
 $brand-warning: $warning;
 $brand-danger:  $danger;
-
-
 
 // --------------------------------------------------
 //  Projects settings
@@ -75,3 +73,7 @@ $btn-border-radius: 0;
 $h1-font-size: $font-size-base * 2;
 $h2-font-size: $font-size-base * 1.75;
 $h3-font-size: $font-size-base * 1.5;
+
+$pagination-bg: $primary;
+$pagination-hover-bg: lighten($pagination-bg, 10%);
+$pagination-disabled-bg: $gray-light;

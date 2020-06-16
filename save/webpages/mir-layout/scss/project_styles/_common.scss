@@ -12,6 +12,35 @@
   background-color: $leoMenuBorder;
 }
 
+  // fix: fade to white  is not working on transparent background
+  .mir-abstract-overlay-tran {
+    background: transparent;
+  }
+
+  // fix outdated bs3 myclabs confirm modal
+  .modal-header {
+    .modal-title {
+      order: 1;
+    }
+    .close{
+      order: 2;
+    }
+  }
+  // fix viewer menu background
+  .mycoreViewer .bg-light {
+    background-color: $info !important;
+  }
+  // fix buttons in editor
+  .info-button {
+    color: white !important;
+    margin-right: 2px;
+    margin-top: 4px;
+    font-size: 12px;
+    padding: 7px 13px;
+    border-radius: 0;
+  }
+
+
 // Large devices (desktops) and below: <= 1200px
 @include media-breakpoint-down(lg) {
   // add/overwrite styles for responsive level lg and lower
