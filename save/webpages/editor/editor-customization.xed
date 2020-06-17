@@ -4,7 +4,9 @@
 
   <!-- ========== extend editor-genres.xed ========== -->
   <xed:modify ref="admin.fields">
+    <xed:remove  ref="comment.complex" />
     <xed:include ref="lp.class.series"             before="subject.complex" />
+    <xed:include ref="lp.comment.complex"          after="abstract.repeated" />
   </xed:modify>
   
   <xed:modify ref="genres.publication.common">
@@ -76,7 +78,7 @@
   <xed:modify ref="genres.report.common">
     <xed:remove  ref="sdnb.repeat" />
     <xed:remove  ref="doi.handle.urn.repeated" />
-    <xed:include ref="identifier.isbn"             before="doi.handle.urn.repeated" />
+    <xed:include ref="identifier.isbn"             before="identifier.managed" />
     <xed:include ref="embargo.datetimepicker"      after="rights" />
   </xed:modify>
   
@@ -107,6 +109,32 @@
         <mir:help-pmud help-text="{i18n:lp.help.class.series}" pmud="false" />
       </xed:bind>
     </div>
+  </xed:template>
+
+  <xed:template id="lp.comment.complex">
+    <fieldset>
+      <legend class="mir-fieldset-legend">
+        <xed:output i18n="lp.comment.complex" />
+      </legend>
+      <xed:repeat xpath="mods:note" min="1" max="5">
+        <div class="mir-fieldset-content">
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label text-right">
+              <xed:output i18n="mir.comment.type" />
+            </label>
+            <div class="col-md-6">
+              <xed:bind xpath="@type">
+                <select class="form-control" style="font-weight:bold;">
+                  <xed:include uri="xslStyle:items2options,convertClassificationOptions:classification:editor:-1:children:noteTypes" />
+                </select>
+              </xed:bind>
+            </div>
+            <mir:help-pmud help-text="{i18n:mir.help.comment.type}" pmud="true" />
+          </div>
+          <mir:textarea xpath="." label="mir.comment" help-text="{i18n:mir.help.comment}" rows="3" />
+        </div>
+      </xed:repeat>
+    </fieldset>
   </xed:template>
 
 </xed:template>
