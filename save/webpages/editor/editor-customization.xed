@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xed:template xmlns:xed="http://www.mycore.de/xeditor" xmlns:mir="http://www.mycore.de/mir">
+
+  <!-- ========== extend editor-genres.xed ========== -->
+  <xed:modify ref="admin.fields">
+    <xed:include ref="lp.class.series"             before="subject.complex" />
+  </xed:modify>
+  
+  <xed:modify ref="genres.publication.common">
+    <xed:remove  ref="sdnb.repeat" />
+    <xed:remove  ref="doi.handle.urn.repeated" />
+    <xed:include ref="lp.class.series"             before="subject.simple" />
+    <xed:include ref="embargo.datetimepicker"      after="rights" />
+  </xed:modify>
+
+  <xed:modify ref="genres.book.common">
+    <xed:remove  ref="sdnb.repeat" />
+    <xed:remove  ref="doi.handle.urn.repeated" />
+  </xed:modify>
+
+  <xed:modify ref="genres.thesis.common">
+    <xed:remove  ref="sdnb.repeat" />
+  </xed:modify>
+
+  <xed:modify ref="genres.teaching_material">
+    <xed:remove  ref="sdnb.repeat" />
+  </xed:modify>
+
+  <xed:modify ref="genres.entry">
+    <xed:remove  ref="sdnb.repeat" />
+    <xed:remove  ref="doi.handle.urn.repeated" />
+  </xed:modify>
+
+  <xed:modify ref="genres.preface">
+    <xed:remove  ref="sdnb.repeat" />
+    <xed:remove  ref="doi.handle.urn.repeated" />
+  </xed:modify>
+
+  <xed:modify ref="genres.interview">
+    <xed:remove  ref="sdnb.repeat" />
+    <xed:remove  ref="doi.handle.urn.repeated" />
+    <xed:include ref="embargo.datetimepicker"      after="rights" />
+  </xed:modify>
+
+  <xed:modify ref="genres.speech">
+    <xed:remove  ref="sdnb.repeat" />
+    <xed:remove  ref="doi.handle.urn.repeated" />
+    <xed:include ref="embargo.datetimepicker"      after="rights" />
+  </xed:modify>
+
+   <xed:modify ref="genres.patent">
+    <xed:remove  ref="sdnb.repeat" />
+  </xed:modify>
+
+   <xed:modify ref="genres.poster">
+    <xed:remove  ref="sdnb.repeat" />
+    <xed:include ref="embargo.datetimepicker"      after="rights" />
+  </xed:modify>
+
+   <xed:modify ref="genres.research_data">
+    <xed:remove  ref="sdnb.repeat" />
+    <xed:remove  ref="doi.handle.urn.repeated" />
+  </xed:modify>
+
+   <xed:modify ref="genres.lecture">
+    <xed:remove  ref="sdnb.repeat" />
+  </xed:modify>
+
+   <xed:modify ref="genres.picture">
+    <xed:remove  ref="sdnb.repeat" />
+    <xed:remove  ref="doi.handle.urn.repeated" />
+    <xed:include ref="embargo.datetimepicker"      after="rights" />
+  </xed:modify>
+
+  <xed:modify id="genres.report.common">
+    <xed:remove  ref="sdnb.repeat" />
+    <xed:remove  ref="doi.handle.urn.repeated" />
+    <xed:include ref="identifier.isbn"             before="doi.handle.urn.repeated" />
+    <xed:include ref="embargo.datetimepicker"      after="rights" />
+  </xed:modify>
+  
+  <xed:modify id="genres.av.common">
+    <xed:remove  ref="sdnb.repeat" />
+    <xed:remove  ref="geographic" />
+    <xed:remove  ref="cartographics" />
+    <xed:include ref="embargo.datetimepicker"      after="rights" />
+  </xed:modify>
+
+
+  <!-- ========== leopoldina specific templates ========== -->
+  <xed:template id="lp.class.series">
+    <div class="form-group">
+      <label class="col-md-3 control-label">
+        <xed:output i18n="lp.class.series" />
+      </label>
+      <xed:bind xpath="mods:classification[@authorityURI='https://publications.leopoldina.org/api/v1/classifications/lp_series']/@displayLabel" set="lp_series" />
+      <xed:bind xpath="mods:classification[@authorityURI='https://publications.leopoldina.org/api/v1/classifications/lp_series" initially="">
+        <div class="col-md-6">
+          <div class="controls">
+            <select class="form-control form-control-inline">
+              <option value=""><xed:output i18n="mir.select.optional" /></option>
+              <xed:include uri="xslStyle:items2options:classification:editor:-1:children:lp_series" />
+            </select>
+          </div>
+        </div>
+        <mir:help-pmud help-text="{i18n:lp.help.class.series}" pmud="false" />
+      </xed:bind>
+    </div>
+  </xed:template>
+
+</xed:template>
+
