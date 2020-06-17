@@ -73,14 +73,14 @@
     <xed:include ref="embargo.datetimepicker"      after="rights" />
   </xed:modify>
 
-  <xed:modify id="genres.report.common">
+  <xed:modify ref="genres.report.common">
     <xed:remove  ref="sdnb.repeat" />
     <xed:remove  ref="doi.handle.urn.repeated" />
     <xed:include ref="identifier.isbn"             before="doi.handle.urn.repeated" />
     <xed:include ref="embargo.datetimepicker"      after="rights" />
   </xed:modify>
   
-  <xed:modify id="genres.av.common">
+  <xed:modify ref="genres.av.common">
     <xed:remove  ref="sdnb.repeat" />
     <xed:remove  ref="geographic" />
     <xed:remove  ref="cartographics" />
@@ -90,12 +90,12 @@
 
   <!-- ========== leopoldina specific templates ========== -->
   <xed:template id="lp.class.series">
-    <div class="form-group">
-      <label class="col-md-3 control-label">
+    <div class="form-group row">
+      <label class="col-md-3 col-form-label text-right">
         <xed:output i18n="lp.class.series" />
       </label>
       <xed:bind xpath="mods:classification[@authorityURI='https://publications.leopoldina.org/api/v1/classifications/lp_series']/@displayLabel" set="lp_series" />
-      <xed:bind xpath="mods:classification[@authorityURI='https://publications.leopoldina.org/api/v1/classifications/lp_series" initially="">
+      <xed:bind xpath="mods:classification[@authorityURI='https://publications.leopoldina.org/api/v1/classifications/lp_series']/@valueURIxEditor">
         <div class="col-md-6">
           <div class="controls">
             <select class="form-control form-control-inline">
