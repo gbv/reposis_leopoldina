@@ -98,10 +98,9 @@
 
   <!-- ========== validation ========== -->
 
-  <xed:modify id="genres.submit">
+  <xed:modify ref="genres.submit">
     <xed:include ref="validate.institutes.required" after="rights" />
   </xed:modify>
-
 
   <xed:template id="validate.institutes.required">
     <xed:load-resource name="mir_institutes" uri="classification:metadata:-1:children:mir_institutes" />

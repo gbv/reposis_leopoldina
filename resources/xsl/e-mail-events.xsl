@@ -53,7 +53,7 @@
           <xsl:value-of select="concat($objectType,' zur Überprüfung eingereicht: ',@ID)" />
         </subject>
         <body>
-          <xsl:value-of select="'Ein paar Metadaten'" />
+          <xsl:value-of select="'Folgende Publikation wurde zur Überprüfung eingereicht:'" />
           <xsl:value-of select="$newline" />
           <xsl:apply-templates select="." mode="output" />
           <xsl:value-of select="$newline" />
