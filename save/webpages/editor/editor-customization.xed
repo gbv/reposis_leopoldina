@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xed:template xmlns:xed="http://www.mycore.de/xeditor" xmlns:mir="http://www.mycore.de/mir">
+
+  <!-- ========== extend editor-genres.xed ========== -->
+  <xed:modify ref="admin.fields">
+    <xed:remove  ref="comment.complex" />
+    <xed:include ref="lp.class.series"             before="subject.complex" />
+    <xed:include ref="lp.comment.complex"          after="abstract.repeated" />
+  </xed:modify>
+  
+  <xed:modify ref="genres.publication.common">
+    <xed:remove  ref="sdnb.repeat" />
+    <xed:remove  ref="doi.handle.urn.repeated" />
+    <xed:include ref="embargo.datetimepicker"      after="rights" />
+    <xed:if test="//mods:mods/mods:genre[@valueURIxEditor!='journal'][@valueURIxEditor!='newspaper'][@valueURIxEditor!='series'][@valueURIxEditor!='lecture']">
+      <xed:include ref="validate.institutes.required" after="institutes" />
+    </xed:if>
+  </xed:modify>
+
+  <xed:modify ref="genres.book.common">
+    <xed:remove  ref="sdnb.repeat" />
+    <xed:remove  ref="doi.handle.urn.repeated" />
+    <xed:include ref="lp.class.series"             before="subject.simple" />
+  </xed:modify>
+
+  <xed:modify ref="genres.thesis.common">
+    <xed:remove  ref="sdnb.repeat" />
+    <xed:include ref="lp.class.series"             before="subject.simple" />
+  </xed:modify>
+
+  <xed:modify ref="genres.teaching_material">
+    <xed:remove  ref="sdnb.repeat" />
+  </xed:modify>
+
+  <xed:modify ref="genres.entry">
+    <xed:remove  ref="sdnb.repeat" />
+    <xed:remove  ref="doi.handle.urn.repeated" />
+  </xed:modify>
+
+  <xed:modify ref="genres.preface">
+    <xed:remove  ref="sdnb.repeat" />
+    <xed:remove  ref="doi.handle.urn.repeated" />
+  </xed:modify>
+
+  <xed:modify ref="genres.interview">
+    <xed:remove  ref="sdnb.repeat" />
+    <xed:remove  ref="doi.handle.urn.repeated" />
+    <xed:include ref="embargo.datetimepicker"      after="rights" />
+  </xed:modify>
+
+  <xed:modify ref="genres.speech">
+    <xed:remove  ref="sdnb.repeat" />
+    <xed:remove  ref="doi.handle.urn.repeated" />
+    <xed:include ref="embargo.datetimepicker"      after="rights" />
+  </xed:modify>
+
+   <xed:modify ref="genres.patent">
+    <xed:remove  ref="sdnb.repeat" />
+  </xed:modify>
+
+   <xed:modify ref="genres.poster">
+    <xed:remove  ref="sdnb.repeat" />
+    <xed:include ref="embargo.datetimepicker"      after="rights" />
+  </xed:modify>
+
+   <xed:modify ref="genres.research_data">
+    <xed:remove  ref="sdnb.repeat" />
+    <xed:remove  ref="doi.handle.urn.repeated" />
+  </xed:modify>
+
+   <xed:modify ref="genres.lecture">
+    <xed:remove  ref="sdnb.repeat" />
+  </xed:modify>
+
+   <xed:modify ref="genres.picture">
+    <xed:remove  ref="sdnb.repeat" />
+    <xed:remove  ref="doi.handle.urn.repeated" />
+    <xed:include ref="embargo.datetimepicker"      after="rights" />
+  </xed:modify>
+
+  <xed:modify ref="genres.report.common">
+    <xed:remove  ref="sdnb.repeat" />
+    <xed:remove  ref="doi.handle.urn.repeated" />
+    <xed:include ref="identifier.isbn"             before="identifier.managed" />
+    <xed:include ref="embargo.datetimepicker"      after="rights" />
+    <xed:include ref="lp.class.series"             before="subject.simple" />
+  </xed:modify>
+  
+  <xed:modify ref="genres.av.common">
+    <xed:remove  ref="sdnb.repeat" />
+    <xed:remove  ref="geographic" />
+    <xed:remove  ref="cartographics" />
+    <xed:include ref="embargo.datetimepicker"      after="rights" />
+    <xed:include ref="lp.class.series"             before="subject.simple" />
+  </xed:modify>
+
+
+  <!-- ========== validation ========== -->
+
+  <xed:modify ref="genres.submit">
+    <xed:include ref="validate.institutes.required" after="rights" />
+  </xed:modify>
+
+  <xed:template id="validate.institutes.required">
+    <xed:load-resource name="mir_institutes" uri="classification:metadata:-1:children:mir_institutes" />
+    <xed:validate xpath="//mods:mods/mods:name[@type='corporate'][@authorityURI=$mir_institutes/label[@xml:lang='x-uri']/@text]/@valueURIxEditor" test="string-length(//mods:mods/mods:name[@type='corporate'][@authorityURI=$mir_institutes/label[@xml:lang='x-uri']/@text]/@valueURIxEditor) &gt; 0" i18n="mir.validation.institution" display="global" />
+  </xed:template>
+
+  <!-- ========== leopoldina specific templates ========== -->
+  <xed:template id="lp.class.series">
+    <div class="form-group row">
+      <label class="col-md-3 col-form-label text-right">
+        <xed:output i18n="lp.class.series" />
+      </label>
+      <xed:bind xpath="mods:classification[@authorityURI='https://publications.leopoldina.org/api/v1/classifications/lp_series']/@displayLabel" set="lp_series" />
+      <xed:bind xpath="mods:classification[@authorityURI='https://publications.leopoldina.org/api/v1/classifications/lp_series']/@valueURIxEditor">
+        <div class="col-md-6">
+          <div class="controls">
+            <select class="form-control form-control-inline">
+              <option value=""><xed:output i18n="mir.select.optional" /></option>
+              <xed:include uri="xslStyle:items2options:classification:editor:-1:children:lp_series" />
+            </select>
+          </div>
+        </div>
+        <mir:help-pmud help-text="{i18n:lp.help.class.series}" pmud="false" />
+      </xed:bind>
+    </div>
+  </xed:template>
+
+  <xed:template id="lp.comment.complex">
+    <fieldset>
+      <legend class="mir-fieldset-legend">
+        <xed:output i18n="lp.comment.complex" />
+      </legend>
+      <xed:repeat xpath="mods:note" min="1" max="5">
+        <div class="mir-fieldset-content">
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label text-right">
+              <xed:output i18n="mir.comment.type" />
+            </label>
+            <div class="col-md-6">
+              <xed:bind xpath="@type">
+                <select class="form-control" style="font-weight:bold;">
+                  <xed:include uri="xslStyle:items2options,convertClassificationOptions:classification:editor:-1:children:noteTypes" />
+                </select>
+              </xed:bind>
+            </div>
+            <mir:help-pmud help-text="{i18n:mir.help.comment.type}" pmud="true" />
+          </div>
+          <mir:textarea xpath="." label="mir.comment" help-text="{i18n:mir.help.comment}" rows="3" />
+        </div>
+      </xed:repeat>
+    </fieldset>
+  </xed:template>
+
+</xed:template>
+
