@@ -39,55 +39,7 @@
         </xsl:comment>
         <div class="result_list_end" />
       </div>
-      
-      <div class="col-12 col-sm-4 result_filter">
-        <xsl:if test="/response/lst[@name='facet_counts']/lst[@name='facet_fields']/lst[@name='worldReadableComplete']/int">
-          <div class="card oa">
-            <div class="card-header" data-toggle="collapse-next">
-              <h3 class="card-title">
-                <xsl:value-of select="i18n:translate('mir.response.openAccess.facet.title')" />
-              </h3>
-            </div>
-            <div class="card-body collapse show">
-              <ul class="filter">
-                <xsl:apply-templates select="/response/lst[@name='facet_counts']/lst[@name='facet_fields']">
-                  <xsl:with-param name="facet_name" select="'worldReadableComplete'" />
-                  <xsl:with-param name="i18nPrefix" select="'mir.response.openAccess.facet.'" />
-                </xsl:apply-templates>
-              </ul>
-            </div>
-          </div>
-        </xsl:if>
-        <xsl:if test="/response/lst[@name='facet_counts']/lst[@name='facet_fields']/lst[@name='mods.genre']/int">
-          <div class="card genre">
-            <div class="card-header" data-toggle="collapse-next">
-              <h3 class="card-title">
-                <xsl:value-of select="i18n:translate('editor.search.mir.genre')" />
-              </h3>
-            </div>
-            <div class="card-body collapse show">
-              <ul class="filter">
-                <xsl:apply-templates select="/response/lst[@name='facet_counts']/lst[@name='facet_fields']">
-                  <xsl:with-param name="facet_name" select="'mods.genre'" />
-                  <xsl:with-param name="classId" select="'mir_genres'" />
-                </xsl:apply-templates>
-              </ul>
-            </div>
-          </div>
-        </xsl:if>
-        <xsl:if test="$MIR.testEnvironment='true'"> <!-- filters in development, show only in test environments -->
-          <xsl:call-template name="print.classiFilter">
-            <xsl:with-param name="classId" select="'mir_institutes'" />
-            <xsl:with-param name="i18nKey" select="'editor.search.mir.institute'" />
-          </xsl:call-template>
-          <xsl:call-template name="print.classiFilter">
-            <xsl:with-param name="classId" select="'SDNB'" />
-            <xsl:with-param name="i18nKey" select="'editor.search.mir.sdnb'" />
-          </xsl:call-template>
-          <xsl:call-template name="print.dateFilter" />
-        </xsl:if>
-      </div>
-      
+
     </div>
     <xsl:if test="string-length($MCR.ORCID.OAuth.ClientSecret) &gt; 0">
       <script src="{$WebApplicationBaseURL}js/mir/mycore2orcid.js" />
