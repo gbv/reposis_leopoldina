@@ -7,7 +7,7 @@
   <xsl:include href="MyCoReLayout.xsl" />
   <xsl:include href="response-utils.xsl" />
   <xsl:include href="xslInclude:solrResponse" />
-  
+
   <xsl:param name="WebApplicationBaseURL" />
 
   <xsl:variable name="PageTitle">
@@ -15,7 +15,7 @@
   </xsl:variable>
 
   <xsl:template match="/response/result|lst[@name='grouped']/lst[@name='returnId']" priority="20">
-    
+
     <div class="row result_head">
       <div class="col-12 result_headline">
         <h1>
@@ -23,10 +23,10 @@
         </h1>
       </div>
     </div>
-    
+
     <!-- Filter, Pagination & Trefferliste -->
     <div class="row result_body">
-      
+
       <div class="col-12 col-sm-8 result_list">
         <xsl:comment>
           RESULT LIST START
@@ -45,5 +45,14 @@
       <script src="{$WebApplicationBaseURL}js/mir/mycore2orcid.js" />
     </xsl:if>
   </xsl:template>
-  
+
+  <script>
+    // removes unwanted xsl style part from hit link
+    $(function() {
+      $(".hit_title a").each(function( index ) {
+        $( this).attr("href", $( this ).attr("href").replace("XSL.Style=newest&", ""));
+      });
+    });
+  </script>
+
 </xsl:stylesheet>
