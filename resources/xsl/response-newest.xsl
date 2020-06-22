@@ -44,15 +44,18 @@
     <xsl:if test="string-length($MCR.ORCID.OAuth.ClientSecret) &gt; 0">
       <script src="{$WebApplicationBaseURL}js/mir/mycore2orcid.js" />
     </xsl:if>
+
+    <script>
+      // removes unwanted xsl style part from hit link
+      $(function() {
+        $(".hit_title a").each(function( index ) {
+          $( this).attr("href", $( this ).attr("href").replace("XSL.Style=newest&amp;", ""));
+        });
+      });
+    </script>
+
   </xsl:template>
 
-  <script>
-    // removes unwanted xsl style part from hit link
-    $(function() {
-      $(".hit_title a").each(function( index ) {
-        $( this).attr("href", $( this ).attr("href").replace("XSL.Style=newest&", ""));
-      });
-    });
-  </script>
+
 
 </xsl:stylesheet>
