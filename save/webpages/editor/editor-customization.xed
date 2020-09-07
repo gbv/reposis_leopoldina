@@ -85,6 +85,7 @@
     <xed:include ref="identifier.isbn"             before="identifier.managed" />
     <xed:include ref="embargo.datetimepicker"      after="rights" />
     <xed:include ref="lp.class.series"             before="subject.simple" />
+    <xed:include ref="extent"                      before="language" />
   </xed:modify>
   
   <xed:modify ref="genres.av.common">
