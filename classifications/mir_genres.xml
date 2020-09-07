@@ -67,7 +67,7 @@
       </category>
     </category>
     <category ID="report">
-      <label xml:lang="x-hosts" text="standalone" />
+      <label xml:lang="x-hosts" text="standalone series" />
       <label xml:lang="de" text="Report" />
       <label xml:lang="x-mapping" text="marcgt:reporting diniPublType:report" />
       <label xml:lang="en" text="Report" />
