@@ -115,6 +115,12 @@
       <label xml:lang="it" text="Rivista" />
       <label xml:lang="x-mapping" text="marcgt:journal diniPublType:Periodical" />
     </category>
+    <category ID="issue">
+      <label xml:lang="en" text="Issue" />
+      <label xml:lang="de" text="Zeitschriftenband" />
+      <label xml:lang="x-hosts" text="journal standalone" />
+      <label xml:lang="x-mapping" text="marcgt:issue diniPublType:PeriodicalPart" />
+    </category>
     <category ID="series">
       <label xml:lang="x-hosts" text="standalone" />
       <label xml:lang="x-mapping" text="marcgt:series diniPublType:other" />
