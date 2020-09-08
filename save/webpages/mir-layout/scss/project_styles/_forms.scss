@@ -2,6 +2,21 @@
  *  - styles for forms and form fields
  */
 
+
+/*  workaround for layout bug in related Item searchbadge - remove after next MIR update */
+.searchbadge, .badge {
+  font-size: 12px;
+  padding-top: 6px;
+}
+
+.input-group-addon.searchbadge {
+  border-width: 1px 1px 1px 0px !important;
+  border: solid #ced4da;
+  border-bottom-right-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+
 // Extra large devices (large desktops)
 // set the defaults for all responsive levels here
 // no (xl) media query necessary (desktop first)
