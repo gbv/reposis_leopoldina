@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mycoreclass xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="lp_series">
-  <label xml:lang="de" text="Reihen der Leopoldina" />
+<mycoreclass xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="lp_series">
   <label xml:lang="x-uri" text="https://publications.leopoldina.org/api/v1/classifications/lp_series" />
+  <label xml:lang="de" text="Reihen der Leopoldina" />
   <categories>
     <category ID="declaration">
       <label xml:lang="de" text="Stellungnahmen" />
@@ -22,7 +21,7 @@
         <label xml:lang="de" text="Acta Historica Leopoldina" />
       </category>
       <category ID="nal_live">
-        <label xml:lang="de" text="NAL live" />
+        <label xml:lang="de" text="NAL-live" />
       </category>
     </category>
     <category ID="leopoldina_publications">

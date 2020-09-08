@@ -19,11 +19,9 @@
     <category ID="05_press_public_relations">
       <label xml:lang="de" text="Presse- und Öffentlichkeitsarbeit" />
     </category>
-    <category ID="06_archive">
-      <label xml:lang="de" text="Archiv" />
-    </category>
-    <category ID="06_library">
-      <label xml:lang="de" text="Bibliothek" />
+    <category ID="06_archive_and_library">
+      <label xml:lang="de" text="Archiv und Bibliothek" />
+      <label xml:lang="en" text="Archive and Library" />
     </category>
     <category ID="10_scientific_editor">
       <label xml:lang="de" text="Wissenschaftliche Redaktion" />

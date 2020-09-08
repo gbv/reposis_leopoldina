@@ -15,71 +15,107 @@
   <xed:modify ref="genres.publication.common">
     <xed:remove  ref="sdnb.repeat" />
     <xed:remove  ref="doi.handle.urn.repeated" />
-    <xed:include ref="embargo.datetimepicker"      after="rights" />
-    <xed:if test="//mods:mods/mods:genre[@valueURIxEditor!='journal'][@valueURIxEditor!='newspaper'][@valueURIxEditor!='series'][@valueURIxEditor!='lecture']">
-      <xed:include ref="validate.institutes.required" after="institutes" />
-    </xed:if>
+    <xed:remove  ref="institutes" />
+    <xed:include ref="institutes.required"          after="rights"/>
+    <xed:include ref="validate.institutes.required" after="rights" />
+    <xed:include ref="embargo.datetimepicker"       after="rights" />
   </xed:modify>
 
   <xed:modify ref="genres.book.common">
     <xed:remove  ref="sdnb.repeat" />
     <xed:remove  ref="doi.handle.urn.repeated" />
-    <xed:include ref="lp.class.series"             before="subject.simple" />
+    <xed:remove  ref="institutes" />
+    <xed:include ref="institutes.required"          after="rights"/>
+    <xed:include ref="validate.institutes.required" after="rights" />
+    <xed:include ref="lp.class.series"              before="subject.simple" />
   </xed:modify>
 
   <xed:modify ref="genres.thesis.common">
     <xed:remove  ref="sdnb.repeat" />
     <xed:include ref="lp.class.series"             before="subject.simple" />
+    <xed:remove  ref="institutes" />
+    <xed:include ref="institutes.required"          after="rights"/>
+    <xed:include ref="validate.institutes.required" after="rights" />
   </xed:modify>
 
   <xed:modify ref="genres.teaching_material">
     <xed:remove  ref="sdnb.repeat" />
+    <xed:remove  ref="institutes" />
+    <xed:include ref="institutes.required"          after="rights"/>
+    <xed:include ref="validate.institutes.required" after="rights" />
   </xed:modify>
 
   <xed:modify ref="genres.entry">
     <xed:remove  ref="sdnb.repeat" />
     <xed:remove  ref="doi.handle.urn.repeated" />
+    <xed:remove  ref="institutes" />
+    <xed:include ref="institutes.required"          after="rights"/>
+    <xed:include ref="validate.institutes.required" after="rights" />
   </xed:modify>
 
   <xed:modify ref="genres.preface">
     <xed:remove  ref="sdnb.repeat" />
     <xed:remove  ref="doi.handle.urn.repeated" />
+    <xed:remove  ref="institutes" />
+    <xed:include ref="institutes.required"          after="rights"/>
+    <xed:include ref="validate.institutes.required" after="rights" />
   </xed:modify>
 
   <xed:modify ref="genres.interview">
     <xed:remove  ref="sdnb.repeat" />
     <xed:remove  ref="doi.handle.urn.repeated" />
     <xed:include ref="embargo.datetimepicker"      after="rights" />
+    <xed:remove  ref="institutes" />
+    <xed:include ref="institutes.required"          after="rights"/>
+    <xed:include ref="validate.institutes.required" after="rights" />
   </xed:modify>
 
   <xed:modify ref="genres.speech">
     <xed:remove  ref="sdnb.repeat" />
     <xed:remove  ref="doi.handle.urn.repeated" />
     <xed:include ref="embargo.datetimepicker"      after="rights" />
+    <xed:remove  ref="institutes" />
+    <xed:include ref="institutes.required"          after="rights"/>
+    <xed:include ref="validate.institutes.required" after="rights" />
   </xed:modify>
 
    <xed:modify ref="genres.patent">
     <xed:remove  ref="sdnb.repeat" />
+    <xed:remove  ref="institutes" />
+    <xed:include ref="institutes.required"          after="rights"/>
+    <xed:include ref="validate.institutes.required" after="rights" />
   </xed:modify>
 
    <xed:modify ref="genres.poster">
     <xed:remove  ref="sdnb.repeat" />
     <xed:include ref="embargo.datetimepicker"      after="rights" />
+    <xed:remove  ref="institutes" />
+    <xed:include ref="institutes.required"          after="rights"/>
+    <xed:include ref="validate.institutes.required" after="rights" />
   </xed:modify>
 
    <xed:modify ref="genres.research_data">
     <xed:remove  ref="sdnb.repeat" />
     <xed:remove  ref="doi.handle.urn.repeated" />
+    <xed:remove  ref="institutes" />
+    <xed:include ref="institutes.required"          after="rights"/>
+    <xed:include ref="validate.institutes.required" after="rights" />
   </xed:modify>
 
    <xed:modify ref="genres.lecture">
     <xed:remove  ref="sdnb.repeat" />
+    <xed:remove  ref="institutes" />
+    <xed:include ref="institutes.required"          after="rights"/>
+    <xed:include ref="validate.institutes.required" after="rights" />
   </xed:modify>
 
    <xed:modify ref="genres.picture">
     <xed:remove  ref="sdnb.repeat" />
     <xed:remove  ref="doi.handle.urn.repeated" />
     <xed:include ref="embargo.datetimepicker"      after="rights" />
+    <xed:remove  ref="institutes" />
+    <xed:include ref="institutes.required"          after="rights"/>
+    <xed:include ref="validate.institutes.required" after="rights" />
   </xed:modify>
 
   <xed:modify ref="genres.report.common">
@@ -88,6 +124,10 @@
     <xed:include ref="identifier.isbn"             before="identifier.managed" />
     <xed:include ref="embargo.datetimepicker"      after="rights" />
     <xed:include ref="lp.class.series"             before="subject.simple" />
+    <xed:include ref="extent"                      before="language" />
+    <xed:remove  ref="institutes" />
+    <xed:include ref="institutes.required"          after="rights"/>
+    <xed:include ref="validate.institutes.required" after="rights" />
   </xed:modify>
   
   <xed:modify ref="genres.av.common">
@@ -96,18 +136,16 @@
     <xed:remove  ref="cartographics" />
     <xed:include ref="embargo.datetimepicker"      after="rights" />
     <xed:include ref="lp.class.series"             before="subject.simple" />
-  </xed:modify>
-
-
-  <!-- ========== validation ========== -->
-
-  <xed:modify ref="genres.submit">
+    <xed:remove  ref="institutes" />
+    <xed:include ref="institutes.required"          after="rights"/>
     <xed:include ref="validate.institutes.required" after="rights" />
   </xed:modify>
 
+  <!-- ========== validation ========== -->
+
   <xed:template id="validate.institutes.required">
     <xed:load-resource name="mir_institutes" uri="classification:metadata:-1:children:mir_institutes" />
-    <xed:validate xpath="//mods:mods/mods:name[@type='corporate'][@authorityURI=$mir_institutes/label[@xml:lang='x-uri']/@text]/@valueURIxEditor" test="string-length(//mods:mods/mods:name[@type='corporate'][@authorityURI=$mir_institutes/label[@xml:lang='x-uri']/@text]/@valueURIxEditor) &gt; 0" i18n="mir.validation.institution" display="global" />
+    <xed:validate xpath="//mods:mods/mods:name[@type='corporate'][@authorityURI=$mir_institutes/label[@xml:lang='x-uri']/@text]/@valueURIxEditor" test="string-length(//mods:mods/mods:name[@type='corporate'][@authorityURI=$mir_institutes/label[@xml:lang='x-uri']/@text]/@valueURIxEditor) &gt; 0" i18n="mir.validation.institution" display="global" /> 
   </xed:template>
 
   <!-- ========== leopoldina specific templates ========== -->
@@ -155,6 +193,30 @@
         </div>
       </xed:repeat>
     </fieldset>
+  </xed:template>
+  
+  <xed:template id="institutes.required">
+    <xed:bind xpath="mods:name[@type='corporate'][@authorityURI=$mir_institutes/label[@xml:lang='x-uri']/@text]">
+      <xed:bind xpath="mods:role/mods:roleTerm[@authority='marcrelator'][@type='code']" initially="his" /><!--  Host institution [his] -->
+      <xed:bind xpath="@valueURIxEditor">
+      <div class="form-group row required {$xed-validation-marker}">
+        <label class="col-md-3 col-form-label text-right">
+          <xed:output i18n="mir.institution" />
+          :
+        </label>
+        <div class="col-md-6">
+          <xed:load-resource name="mir_institutes" uri="classification:metadata:-1:children:mir_institutes" />
+          <select class="form-control form-control-inline mir-form__js-select--large">
+            <option value="">
+              <xed:output i18n="mir.select.optional" />
+            </option>
+            <xed:include uri="xslStyle:items2options:classification:editor:-1:children:mir_institutes" />
+          </select>
+        </div>
+        <mir:help-pmud help-text="{i18n:mir.help.institutes}" />
+      </div>
+      </xed:bind>
+    </xed:bind>
   </xed:template>
 
   <xed:template id="institutes.required">
