@@ -19,16 +19,16 @@
       </category>
       <category ID="preface">
         <label xml:lang="de" text="Vorwort / Nachwort" />
-        <label xml:lang="x-mapping" text="marcgt:article diniPublType:bookPart" />
         <label xml:lang="x-hosts" text="journal collection festschrift proceedings book" />
+        <label xml:lang="x-mapping" text="marcgt:article diniPublType:bookPart" />
         <label xml:lang="it" text="Prefazione / Epilogo" />
         <label xml:lang="en" text="Preface (foreword) / Postface" />
       </category>
       <category ID="speech">
         <label xml:lang="en" text="Lecture / Speech" />
         <label xml:lang="it" text="Conferenza" />
-        <label xml:lang="x-mapping" text="marcgt:article diniPublType:other" />
         <label xml:lang="de" text="Vortrag" />
+        <label xml:lang="x-mapping" text="marcgt:article diniPublType:other" />
         <label xml:lang="x-hosts" text="proceedings standalone" />
       </category>
       <category ID="review">
@@ -72,34 +72,6 @@
       <label xml:lang="en" text="Report" />
       <label xml:lang="x-hosts" text="standalone series" />
       <label xml:lang="it" text="Rapporto" />
-      <category ID="research_results">
-        <label xml:lang="x-hosts" text="standalone" />
-        <label xml:lang="x-mapping" text="marcgt:reporting diniPublType:report" />
-        <label xml:lang="en" text="Research Results" />
-        <label xml:lang="de" text="Forschungsergebnisse" />
-        <label xml:lang="it" text="Risultati della ricerca" />
-      </category>
-      <category ID="in_house">
-        <label xml:lang="x-hosts" text="standalone" />
-        <label xml:lang="x-mapping" text="marcgt:reporting diniPublType:report" />
-        <label xml:lang="en" text="In house" />
-        <label xml:lang="it" text="In-house pubblicazione" />
-        <label xml:lang="de" text="Hausinterne Veröffentlichung" />
-      </category>
-      <category ID="press_release">
-        <label xml:lang="x-hosts" text="standalone" />
-        <label xml:lang="it" text="Comunicato stampa" />
-        <label xml:lang="x-mapping" text="marcgt:reporting diniPublType:report" />
-        <label xml:lang="de" text="Presseerklärung" />
-        <label xml:lang="en" text="Press release" />
-      </category>
-      <category ID="declaration">
-        <label xml:lang="x-hosts" text="standalone" />
-        <label xml:lang="x-mapping" text="marcgt:reporting diniPublType:report" />
-        <label xml:lang="de" text="Fachliche Stellungnahme" />
-        <label xml:lang="en" text="Professional declaration" />
-        <label xml:lang="it" text="Parere di esperti" />
-      </category>
     </category>
     <category ID="book">
       <label xml:lang="it" text="Libro" />
@@ -110,8 +82,8 @@
     </category>
     <category ID="journal">
       <label xml:lang="x-hosts" text="standalone" />
-      <label xml:lang="en" text="Journal" />
       <label xml:lang="de" text="Zeitschrift" />
+      <label xml:lang="en" text="Journal" />
       <label xml:lang="it" text="Rivista" />
       <label xml:lang="x-mapping" text="marcgt:journal diniPublType:Periodical" />
     </category>
