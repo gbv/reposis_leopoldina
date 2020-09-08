@@ -118,7 +118,7 @@
     <category ID="issue">
       <label xml:lang="en" text="Issue" />
       <label xml:lang="de" text="Zeitschriftenband" />
-      <label xml:lang="x-hosts" text="journal standalone" />
+      <label xml:lang="x-hosts" text="journal" />
       <label xml:lang="x-mapping" text="marcgt:issue diniPublType:PeriodicalPart" />
     </category>
     <category ID="series">

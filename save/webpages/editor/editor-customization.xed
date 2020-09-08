@@ -7,6 +7,9 @@
     <xed:remove  ref="comment.complex" />
     <xed:include ref="lp.class.series"             before="subject.complex" />
     <xed:include ref="lp.comment.complex"          after="abstract.repeated" />
+    <xed:remove  ref="institutes" />
+    <xed:include ref="institutes.required"          after="rights"/>
+    <xed:include ref="validate.institutes.required" after="rights" />
   </xed:modify>
   
   <xed:modify ref="genres.publication.common">
@@ -153,6 +156,46 @@
       </xed:repeat>
     </fieldset>
   </xed:template>
+
+  <xed:template id="institutes.required">
+    <xed:bind xpath="mods:name[@type='corporate'][@authorityURI=$mir_institutes/label[@xml:lang='x-uri']/@text]">
+      <xed:bind xpath="mods:role/mods:roleTerm[@authority='marcrelator'][@type='code']" initially="his" /><!--  Host institution [his] -->
+      <xed:bind xpath="@valueURIxEditor">
+      <div class="form-group row required {$xed-validation-marker}">
+        <label class="col-md-3 col-form-label text-right">
+          <xed:output i18n="mir.institution" />
+          :
+        </label>
+        <div class="col-md-6">
+          <xed:load-resource name="mir_institutes" uri="classification:metadata:-1:children:mir_institutes" />
+          <select class="form-control form-control-inline mir-form__js-select--large">
+            <option value="">
+              <xed:output i18n="mir.select.optional" />
+            </option>
+            <xed:include uri="xslStyle:items2options:classification:editor:-1:children:mir_institutes" />
+          </select>
+        </div>
+        <mir:help-pmud help-text="{i18n:mir.help.institutes}" />
+      </div>
+      </xed:bind>
+    </xed:bind>
+  </xed:template>
+  
+  <xed:template id="genres.issue">
+    <xed:include ref="title.original" />
+    <xed:include ref="editor.repeated" />
+    <xed:include ref="place" />
+    <xed:include ref="publisher" />
+    <xed:include ref="year.issued" />
+    <xed:include ref="extent" />
+    <xed:include ref="identifier.issn" />
+    <xed:include ref="language.simple" />
+    <xed:include ref="lp.class.series" />
+    <xed:include ref="abstract.simple" />
+    <xed:include ref="rights" />
+    <xed:include ref="comment" />
+  </xed:template>
+
 
 </xed:template>
 
