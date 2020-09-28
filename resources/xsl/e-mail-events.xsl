@@ -57,7 +57,7 @@
           <xsl:value-of select="$newline" />
           <xsl:apply-templates select="." mode="output" />
           <xsl:value-of select="$newline" />
-          <xsl:apply-templates select="document('user:current')/user" mode="output" />
+          <xsl:apply-templates select="document(concat('user:',service/servflags[@class='MCRMetaLangText']/servflag[@type='createdby']))/user" mode="output" />
         </body>
       </xsl:when>
       <xsl:when test="(mcrxsl:isCurrentUserInRole('editor') or mcrxsl:isCurrentUserInRole('admin')) and ($action='update') and service/servstates/servstate[@classid='state']/@categid='new'">
@@ -86,7 +86,24 @@
           <xsl:value-of select="$newline" />
           <xsl:apply-templates select="." mode="output" />
           <xsl:value-of select="$newline" />
-          <xsl:apply-templates select="document('user:current')/user" mode="output" />
+          <xsl:apply-templates select="document(concat('user:',service/servflags[@class='MCRMetaLangText']/servflag[@type='createdby']))/user" mode="output" />
+          <xsl:variable name="version" select="document(concat('versioninfo:', @ID))/versions/version[1]/@r" />
+          <xsl:variable name="objectURL">
+            <xsl:value-of select="$WebApplicationBaseURL"/>
+            <xsl:text>receive/</xsl:text>
+            <xsl:value-of select="@ID"/>
+            <xsl:text>?r=</xsl:text>
+            <xsl:value-of select="$version" />
+            <xsl:text> </xsl:text>
+          </xsl:variable>
+          <xsl:value-of select="$newline" />
+          <xsl:text>Diese Nachricht bezieht sich auf folgende Version des Dokuments:</xsl:text>
+          <xsl:value-of select="$objectURL" />
+          <xsl:if test="./metadata/def.modsContainer/modsContainer/mods:mods/mods:note[@type='editor2author']">
+            <xsl:value-of select="$newline" />
+            <xsl:value-of select="'Die Leopoldina-Bibliothek macht dazu folgende Anmerkung:'" />
+            <xsl:value-of select="./metadata/def.modsContainer/modsContainer/mods:mods/mods:note[@type='editor2author']"/>
+          </xsl:if>
         </body>
       </xsl:when>
       <xsl:when test="(mcrxsl:isCurrentUserInRole('editor') or mcrxsl:isCurrentUserInRole('admin')) and ($action='update') and service/servstates/servstate[@classid='state']/@categid='published'">
@@ -111,11 +128,13 @@
           <xsl:value-of select="concat($objectType,' wurde veröffentlicht: ',@ID)" />
         </subject>
         <body>
-          <xsl:value-of select="'Die Publikation ist nun auf dem Publikationsserver der Leopoldina veröffentlicht worden.'" />
+          <xsl:value-of select="'Folgende Publikation ist nun auf dem Publikationsserver der Leopoldina veröffentlicht worden:'" />
           <xsl:value-of select="$newline" />
           <xsl:apply-templates select="." mode="output" />
           <xsl:value-of select="$newline" />
           <xsl:apply-templates select="document('user:current')/user" mode="output" />
+          <xsl:value-of select="$newline" />
+          <xsl:text>Falls eine Embargo-Frist angegeben wurde, wird die Publikation erst nach deren Ablauf öffentlich sichtbar.</xsl:text>
         </body>
       </xsl:when>
       <xsl:otherwise>
@@ -147,7 +166,7 @@
         </xsl:if>
       </xsl:for-each>
     </xsl:variable>
-    <xsl:value-of select="concat('Benutzerkennung : ',@name,' (',@realm,')',$newline)" />
+    <xsl:value-of select="concat('Eingereicht von : ',@name,' (',@realm,')',$newline)" />
     <xsl:value-of select="concat('Name            : ',realName,$newline)" />
     <xsl:value-of select="concat('Institut        : ',$instNames,$newline)" />
     <xsl:value-of select="concat('E-Mail          : ',eMail,$newline)" />
