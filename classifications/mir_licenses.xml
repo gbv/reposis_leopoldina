@@ -44,10 +44,18 @@
         <url xlink:href="https://creativecommons.org/licenses/by-nc-nd/4.0/" xlink:type="locator" />
       </category>
     </category>
-    <category ID="cc_zero_1.0">
-      <label xml:lang="de" text="CC 0" description="Kein Urheberrechtsschutz" />
-      <label xml:lang="en" text="CC 0" description="no Copyright" />
-      <url xlink:href="https://creativecommons.org/publicdomain/zero/1.0/" xlink:type="locator" />
+    <category ID="cc_pd_1.0">
+      <label xml:lang="x-group" text="true" />
+      <label xml:lang="de" text="Public Domain" />
+      <url xlink:href="https://creativecommons.org/share-your-work/public-domain/" xlink:type="locator" />
+      <category ID="cc_zero_1.0">
+        <label xml:lang="de" text="CC0 1.0 Universell" description="CC0 1.0 Universal (CC0 1.0) Public Domain Dedication " />
+        <url xlink:href="https://creativecommons.org/publicdomain/zero/1.0/" xlink:type="locator" />
+      </category>
+      <category ID="cc_mark_1.0">
+        <label xml:lang="de" text="Public Domain Mark 1.0" description="No Known Copyright" />
+        <url xlink:href="https://creativecommons.org/share-your-work/public-domain/pdm/" xlink:type="locator" />
+      </category>
     </category>
   </categories>
 </mycoreclass>
