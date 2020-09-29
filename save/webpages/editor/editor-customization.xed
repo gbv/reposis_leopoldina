@@ -27,7 +27,26 @@
     <xed:include ref="abstract.simple" />
     <xed:include ref="rights" />
     <xed:include ref="institutes.required" />
+    <xed:include ref="validate.institutes.required" />
     <xed:include ref="comment" />
+  </xed:template>
+
+  <xed:template id="hosts.issue">
+      <xed:bind xpath="mods:relatedItem[@type='host']">
+        <xed:bind xpath="@xlink:href" initially="{$MIR.projectid.default}_mods_00000000"> <input id="relItem-journal" type="hidden" /> </xed:bind>
+        <xed:include ref="title.issue.relItemsearch" />
+        <xed:include ref="identifier.issn.issue.relItemsearch" />
+        <xed:include ref="host.pages" />
+      </xed:bind>
+  </xed:template>
+  
+  <xed:template id="title.issue.relItemsearch">
+    <mir:relItemsearch searchengine="title" genre="issue" responsefield="mods.title" xpath="mods:titleInfo/mods:title" label="mir.title"
+      class="required" />
+  </xed:template>
+  <xed:template id="identifier.issn.issue.relItemsearch">
+    <mir:relItemsearch searchengine="issn" genre="issue" responsefield="identifier.type.issn" xpath="mods:identifier[@type='issn']" label="mir.identifier.issn"
+      help-text="{i18n:mir.help.identifier.issn}" />
   </xed:template>
 
   <xed:modify ref="genres.publication.common">
@@ -217,46 +236,22 @@
     <xed:bind xpath="mods:name[@type='corporate'][@authorityURI=$mir_institutes/label[@xml:lang='x-uri']/@text]">
       <xed:bind xpath="mods:role/mods:roleTerm[@authority='marcrelator'][@type='code']" initially="his" /><!--  Host institution [his] -->
       <xed:bind xpath="@valueURIxEditor">
-      <div class="form-group row required {$xed-validation-marker}">
-        <label class="col-md-3 col-form-label text-right">
-          <xed:output i18n="mir.institution" />
-          :
-        </label>
-        <div class="col-md-6">
-          <xed:load-resource name="mir_institutes" uri="classification:metadata:-1:children:mir_institutes" />
-          <select class="form-control form-control-inline mir-form__js-select--large">
-            <option value="">
-              <xed:output i18n="mir.select.optional" />
-            </option>
-            <xed:include uri="xslStyle:items2options:classification:editor:-1:children:mir_institutes" />
-          </select>
+        <div class="form-group row required {$xed-validation-marker}">
+          <label class="col-md-3 col-form-label text-right">
+            <xed:output i18n="mir.institution" />
+            :
+          </label>
+          <div class="col-md-6">
+            <xed:load-resource name="mir_institutes" uri="classification:metadata:-1:children:mir_institutes" />
+            <select class="form-control form-control-inline mir-form__js-select--large">
+              <option value="">
+                <xed:output i18n="mir.select.optional" />
+              </option>
+              <xed:include uri="xslStyle:items2options:classification:editor:-1:children:mir_institutes" />
+            </select>
+          </div>
+          <mir:help-pmud help-text="{i18n:mir.help.institutes}" />
         </div>
-        <mir:help-pmud help-text="{i18n:mir.help.institutes}" />
-      </div>
-      </xed:bind>
-    </xed:bind>
-  </xed:template>
-
-  <xed:template id="institutes.required">
-    <xed:bind xpath="mods:name[@type='corporate'][@authorityURI=$mir_institutes/label[@xml:lang='x-uri']/@text]">
-      <xed:bind xpath="mods:role/mods:roleTerm[@authority='marcrelator'][@type='code']" initially="his" /><!--  Host institution [his] -->
-      <xed:bind xpath="@valueURIxEditor">
-      <div class="form-group row required {$xed-validation-marker}">
-        <label class="col-md-3 col-form-label text-right">
-          <xed:output i18n="mir.institution" />
-          :
-        </label>
-        <div class="col-md-6">
-          <xed:load-resource name="mir_institutes" uri="classification:metadata:-1:children:mir_institutes" />
-          <select class="form-control form-control-inline mir-form__js-select--large">
-            <option value="">
-              <xed:output i18n="mir.select.optional" />
-            </option>
-            <xed:include uri="xslStyle:items2options:classification:editor:-1:children:mir_institutes" />
-          </select>
-        </div>
-        <mir:help-pmud help-text="{i18n:mir.help.institutes}" />
-      </div>
       </xed:bind>
     </xed:bind>
   </xed:template>
