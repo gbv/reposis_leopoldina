@@ -11,7 +11,23 @@
     <xed:include ref="institutes.required"          after="rights"/>
     <xed:include ref="validate.institutes.required" after="rights" />
   </xed:modify>
-  
+
+  <xed:template id="genres.issue">
+    <xed:include ref="title.original" />
+    <xed:include ref="editor.repeated" />
+    <xed:include ref="place" />
+    <xed:include ref="publisher" />
+    <xed:include ref="year.issued" />
+    <xed:include ref="extent" />
+    <xed:include ref="identifier.issn" />
+    <xed:include ref="language" />
+    <xed:include ref="lp.class.series" />
+    <xed:include ref="abstract.simple" />
+    <xed:include ref="rights" />
+    <xed:include ref="institutes.required" />
+    <xed:include ref="comment" />
+  </xed:template>
+
   <xed:modify ref="genres.publication.common">
     <xed:remove  ref="sdnb.repeat" />
     <xed:remove  ref="doi.handle.urn.repeated" />
@@ -242,22 +258,6 @@
       </xed:bind>
     </xed:bind>
   </xed:template>
-  
-  <xed:template id="genres.issue">
-    <xed:include ref="title.original" />
-    <xed:include ref="editor.repeated" />
-    <xed:include ref="place" />
-    <xed:include ref="publisher" />
-    <xed:include ref="year.issued" />
-    <xed:include ref="extent" />
-    <xed:include ref="identifier.issn" />
-    <xed:include ref="language.simple" />
-    <xed:include ref="lp.class.series" />
-    <xed:include ref="abstract.simple" />
-    <xed:include ref="rights" />
-    <xed:include ref="comment" />
-  </xed:template>
-
 
 </xed:template>
 
