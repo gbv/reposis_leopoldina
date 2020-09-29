@@ -17,8 +17,10 @@
     <xed:include ref="editor.repeated" />
     <xed:include ref="place" />
     <xed:include ref="publisher" />
-    <xed:include ref="year.issued" />
-    <xed:include ref="extent" />
+    <xed:if test="$host='standalone'">
+      <xed:include ref="year.issued" />
+      <xed:include ref="extent" />
+    </xed:if>
     <xed:include ref="identifier.issn" />
     <xed:include ref="language" />
     <xed:include ref="lp.class.series" />
