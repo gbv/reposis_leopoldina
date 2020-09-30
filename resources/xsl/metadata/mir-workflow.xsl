@@ -86,6 +86,12 @@
       </xsl:variable>
       <xsl:variable name="message">
         <p>
+          <xsl:if test="metadata/def.modsContainer/modsContainer/mods:mods/mods:note[@type='editor2author']">
+            <xsl:value-of select="'Ihre Einreichung wurde von der Leopoldina-Bibliothek mit folgender Anmerkung zurückgewiesen:'" /><br />
+            <xsl:value-of select="metadata/def.modsContainer/modsContainer/mods:mods/mods:note[@type='editor2author']"/>
+          </xsl:if>
+        </p>
+        <p>
           <xsl:value-of select="i18n:translate('mir.workflow.creator.new')"/>
           <ul>
             <li>
@@ -228,6 +234,12 @@
             <xsl:with-param name="class" select="''"/>
           </xsl:call-template>
         </ul>
+      </p>
+      <p>
+        <xsl:if test="//metadata/def.modsContainer/modsContainer/mods:mods/mods:note[@type='author2editor']">
+          <xsl:value-of select="'Der / Die Einreichende macht dazu folgende Anmerkung:'" /><br />
+          <xsl:value-of select="//metadata/def.modsContainer/modsContainer/mods:mods/mods:note[@type='author2editor']"/>
+        </xsl:if>
       </p>
     </xsl:variable>
     <xsl:call-template name="buildLayout">
