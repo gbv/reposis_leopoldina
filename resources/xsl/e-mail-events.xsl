@@ -200,10 +200,12 @@
       </xsl:for-each>
     </xsl:if>
     <xsl:if test="$MCR.mir-module.sendEditorMailToCurrentAuthor = 'true'">
-      <to>
-        <xsl:variable  name="user" select="document(concat('user:',service/servflags[@class='MCRMetaLangText']/servflag[@type='createdby']))" />
-        <xsl:value-of select="$user/user/eMail"/>
-      </to>
+      <xsl:variable  name="user" select="document(concat('user:',service/servflags[@class='MCRMetaLangText']/servflag[@type='createdby']))" />
+      <xsl:if test="$user/user/eMail">
+        <to>
+          <xsl:value-of select="$user/user/eMail" />
+        </to>
+      </xsl:if>
     </xsl:if>
     <xsl:for-each select="$institutemember">
       <xsl:choose>
