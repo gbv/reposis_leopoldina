@@ -17,4 +17,9 @@ $(document).ready(function() {
     return true;
   });
 
+  // replace placeholder USERNAME with username
+  var userID = $("#currentUser strong").html();
+  var newHref = 'https://reposis-test.gbv.de/leopoldina/servlets/solr/select?q=createdby:' + userID + '&fq=objectType:mods';
+  $("a[href='https://reposis-test.gbv.de/leopoldina/servlets/solr/select?q=createdby:USERNAME']").attr('href', newHref);
+  
 });

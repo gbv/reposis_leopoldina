@@ -89,6 +89,10 @@
             <label xml:lang="de">Publizieren (PPN Import)</label>
             <label xml:lang="en">Publish (PPN Import)</label>
         </item>
+        <item href="/servlets/solr/select?q=createdby:USERNAME" type="intern" replaceMenu="false" constrainPopUp="false">
+            <label xml:lang="de">Meine Publikationen</label>
+            <label xml:lang="en">My documents</label>
+        </item>
         <item href="/content/publish/contract.xml" type="intern" replaceMenu="false" constrainPopUp="false">
             <label xml:lang="de">Vertragsbedingungen</label>
             <label xml:lang="en">Terms &amp; Conditions</label>
