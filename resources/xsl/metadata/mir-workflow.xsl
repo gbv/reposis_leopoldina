@@ -2,7 +2,8 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:i18n="xalan://org.mycore.services.i18n.MCRTranslation"
                 xmlns:exslt="http://exslt.org/common"
-                version="1.0" exclude-result-prefixes="i18n exslt">
+                xmlns:mods="http://www.loc.gov/mods/v3"
+                version="1.0" exclude-result-prefixes="i18n exslt mods">
 
   <xsl:import href="xslImport:modsmeta:metadata/mir-workflow.xsl"/>
   <xsl:import href="xslImport:mirworkflow:metadata/mir-workflow.xsl"/>
@@ -88,7 +89,9 @@
         <p>
           <xsl:if test="metadata/def.modsContainer/modsContainer/mods:mods/mods:note[@type='editor2author']">
             <xsl:value-of select="'Ihre Einreichung wurde von der Leopoldina-Bibliothek mit folgender Anmerkung zurückgewiesen:'" /><br />
-            <xsl:value-of select="metadata/def.modsContainer/modsContainer/mods:mods/mods:note[@type='editor2author']"/>
+            <span class="pl-4">
+              <xsl:value-of select="metadata/def.modsContainer/modsContainer/mods:mods/mods:note[@type='editor2author']"/>
+            </span>
           </xsl:if>
         </p>
         <p>
@@ -238,7 +241,9 @@
       <p>
         <xsl:if test="//metadata/def.modsContainer/modsContainer/mods:mods/mods:note[@type='author2editor']">
           <xsl:value-of select="'Der / Die Einreichende macht dazu folgende Anmerkung:'" /><br />
-          <xsl:value-of select="//metadata/def.modsContainer/modsContainer/mods:mods/mods:note[@type='author2editor']"/>
+          <span class="pl-4">
+            <xsl:value-of select="//metadata/def.modsContainer/modsContainer/mods:mods/mods:note[@type='author2editor']"/>
+          </span>
         </xsl:if>
       </p>
     </xsl:variable>
