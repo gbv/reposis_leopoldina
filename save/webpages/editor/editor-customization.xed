@@ -28,7 +28,7 @@
     <xed:include ref="rights" />
     <xed:include ref="institutes.required" />
     <xed:include ref="validate.institutes.required" />
-    <xed:include ref="comment" />
+    <xed:include ref="lp.comment.byRole" />
   </xed:template>
 
   <xed:template id="hosts.issue">
@@ -231,7 +231,31 @@
       </xed:repeat>
     </fieldset>
   </xed:template>
+
+  <xed:template id="lp.comment.editor2author">
+    <mir:textarea xpath="mods:note[@type='editor2author']" label="mir.comment" help-text="{i18n:mir.help.comment}" rows="2" />
+  </xed:template>
+
+  <xed:template id="lp.comment.author2editor">
+    <mir:textarea xpath="mods:note[@type='author2editor']" label="mir.comment" help-text="{i18n:mir.help.comment}" rows="2" />
+  </xed:template>
+
+  <xed:template id="lp.comment.admin">
+    <mir:textarea xpath="mods:note[@type='admin']" label="mir.comment" help-text="{i18n:mir.help.comment}" rows="2" />
+  </xed:template>
   
+  <xed:template id="lp.comment.byRole">
+    <xed:if test="xed:call-java('org.mycore.common.xml.MCRXMLFunctions','isCurrentUserInRole','submitter')">
+      <xed:include ref="lp.comment.author2editor" />
+    </xed:if>
+    <xed:if test="xed:call-java('org.mycore.common.xml.MCRXMLFunctions','isCurrentUserInRole','editor')">
+      <xed:include ref="lp.comment.author2editor" />
+    </xed:if>
+    <xed:if test="xed:call-java('org.mycore.common.xml.MCRXMLFunctions','isCurrentUserInRole','editor') or xed:call-java('org.mycore.common.xml.MCRXMLFunctions','isCurrentUserInRole','admin')">
+      <xed:include ref="lp.comment.admin" />
+    </xed:if>
+  </xed:template>
+
   <xed:template id="institutes.required">
     <xed:load-resource name="mir_institutes" uri="classification:metadata:-1:children:mir_institutes" />
     <xed:bind xpath="mods:name[@type='corporate'][@authorityURI=$mir_institutes/label[@xml:lang='x-uri']/@text]">

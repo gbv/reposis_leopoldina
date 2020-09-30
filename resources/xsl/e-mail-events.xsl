@@ -58,6 +58,12 @@
           <xsl:apply-templates select="." mode="output" />
           <xsl:value-of select="$newline" />
           <xsl:apply-templates select="document(concat('user:',service/servflags[@class='MCRMetaLangText']/servflag[@type='createdby']))/user" mode="output" />
+          <xsl:if test="./metadata/def.modsContainer/modsContainer/mods:mods/mods:note[@type='author2editor']">
+            <xsl:value-of select="$newline" />
+            <xsl:value-of select="$newline" />
+            <xsl:value-of select="'Der / Die Einreichende macht dazu folgende Anmerkung:'" />
+            <xsl:value-of select="./metadata/def.modsContainer/modsContainer/mods:mods/mods:note[@type='author2editor']"/>
+          </xsl:if>
         </body>
       </xsl:when>
       <xsl:when test="(mcrxsl:isCurrentUserInRole('editor') or mcrxsl:isCurrentUserInRole('admin')) and ($action='update') and service/servstates/servstate[@classid='state']/@categid='new'">
@@ -82,7 +88,7 @@
           <xsl:value-of select="concat($objectType,' zurück an Autor: ',@ID)" />
         </subject>
         <body>
-          <xsl:value-of select="'Es sind Korrekturen nötig, genauere Informationen folgen (ToDo):'" />
+          <xsl:value-of select="'Es sind Korrekturen nötig, genauere Informationen folgen:'" /><!-- ToDo -->
           <xsl:value-of select="$newline" />
           <xsl:apply-templates select="." mode="output" />
           <xsl:value-of select="$newline" />

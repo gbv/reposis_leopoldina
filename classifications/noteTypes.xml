@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mycoreclass xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="noteTypes">
+    <label xml:lang="de" text="Kommentartyp" />
+    <label xml:lang="en" text="Type of note" />
+    <label xml:lang="x-uri" text="http://www.mycore.org/classifications/noteTypes" />
+    <url xlink:href="http://www.loc.gov/standards/mods/mods-notes.html" xlink:type="locator" />
+    <categories>
+        <category ID="editor2author">
+            <label xml:lang="en" text="message to author" />
+            <label xml:lang="de" text="Hinweis an Einreichenden" />
+            <label xml:lang="x-access" text="submitter editor admin" />
+        </category>
+        <category ID="author2editor">
+            <label xml:lang="en" text="message to editor" />
+            <label xml:lang="de" text="Hinweis an die Bibliothek" />
+            <label xml:lang="x-access" text="submitter editor admin" />
+        </category>
+        <category ID="admin">
+            <label xml:lang="en" text="intern comment" />
+            <label xml:lang="de" text="interner Kommentar" />
+            <label xml:lang="x-access" text="editor admin" />
+        </category>
+    </categories>
+</mycoreclass>
