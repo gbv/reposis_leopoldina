@@ -56,6 +56,8 @@
     <xed:include ref="institutes.required"          after="rights"/>
     <xed:include ref="validate.institutes.required" after="rights" />
     <xed:include ref="embargo.datetimepicker"       after="rights" />
+    <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:remove  ref="comment" />
   </xed:modify>
 
   <xed:modify ref="genres.book.common">
@@ -65,6 +67,8 @@
     <xed:include ref="institutes.required"          after="rights"/>
     <xed:include ref="validate.institutes.required" after="rights" />
     <xed:include ref="lp.class.series"              before="subject.simple" />
+    <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:remove  ref="comment" />
   </xed:modify>
 
   <xed:modify ref="genres.thesis.common">
@@ -73,29 +77,36 @@
     <xed:remove  ref="institutes" />
     <xed:include ref="institutes.required"          after="rights"/>
     <xed:include ref="validate.institutes.required" after="rights" />
+    <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:remove  ref="comment" />
   </xed:modify>
 
   <xed:modify ref="genres.teaching_material">
     <xed:remove  ref="sdnb.repeat" />
     <xed:remove  ref="institutes" />
-    <xed:include ref="institutes.required"          after="rights"/>
+    <xed:include ref="institutes.required"          after="rights" />
     <xed:include ref="validate.institutes.required" after="rights" />
+    <xed:include ref="lp.comment.byRole"            after="institutes.required" />
   </xed:modify>
 
   <xed:modify ref="genres.entry">
     <xed:remove  ref="sdnb.repeat" />
     <xed:remove  ref="doi.handle.urn.repeated" />
     <xed:remove  ref="institutes" />
-    <xed:include ref="institutes.required"          after="rights"/>
+    <xed:include ref="institutes.required"          after="rights" />
     <xed:include ref="validate.institutes.required" after="rights" />
+    <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:remove  ref="comment" />
   </xed:modify>
 
   <xed:modify ref="genres.preface">
     <xed:remove  ref="sdnb.repeat" />
     <xed:remove  ref="doi.handle.urn.repeated" />
     <xed:remove  ref="institutes" />
-    <xed:include ref="institutes.required"          after="rights"/>
+    <xed:include ref="institutes.required"          after="rights" />
     <xed:include ref="validate.institutes.required" after="rights" />
+    <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:remove  ref="comment" />
   </xed:modify>
 
   <xed:modify ref="genres.interview">
@@ -105,6 +116,8 @@
     <xed:remove  ref="institutes" />
     <xed:include ref="institutes.required"          after="rights"/>
     <xed:include ref="validate.institutes.required" after="rights" />
+    <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:remove  ref="comment" />
   </xed:modify>
 
   <xed:modify ref="genres.speech">
@@ -112,8 +125,10 @@
     <xed:remove  ref="doi.handle.urn.repeated" />
     <xed:include ref="embargo.datetimepicker"      after="rights" />
     <xed:remove  ref="institutes" />
-    <xed:include ref="institutes.required"          after="rights"/>
+    <xed:include ref="institutes.required"          after="rights" />
     <xed:include ref="validate.institutes.required" after="rights" />
+    <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:remove  ref="comment" />
   </xed:modify>
 
    <xed:modify ref="genres.patent">
@@ -127,23 +142,29 @@
     <xed:remove  ref="sdnb.repeat" />
     <xed:include ref="embargo.datetimepicker"      after="rights" />
     <xed:remove  ref="institutes" />
-    <xed:include ref="institutes.required"          after="rights"/>
+    <xed:include ref="institutes.required"          after="rights" />
     <xed:include ref="validate.institutes.required" after="rights" />
+    <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:remove  ref="comment" />
   </xed:modify>
 
    <xed:modify ref="genres.research_data">
     <xed:remove  ref="sdnb.repeat" />
     <xed:remove  ref="doi.handle.urn.repeated" />
     <xed:remove  ref="institutes" />
-    <xed:include ref="institutes.required"          after="rights"/>
+    <xed:include ref="institutes.required"          after="rights" />
     <xed:include ref="validate.institutes.required" after="rights" />
+    <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:remove  ref="comment" />
   </xed:modify>
 
    <xed:modify ref="genres.lecture">
     <xed:remove  ref="sdnb.repeat" />
     <xed:remove  ref="institutes" />
-    <xed:include ref="institutes.required"          after="rights"/>
+    <xed:include ref="institutes.required"          after="rights" />
     <xed:include ref="validate.institutes.required" after="rights" />
+    <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:remove  ref="comment" />
   </xed:modify>
 
    <xed:modify ref="genres.picture">
@@ -151,31 +172,37 @@
     <xed:remove  ref="doi.handle.urn.repeated" />
     <xed:include ref="embargo.datetimepicker"      after="rights" />
     <xed:remove  ref="institutes" />
-    <xed:include ref="institutes.required"          after="rights"/>
+    <xed:include ref="institutes.required"          after="rights" />
     <xed:include ref="validate.institutes.required" after="rights" />
+    <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:remove  ref="comment" />
   </xed:modify>
 
   <xed:modify ref="genres.report.common">
     <xed:remove  ref="sdnb.repeat" />
     <xed:remove  ref="doi.handle.urn.repeated" />
-    <xed:include ref="identifier.isbn"             before="identifier.managed" />
-    <xed:include ref="embargo.datetimepicker"      after="rights" />
-    <xed:include ref="lp.class.series"             before="subject.simple" />
-    <xed:include ref="extent"                      before="language" />
+    <xed:include ref="identifier.isbn"              before="identifier.managed" />
+    <xed:include ref="embargo.datetimepicker"       after="rights" />
+    <xed:include ref="lp.class.series"              before="subject.simple" />
+    <xed:include ref="extent"                       before="language" />
     <xed:remove  ref="institutes" />
     <xed:include ref="institutes.required"          after="rights"/>
     <xed:include ref="validate.institutes.required" after="rights" />
+    <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:remove  ref="comment" />
   </xed:modify>
   
   <xed:modify ref="genres.av.common">
     <xed:remove  ref="sdnb.repeat" />
     <xed:remove  ref="geographic" />
     <xed:remove  ref="cartographics" />
-    <xed:include ref="embargo.datetimepicker"      after="rights" />
-    <xed:include ref="lp.class.series"             before="subject.simple" />
+    <xed:include ref="embargo.datetimepicker"       after="rights" />
+    <xed:include ref="lp.class.series"              before="subject.simple" />
     <xed:remove  ref="institutes" />
     <xed:include ref="institutes.required"          after="rights"/>
     <xed:include ref="validate.institutes.required" after="rights" />
+    <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:remove  ref="comment" />
   </xed:modify>
 
   <!-- ========== validation ========== -->
@@ -233,11 +260,11 @@
   </xed:template>
 
   <xed:template id="lp.comment.editor2author">
-    <mir:textarea xpath="mods:note[@type='editor2author']" label="mir.comment" help-text="{i18n:mir.help.comment}" rows="2" />
+    <mir:textarea xpath="mods:note[@type='editor2author']" label="lp.comment.editor2author" help-text="{i18n:mir.help.comment}" rows="2" />
   </xed:template>
 
   <xed:template id="lp.comment.author2editor">
-    <mir:textarea xpath="mods:note[@type='author2editor']" label="mir.comment" help-text="{i18n:mir.help.comment}" rows="2" />
+    <mir:textarea xpath="mods:note[@type='author2editor']" label="lp.comment.author2editor" help-text="{i18n:mir.help.comment}" rows="2" />
   </xed:template>
 
   <xed:template id="lp.comment.admin">
