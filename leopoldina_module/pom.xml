@@ -14,7 +14,7 @@
     <parent>
         <groupId>org.mycore</groupId>
         <artifactId>mycore-parent</artifactId>
-        <version>42-SNAPSHOT</version>
+        <version>45</version>
     </parent>
     <repositories>
         <repository>
