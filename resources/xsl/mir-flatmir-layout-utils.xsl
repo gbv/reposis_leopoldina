@@ -38,8 +38,11 @@
       </div>
 
       <div class="searchBox">
+        <xsl:variable name="core">
+          <xsl:call-template name="getLayoutSearchSolrCore" />
+        </xsl:variable>
         <form
-          action="{$WebApplicationBaseURL}servlets/solr/find"
+          action="{$WebApplicationBaseURL}servlets/solr{$core}"
           class="searchfield_box form-inline my-2 my-lg-0"
           role="search">
           <input
@@ -172,6 +175,17 @@
       <noscript><p><img src="https://matomo.gbv.de/piwik.php?idsite={$piwikID}" style="border:0;" alt="" /></p></noscript>
     </xsl:if>
     <!-- End Piwik Code -->
+  </xsl:template>
+
+  <xsl:template name="getLayoutSearchSolrCore">
+    <xsl:choose>
+      <xsl:when test="mcrxsl:isCurrentUserInRole('editor') or mcrxsl:isCurrentUserInRole('admin') or mcrxsl:isCurrentUserInRole('submitter')">
+        <xsl:text>/find</xsl:text>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:text>/findPublic</xsl:text>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 
 </xsl:stylesheet>

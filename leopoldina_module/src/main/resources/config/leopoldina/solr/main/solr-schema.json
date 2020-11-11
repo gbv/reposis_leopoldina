@@ -1,0 +1,8 @@
+[
+  {
+    "add-field": {
+      "name": "mods.publish.date",
+      "type": "mods.date_range"
+    }
+  }
+]
