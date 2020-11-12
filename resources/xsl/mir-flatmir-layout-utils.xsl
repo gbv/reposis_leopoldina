@@ -11,6 +11,14 @@
 
   <xsl:template name="mir.navigation">
 
+    <div class="leo-top-nav">
+      <div class="container">
+        <a href="https://www.leopoldina.org/">
+          <span>Zur Homepage der Nationalen Akademie der Wissenschaften Leopoldina</span>
+        </a>
+      </div>
+    </div>
+
     <div id="header_box" class="clearfix container">
       <div id="options_nav_box" class="mir-prop-nav">
         <nav>
@@ -22,7 +30,7 @@
       </div>
       <div id="project_logo_box">
         <a
-          href="https://www.leopoldina.org"
+          href="{$WebApplicationBaseURL}"
           class="leo-logo__link">
           <img
             src="{$WebApplicationBaseURL}images/logo-leopoldina-blue-1024.jpg"
@@ -35,6 +43,7 @@
           <span id="logo_modul">Institutional</span>
           <span id="logo_slogan">Repository</span>
         </a>
+        <span style="color: #ebb32c;font-size: 26px;font-family: Georgia;/*! padding-top: 10px; */position: absolute;top: 26px;left: 285px;letter-spacing: 3px;">Publikationsserver</span>
       </div>
 
       <div class="searchBox">

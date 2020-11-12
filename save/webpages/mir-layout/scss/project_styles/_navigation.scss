@@ -6,6 +6,19 @@
 // set the defaults for all responsive levels here
 // no (xl) media query necessary (desktop first)
 
+.leo-top-nav {
+  background-color: $light-blue;
+  a {
+    font-size: 12px;
+    color: $leoLink;
+    padding-left: 12px;
+    background-image: url(../../../../images/link-arrow-2019.png);
+    background-size: 6px;
+    background-position: 0;
+    background-repeat: no-repeat;
+  }
+}
+
 .mir-main-nav {
   border-bottom: 7px solid $leoMenuBorder;
 }
