@@ -30,7 +30,7 @@
       </div>
       <div id="project_logo_box">
         <a
-          href="{$WebApplicationBaseURL}"
+          href="https://www.leopoldina.org/"
           class="leo-logo__link">
           <img
             src="{$WebApplicationBaseURL}images/logo-leopoldina-blue-1024.jpg"
@@ -38,12 +38,7 @@
             alt="" />
         </a>
         <a href="{concat($WebApplicationBaseURL,substring($loaded_navigation_xml/@hrefStartingPage,2),$HttpSession)}"
-           class="d-none">
-          <span id="logo_mir">Leopoldina</span>
-          <span id="logo_modul">Institutional</span>
-          <span id="logo_slogan">Repository</span>
-        </a>
-        <span style="color: #ebb32c;font-size: 26px;font-family: Georgia;/*! padding-top: 10px; */position: absolute;top: 26px;left: 285px;letter-spacing: 3px;">Publikationsserver</span>
+           class="project-logo">Digitale Bibliothek</a>
       </div>
 
       <div class="searchBox">

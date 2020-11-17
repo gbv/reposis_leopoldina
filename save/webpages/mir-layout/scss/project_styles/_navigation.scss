@@ -7,15 +7,17 @@
 // no (xl) media query necessary (desktop first)
 
 .leo-top-nav {
-  background-color: $light-blue;
+  //background-color: $light-blue;
+  text-align: right;
   a {
-    font-size: 12px;
+    font-size: 85%;
     color: $leoLink;
     padding-left: 12px;
     background-image: url(../../../../images/link-arrow-2019.png);
     background-size: 6px;
     background-position: 0;
     background-repeat: no-repeat;
+    margin-right: -15px;
   }
 }
 
