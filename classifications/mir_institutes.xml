@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mycoreclass xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="mir_institutes">
   <label xml:lang="de" text="Abteilungen und Kooperationspartner" description="Liste der Abteilungen und Kooperationspartner" />
-  <label xml:lang="x-uri" text="https://publications.leopoldina.org/api/v1/classifications/mir_institutes" />
+  <label xml:lang="x-uri" text="https://levana.leopoldina.org/api/v2/classifications/mir_institutes" />
   <label xml:lang="en" text="Institutions" description="A list of institutions" />
   <categories>
-    <category ID="01_presidents_office">
+    <category ID="01_leopoldina_presidents_office">
       <label xml:lang="de" text="Präsidialbüro" />
     </category>
-    <category ID="02_office">
+    <category ID="02_leopoldina_office">
       <label xml:lang="de" text="Generalsekretariat" />
     </category>
-    <category ID="03_science_politics_society">
+    <category ID="03_leopoldina_science_politics_society">
       <label xml:lang="de" text="Wissenschaft - Politik - Gesellschaft" />
     </category>
-    <category ID="04_international_relations">
+    <category ID="04_leopoldina_international_relations">
       <label xml:lang="de" text="Internationale Beziehungen" />
     </category>
-    <category ID="05_press_public_relations">
+    <category ID="05_leopoldina_press_public_relations">
       <label xml:lang="de" text="Presse- und Öffentlichkeitsarbeit" />
     </category>
-    <category ID="06_archive_and_library">
+    <category ID="06_leopoldina_archive_and_library">
       <label xml:lang="de" text="Archiv und Bibliothek" />
       <label xml:lang="en" text="Archive and Library" />
     </category>
-    <category ID="10_scientific_editor">
+    <category ID="10_leopoldina_scientific_editor">
       <label xml:lang="de" text="Wissenschaftliche Redaktion" />
     </category>
-    <category ID="11_young_academy">
+    <category ID="11_JA">
       <label xml:lang="de" text="Die Junge Akademie" />
     </category>
-    <category ID="12_lzfw">
+    <category ID="12_leopoldina_lzfw">
       <label xml:lang="de" text="Leopoldina-Zentrum für Wissenschaftsforschung" />
     </category>
-    <category ID="14_global_young_academy">
+    <category ID="14_GYA">
       <label xml:lang="de" text="Global Young Academy" />
     </category>
-    <category ID="16_circle_of_friends">
+    <category ID="16_leopoldina_circle_of_friends">
       <label xml:lang="de" text="Freundeskreis der Leopoldina" />
     </category>
-    <category ID="17_easac">
+    <category ID="17_leopoldina_easac">
       <label xml:lang="de" text="EASAC" />
     </category>
   </categories>

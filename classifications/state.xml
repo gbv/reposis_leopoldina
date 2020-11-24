@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mycoreclass xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="state">
+    <label xml:lang="de" text="Objektstatus" />
+    <label xml:lang="en" text="Object state" />
+    <label xml:lang="x-uri" text="https://levana.leopoldina.org/api/v2/classifications/state" />
+    <categories>
+        <category ID="new">
+            <label xml:lang="de" text="erstellt" description="Dokument angelegt bzw. gespeichert" />
+            <label xml:lang="en" text="created" />
+            <label xml:lang="x-next" text="submitted" />
+        </category>
+        <category ID="submitted">
+            <label xml:lang="de" text="eingereicht" description="Dokument zur Überprüfung" />
+            <label xml:lang="en" text="submitted" />
+            <label xml:lang="x-next" text="review" />
+        </category>
+        <category ID="review">
+            <label xml:lang="en" text="in review" />
+            <label xml:lang="de" text="in Bearbeitung" />
+            <label xml:lang="x-next" text="publishable,published,new" />
+        </category>
+        <category ID="publishable">
+            <label xml:lang="de" text="für Veröffentlichung vorgemerkt" />
+            <label xml:lang="en" text="marked for publication" />
+        </category>
+        <category ID="published">
+            <label xml:lang="x-next" text="blocked,deleted" />
+            <label xml:lang="en" text="published" />
+            <label xml:lang="de" text="veröffentlicht" />
+        </category>
+        <category ID="blocked">
+            <label xml:lang="x-next" text="published,deleted" />
+            <label xml:lang="en" text="blocked" />
+            <label xml:lang="de" text="gesperrt" />
+        </category>
+        <category ID="deleted">
+            <label xml:lang="x-next" text="published,blocked" />
+            <label xml:lang="en" text="deleted" />
+            <label xml:lang="de" text="gelöscht" />
+        </category>
+    </categories>
+</mycoreclass>
