@@ -16,6 +16,15 @@
 }
 #project_logo_box {
   float: none;
+  a.project-logo {
+    color: #ebb32c;
+    font-size: 26px;
+    font-family: Georgia;
+    position: absolute;
+    top: 26px;
+    left: 310px;
+    letter-spacing: 3px;
+  }
 }
 #options_nav_box {
   float: none;

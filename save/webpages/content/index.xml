@@ -6,7 +6,6 @@
       <div class="row">
         <div class="col-md-9 offset-md-2" lang="de">
           <h1>
-            Digitale Bibliothek<br />
             Der Publikations­server der Leopoldina
           </h1>
           <form action="../servlets/solr/find" id="leo-searchMainPage" class="form-inline" role="search">
