@@ -8,11 +8,11 @@
           <h1>
             Der Publikations­server der Leopoldina
           </h1>
-          <form action="../servlets/solr/find" id="leo-searchMainPage" class="form-inline" role="search">
+          <form action="../servlets/solr/findPublic" id="leo-searchMainPage" class="form-inline" role="search">
             <div class="input-group input-group-lg w-100">
               <input
                 name="condQuery"
-                placeholder="Suche in 16.000 Dokumenten"
+                placeholder="Suche in 160 Dokumenten"
                 class="form-control search-query"
                 id="leo-searchInput"
                 type="text" />
@@ -49,11 +49,11 @@
             Digitale Bibliothek<br />
             Der Publikations­server der Leopoldina
           </h1>
-          <form action="../servlets/solr/find" id="leo-searchMainPage" class="form-inline" role="search">
+          <form action="../servlets/solr/findPublic" id="leo-searchMainPage" class="form-inline" role="search">
             <div class="input-group input-group-lg w-100">
               <input
                 name="condQuery"
-                placeholder="Search in 16.000 documents"
+                placeholder="Search in 160 documents"
                 class="form-control search-query"
                 id="leo-searchInput"
                 type="text" />
@@ -83,7 +83,7 @@
   </section>
 
   <meta>
-    <log lastEditor="administrator" date="2020-04-24" time="10:15"/>
+    <log lastEditor="administrator" date="2020-11-25" time="10:15"/>
   </meta>
 
 </MyCoReWebPage>

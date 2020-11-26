@@ -1,11 +1,13 @@
 # MyCoRe files
 jwt.secret
+MCRWebCLI-unprocessed-commands.txt
 *.resolved.properties
 *.active.properties
 /mycore.properties
 resources/META-INF/persistence.xml
 data/
 lib/h2-1.4.196.jar
+lib/leopoldina_module-1.0-SNAPSHOT.jar
 
 .class
 

@@ -39,7 +39,7 @@
     <menu id="current" dir="/content/current">
         <label xml:lang="de">Neuste Publikationen</label>
         <label xml:lang="en">Latest publications</label>
-        <item href="/servlets/solr/find?XSL.Style=newest&amp;rows=5" type="intern" replaceMenu="false" constrainPopUp="false">
+        <item href="/servlets/solr/findPublic?XSL.Style=newest&amp;rows=5" type="intern" replaceMenu="false" constrainPopUp="false">
             <label xml:lang="de">Neuste Publikationen</label>
             <label xml:lang="en">Latest publications</label>
         </item>
