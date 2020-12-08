@@ -15,6 +15,11 @@
             <label xml:lang="en" text="message to editor" />
             <label xml:lang="x-access" text="submitter editor admin" />
         </category>
+        <category ID="content">
+            <label xml:lang="x-access" text="guest" />
+            <label xml:lang="de" text="öffentlicher Kommentar" />
+            <label xml:lang="en" text="public comment" />
+        </category>
         <category ID="admin">
             <label xml:lang="en" text="intern comment" />
             <label xml:lang="de" text="interner Kommentar" />
