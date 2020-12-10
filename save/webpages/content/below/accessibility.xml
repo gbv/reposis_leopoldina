@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col" lang="de">
 
-        <h2> Erklärung zur Barrierefreiheit <small class="text-muted">(Stand der Erklärung: 22.10.2020)</small>
+        <h2> Erklärung zur Barrierefreiheit <small class="text-muted">(Stand der Erklärung: 10.12.2020)</small>
         </h2>
         <p>
           Als öffentliche Stelle im Sinne der Richtlinie (EU) 2016/2102 ist die Deutsche Akademie der Naturforscher Leopoldina e.V. - Nationale Akademie der Wissenschaften - bemüht, ihre Websites und mobilen Anwendungen im Einklang mit den Bestimmungen des Behindertengleichstellungsgesetzes des Bundes (BGG) sowie der Barrierefreien-Informationstechnik-Verordnung (BITV 2.0) zur Umsetzung der Richtlinie (EU) 2016/2102 barrierefrei zugänglich zu machen.
@@ -55,7 +55,7 @@
           <dt>Im Webauftritt eingebundene Videos</dt>
           <dd class="ml-4">Die Bereitstellung der Videos mit einer Audiodeskription konnte bislang
             nicht realisiert werden.</dd>
-          
+          <!-- 
           <dt>Alternativtexte (1.1.1 a-c )</dt>
           <dd class="ml-4">An einigen Stellen fehlen die Alternativtexte. Bei einem nächsten Update werden diese ergänzt werden.</dd>
           
@@ -66,11 +66,11 @@
           <dt>Eingabefelder zu Nutzerdaten vermitteln den Zweck (1.3.5a)</dt>
           <dd class="ml-4">Formulare nutzen keine Autovervollständigung. Bei Formularen fehlen die „autocomplete“-Attribute, was das Ausfüllen der Formulare erschwert.
             Bei einem Update soll die Funktionalität künftig ergänzt werden.</dd>
-          
+           -->
           <dt>Kontraste von Texten ausreichend (1.4.3)</dt>
           <dd class="ml-4">Da das grundsätzliche Layout der Webseite vor dem Erscheinen der Richtlinie (EU) 2016/2102 erstellt wurde, ist das Kontrastverhältnis von 4,5:1 nicht grundsätzlich sichergestellt.
             An einer Lösung wird gearbeitet.</dd>
-          
+          <!--
           <dt>Aktuelle Position des Fokus deutlich (2.4.7a)</dt>
           <dd class="ml-4">Der Fokus ist bei der Bedienung mit der Tastatur nicht immer erkennbar.
             Die Anpassung des Fokus-Managements erfolgt bei der nächsten grundlegenden Überarbeitung der Website.</dd>
@@ -78,13 +78,21 @@
           <dt>Fehlererkennung (3.3.1a)</dt>
           <dd class="ml-4">Angaben in Formularen werden vor dem Abschicken nicht automatisch überprüft. 
             Bei der nächsten grundlegenden Überarbeitung der Website soll die Funktionalität künftig ergänzt werden.</dd>
-          
+           
           <dt>Statusmeldungen programmatisch verfügbar (4.1.3a)</dt>
           <dd class="ml-4">Es erfolgt weder visuell noch im Screenreader ein Hinweis das, das Dokument auf die Merkliste gesetzt wurde.
             Die entsprechende "Role" wird im Rahmen eines Updates ergänzt.</dd>
+           -->
         </dl>
-        <p>Die identifizierten technischen Defizite und Mängel befinden sich aktuell in einem kontinuierlichen Verbesserungsprozess,
+        <p>
+          Beim BITV-Test über die funktionale Teile und das Design sind unterschiedlichste technischen Defizite und Mängel
+          identifiziert worden, die eine barrierefreie Nutzung der Webseite erschweren. Diese sind in dem 
+          <a href="accessibility_test_mir.xml">Protokoll</a> vom Test aufgelistet und werden sukzessive behoben. 
+        </p>
+        
+        <!-- <p>Die identifizierten technischen Defizite und Mängel befinden sich aktuell in einem kontinuierlichen Verbesserungsprozess,
           der sukzessive abgearbeitet wird.</p>
+         -->
       </div>
     </div>
 
@@ -93,8 +101,9 @@
         <h3> Erstellung dieser Erklärung zur Barrierefreiheit </h3>
         
         <p>
-          Diese Erklärung wurde am 22.10.2020 erstellt.
-          Die Einschätzung basiert auf einer Selbstbewertung.</p>
+          Diese Erklärung wurde am 10.12.2020 erstellt. Die Einschätzung basiert auf einer Selbstbewertung.Teil davon
+          ist ein <a href="accessibility_test_mir.xml">Protokoll</a> von einem BITV-Test über die funktionale
+          Teile und das Design der Webseite.</p>
       </div>
     </div>
 
@@ -142,6 +151,6 @@
   </section>
 
 <meta>
-  <log date="2020-10-22" time="18:26" labelPath=" » Admin" lastEditor="Kathleen Neumann" />
+  <log date="2020-12-10" time="18:26" labelPath=" » Admin" lastEditor="Kathleen Neumann" />
 </meta>
 </MyCoReWebPage>
