@@ -10,7 +10,6 @@
         </p>
         <h2>Gegenstand der Prüfung</h2>
         <p>
-          Die geprüften Seiten sind:
           <ul>
             <li>Design der Webseite</li>
             <li>Menüs</li>
@@ -72,9 +71,11 @@
         </p>
         <h3>1.3.1a HTML-Strukturelemente für Überschriften: teilweise erfüllt</h3>
         <p>
-          <li>
-            Datenschutzerklärung: Verwenden von Listen als Überschriften.
-          </li>
+          <ul>
+            <li>
+              Datenschutzerklärung: Verwenden von Listen als Überschriften.
+            </li>
+          </ul>
         </p>
         <h3>1.3.1b HTML-Strukturelemente für Listen: teilweise erfüllt</h3>
         <p>
@@ -88,7 +89,7 @@
         <p>
           <ul>
             <li>
-              Datenschutzerklärung: Verwendung von &nbsp; zum Einrücken der Überschriften.
+              Datenschutzerklärung: Verwendung von &amp;nbsp; zum Einrücken der Überschriften.
             </li>
           </ul>
         </p>
@@ -106,7 +107,7 @@
         </p>  
         <h3>1.3.1g Kein Strukturmarkup für Layouttabellen: nicht anwendbar</h3>
         <p>
-          Es werden keine Tabellen zu Layoutzweken verwendet.
+          Es werden keine Tabellen zu Layoutzwecken verwendet.
         </p>
         <h3>1.3.1.h Beschriftung von Formularelementen programmatisch ermittelbar: eher erfüllt</h3>
         <p>
@@ -155,8 +156,10 @@
         </p>
         <h3>1.4.4a Text auf 200% vergrößerbar: nicht erfüllt</h3>
         <p>
-          <li>Header: Digitale Bibliothek verschwindet hinter der Einschlitzsuche</li>
-          <li>Detailansicht: Zugriffsstatistik nicht mehr lesbar.</li>
+          <ul>
+            <li>Header: Digitale Bibliothek verschwindet hinter der Einschlitzsuche</li>
+            <li>Detailansicht: Zugriffsstatistik nicht mehr lesbar.</li>
+          </ul>
         </p>
         <h3>1.4.5a Verzicht auf Schriftgrafiken:erfüllt</h3>
         <h3>1.4.10a Inhalte brechen um: erfüllt</h3>
@@ -200,13 +203,13 @@
           <ul>
             <li>Detailansicht: Nach dem Breadcrumb springt der Fokus auf die Merkliste/Aktionen und nicht auf die Badges.</li>
             <li>In der Suchergebnissseite ist der Button "Alle Treffier dieser Seite merken" nicht erreichbar</li>
-            <li>In der Suchergebnissseite: Reihenfolge pro Suchergebniss sollte von links nach rechts sein. </li>
+            <li>In der Suchergebnissseite: Reihenfolge pro Suchergebnis sollte von links nach rechts sein. </li>
           </ul>
         </p>
         <h3>2.4.4a Aussagekräftige Linktexte: teilweise erfüllt</h3>
         <p>
           <ul>
-            <li>Link zum Auf und Zuklappen des Abtracts</li>
+            <li>Link zum Auf und Zuklappen des Abtrakts</li>
             <li>Sprachenlinks in den Tabs vom Abstrakt</li>
             <li>GND Links in den Suchergebnissen und der Detailansicht </li>
             <li>Namenslinks in der Detailansicht </li>
@@ -215,26 +218,26 @@
         </p>
         <h3>2.4.5a Alternative Zugangswege: erfüllt</h3>
         <p>
-          Das Repository bietet dem der Suche weiter Zugangsmöglichkeiten wie das Browsen nach Instiuten,
+          Das Repository bietet neben der Suche weiter Zugangsmöglichkeiten wie das Browsen nach Instiuten,
           Personen oder Dokumenttpen. 
         </p>
         <h3>2.4.6a Aussagekräftige Überschriften und Beschriftungen: erfüllt</h3>
         <p>
-          Die redaktionen Inhaltseiten werden in einem gesonderter Protoll geprüft.
+          Die redaktionen Inhaltseiten werden in einem gesonderten Protokoll geprüft.
         </p>
         <h3>2.4.7a Aktuelle Position des Fokus deutlich: eher nicht erfüllt</h3>
         <p>
-          Nicht erkennabrer Fokus:
+          Nicht erkennbarer Fokus:
           <ul>
             <li>Link Logo links oben.</li>
             <li>Link Digitale Bibliothek</li>
-            <li>Zitierlink kopiere in der Detailansicht</li>
+            <li>"Zitier-Link kopieren" in der Detailansicht</li>
           </ul>
         </p>
         <h3>2.5.1a Alternativen für komplexe Zeiger-Gesten: nicht anwendbar</h3>
         <h3>2.5.2a Zeigergesten-Eingaben können abgebrochen oder widerrufen werden: teilweise erfüllt</h3>
         <p>
-          Die Testsergebnisse zu diesem Punkt waren wiedersprüchlich und hingen vom verwendeten Browser ab. 
+          Die Testsergebnisse zu diesem Punkt waren widersprüchlich und hingen vom verwendeten Browser ab. 
           Sie sollten zu einem späteren Zeitpunkt wiederholt werden. 
         </p>
         <h3>2.5.3a Sichtbare Beschriftung Teil des zugänglichen Namens: nicht erfüllt</h3>
@@ -252,7 +255,7 @@
           in den Metadaten wird in einem anderen Protokoll dokumentiert.
         </p>
         <p>
-          
+          Folgende Sprachauszeichnungen fehlen noch:
           <ul>
             <li>"Browsen" in dem Headmenü.</li>
             <li>In der Detailansicht wird die Sprache des Titel, des Abstracts nicht mit angegeben.</li>
@@ -270,7 +273,7 @@
         </p>
         <h3>3.3.2a Beschriftungen von Formularelementen vorhanden: erfüllt</h3>
         <p>
-          Die Formularelemente alle ordnungsgemaß beschriftet.
+          Die Formularelemente sind alle ordnungsgemäß beschriftet.
         </p>
         <h3>4.1.1a Korrekte Syntax: efüllt</h3>
         <p>
