@@ -56,7 +56,12 @@
           <xsl:value-of select="'Folgende Publikation wurde zur Überprüfung eingereicht:'" />
           <xsl:value-of select="$newline" />
           <xsl:apply-templates select="." mode="output" />
+          <xsl:value-of select="$newline" /><xsl:value-of select="$newline" />
+          <xsl:value-of select="'Link zur Publikation in der zur Überprüfung eingereichten Version'"/>
           <xsl:value-of select="$newline" />
+          <xsl:variable name="version" select="document(concat('versioninfo:', @ID))/versions/version[1]/@r" />
+          <xsl:value-of select="concat('Link            : &lt;',$WebApplicationBaseURL,'receive/',@ID, '?r=',$version,'&gt;')" />
+          <xsl:value-of select="$newline" /><xsl:value-of select="$newline" />
           <xsl:apply-templates select="document(concat('user:',service/servflags[@class='MCRMetaLangText']/servflag[@type='createdby']))/user" mode="output" />
           <xsl:if test="./metadata/def.modsContainer/modsContainer/mods:mods/mods:note[@type='author2editor']">
             <xsl:value-of select="$newline" />
