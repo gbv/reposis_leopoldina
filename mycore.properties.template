@@ -101,3 +101,13 @@
 
 MCR.Access.Strategy.CreatorPermissions=read,writedb,view-derivate,deletedb
 
+##############################################################################
+# MIR ePuSta                                                                    #
+##############################################################################
+# show ePuSta Statistics in metadata view ('show', 'hide')
+  MIR.ePuSta=show
+
+# URL of the graphprovider
+  MIR.ePuSta.GraphProviderURL=https://levana.leopoldina.org/graphprovider/
+  MIR.ePuSta.Prefix=
+
