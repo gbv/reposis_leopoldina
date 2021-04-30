@@ -38,7 +38,7 @@
             alt="" />
         </a>
         <a href="{concat($WebApplicationBaseURL,substring($loaded_navigation_xml/@hrefStartingPage,2),$HttpSession)}"
-           class="project-logo">Digitale Bibliothek</a>
+           class="project-logo">Digitale Bibliothek<!-- <span style="color:#961432">Testumgebung</span>--></a>
       </div>
 
       <div class="searchBox">
