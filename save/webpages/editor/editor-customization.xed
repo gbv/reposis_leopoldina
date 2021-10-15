@@ -83,8 +83,6 @@
     <xed:include ref="validate.institutes.required" after="rights" />
     <xed:include ref="lp.comment.byRole"            after="comment" />
     <xed:remove  ref="comment" />
-    <xed:include ref="abstract.repeated"            after="abstract.simple" />
-    <xed:remove  ref="abstract.simple" />
   </xed:modify>
 
   <xed:modify ref="genres.teaching_material">
