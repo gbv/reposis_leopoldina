@@ -12,7 +12,7 @@
     <xsl:template match="mycoreobject[contains(@ID,'_mods_')]">
         <xsl:apply-imports />
         <!-- fields from mycore-mods -->
-        <xsl:for-each select="metadata/def.modsContainer/modsContainer/mods:mods/mods:originInfo[not(@eventType) or @eventType='publication']/mods:dateIssued">
+        <xsl:for-each select="metadata/def.modsContainer/modsContainer/mods:mods/mods:originInfo[not(@eventType) or @eventType='publication']/mods:dateIssued[not(@point='end')]">
             <field name="mods.publish.date">
                 <xsl:value-of select="." />
             </field>
