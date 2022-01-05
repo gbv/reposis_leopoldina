@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xed:template xmlns:xed="http://www.mycore.de/xeditor" xmlns:mir="http://www.mycore.de/mir">
+
+  <xed:param name="host" default="standalone"/>
+
+  <xed:modify ref="admin.fields">
+    <xed:include ref="publish.date.flag" after="genre"/>
+  </xed:modify>
+
+  <xed:template id="publish.date.flag">
+    <div class="form-group row">
+
+      <label class="col-md-3 col-form-label text-right">
+        <xed:output i18n="mir.date.auto_publish"/>
+      </label>
+
+      <div class="col-md-6">
+        <div class="date-format" data-format="simple">
+          <div class="date-simple input-group mb-1">
+            <xed:bind xpath="../../../../service/servflags[@class='MCRMetaLangText']/servflag[@type='publish_date']">
+              <input type="text" class="form-control" autocomplete="off" placeholder="{i18n:mir.placeholder.date}">
+              </input>
+            </xed:bind>
+          </div>
+        </div>
+      </div>
+
+      <mir:help-pmud help-text="{i18n:mir.help.auto_publish}" pmud="false" />
+    </div>
+  </xed:template>
+
+</xed:template>
