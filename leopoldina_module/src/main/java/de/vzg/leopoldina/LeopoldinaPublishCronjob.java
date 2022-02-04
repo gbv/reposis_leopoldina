@@ -61,7 +61,7 @@ public class LeopoldinaPublishCronjob extends MCRCronjob {
             params.set("start", 0);
             params.set("rows", Integer.MAX_VALUE - 1);
             params.set("fl", "id");
-            params.set("q", PUBLISH_DATA_FIELD + ":[* TO " + todayString + "] or !" + PUBLISH_DATA_FIELD);
+            params.set("q", PUBLISH_DATA_FIELD + ":[* TO " + todayString + "] or !" + PUBLISH_DATA_FIELD + ":*");
             params.set("fq", "state:publishable");
 
             try {
