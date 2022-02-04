@@ -10,7 +10,7 @@
     <xed:remove  ref="institutes" />
     <xed:include ref="institutes.required"          after="rights"/>
     <xed:include ref="validate.institutes.required" after="rights" />
-    <xed:include ref="publish.date.flag" after="embargo.datetimepicker"/>
+    <xed:include ref="publish.date.flag" after="embargo"/>
   </xed:modify>
 
   <xed:template id="genres.issue">
