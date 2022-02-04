@@ -2,11 +2,50 @@
 
 <xed:template xmlns:xed="http://www.mycore.de/xeditor" xmlns:mir="http://www.mycore.de/mir">
 
-  <xed:param name="host" default="standalone"/>
-
   <xed:modify ref="admin.fields">
-    <xed:include ref="publish.date.flag" after="genre"/>
+    <xed:include ref="embargo" after="embargo.datetimepicker"/>
   </xed:modify>
+
+  <xed:modify ref="genres.book.common">
+    <xed:include ref="publish.date.flag" after="embargo.datetimepicker"/>
+  </xed:modify>
+
+  <xed:modify ref="genres.thesis.common">
+    <xed:include ref="publish.date.flag" after="embargo.datetimepicker"/>
+  </xed:modify>
+
+  <xed:modify ref="genres.research_data">
+    <xed:include ref="publish.date.flag" after="embargo.datetimepicker"/>
+  </xed:modify>
+
+  <xed:modify ref="genres.publication.common">
+    <xed:include ref="publish.date.flag" after="embargo.datetimepicker"/>
+  </xed:modify>
+
+  <xed:modify ref="genres.interview">
+    <xed:include ref="publish.date.flag" after="embargo.datetimepicker"/>
+  </xed:modify>
+
+  <xed:modify ref="genres.speech">
+    <xed:include ref="publish.date.flag" after="embargo.datetimepicker"/>
+  </xed:modify>
+
+  <xed:modify ref="genres.poster">
+    <xed:include ref="publish.date.flag" after="embargo.datetimepicker"/>
+  </xed:modify>
+
+  <xed:modify ref="genres.picture">
+    <xed:include ref="publish.date.flag" after="embargo.datetimepicker"/>
+  </xed:modify>
+
+  <xed:modify ref="genres.report.common">
+    <xed:include ref="publish.date.flag" after="embargo.datetimepicker"/>
+  </xed:modify>
+
+  <xed:modify ref="genres.av.common">
+    <xed:include ref="publish.date.flag" after="embargo.datetimepicker"/>
+  </xed:modify>
+
 
   <xed:template id="publish.date.flag">
     <div class="form-group row">
