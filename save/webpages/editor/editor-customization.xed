@@ -10,6 +10,7 @@
     <xed:remove  ref="institutes" />
     <xed:include ref="institutes.required"          after="rights"/>
     <xed:include ref="validate.institutes.required" after="rights" />
+    <xed:include ref="embargo" after="embargo.datetimepicker"/>
   </xed:modify>
 
   <xed:template id="genres.issue">
@@ -60,6 +61,7 @@
     <xed:remove  ref="comment" />
     <xed:include ref="abstract.repeated"            after="abstract.simple" />
     <xed:remove  ref="abstract.simple" />
+    <xed:include ref="publish.date.flag" after="embargo.datetimepicker"/>
   </xed:modify>
 
   <xed:modify ref="genres.book.common">
@@ -73,6 +75,7 @@
     <xed:remove  ref="comment" />
     <xed:include ref="abstract.repeated"            after="abstract.simple" />
     <xed:remove  ref="abstract.simple" />
+    <xed:include ref="publish.date.flag" after="embargo.datetimepicker"/>
   </xed:modify>
 
   <xed:modify ref="genres.thesis.common">
@@ -83,6 +86,7 @@
     <xed:include ref="validate.institutes.required" after="rights" />
     <xed:include ref="lp.comment.byRole"            after="comment" />
     <xed:remove  ref="comment" />
+    <xed:include ref="publish.date.flag" after="embargo.datetimepicker"/>
   </xed:modify>
 
   <xed:modify ref="genres.teaching_material">
@@ -128,6 +132,7 @@
     <xed:remove  ref="comment" />
     <xed:include ref="abstract.repeated"            after="abstract.simple" />
     <xed:remove  ref="abstract.simple" />
+    <xed:include ref="publish.date.flag" after="embargo.datetimepicker"/>
   </xed:modify>
 
   <xed:modify ref="genres.speech">
@@ -141,6 +146,7 @@
     <xed:remove  ref="comment" />
     <xed:include ref="abstract.repeated"            after="abstract.simple" />
     <xed:remove  ref="abstract.simple" />
+    <xed:include ref="publish.date.flag" after="embargo.datetimepicker"/>
   </xed:modify>
 
    <xed:modify ref="genres.patent">
@@ -160,7 +166,8 @@
     <xed:remove  ref="comment" />
     <xed:include ref="abstract.repeated"            after="abstract.simple" />
     <xed:remove  ref="abstract.simple" />
-  </xed:modify>
+     <xed:include ref="publish.date.flag" after="embargo.datetimepicker"/>
+   </xed:modify>
 
    <xed:modify ref="genres.research_data">
     <xed:remove  ref="sdnb.repeat" />
@@ -172,7 +179,8 @@
     <xed:remove  ref="comment" />
     <xed:include ref="abstract.repeated"            after="abstract.simple" />
     <xed:remove  ref="abstract.simple" />
-  </xed:modify>
+     <xed:include ref="publish.date.flag" after="embargo.datetimepicker"/>
+   </xed:modify>
 
    <xed:modify ref="genres.lecture">
     <xed:remove  ref="sdnb.repeat" />
@@ -194,7 +202,8 @@
     <xed:include ref="validate.institutes.required" after="rights" />
     <xed:include ref="lp.comment.byRole"            after="comment" />
     <xed:remove  ref="comment" />
-  </xed:modify>
+     <xed:include ref="publish.date.flag" after="embargo.datetimepicker"/>
+   </xed:modify>
 
   <xed:modify ref="genres.report.common">
     <xed:remove  ref="sdnb.repeat" />
@@ -210,6 +219,7 @@
     <xed:remove  ref="comment" />
     <xed:include ref="abstract.repeated"            after="abstract.simple" />
     <xed:remove  ref="abstract.simple" />
+    <xed:include ref="publish.date.flag" after="embargo.datetimepicker"/>
   </xed:modify>
   
   <xed:modify ref="genres.av.common">
@@ -225,6 +235,7 @@
     <xed:remove  ref="comment" />
     <xed:include ref="abstract.repeated"            after="abstract.simple" />
     <xed:remove  ref="abstract.simple" />
+    <xed:include ref="publish.date.flag" after="embargo.datetimepicker"/>
   </xed:modify>
 
   <!-- ========== validation ========== -->
@@ -369,6 +380,28 @@
     <mir:relItemsearch searchengine="title" genre="newspaper" responsefield="mods.title" xpath="mods:titleInfo/mods:title" label="mir.title"
       class="required" required="true" />
   </xed:template>
-  
+
+  <!-- add publish_date which is just for unlocking the document -->
+  <xed:template id="publish.date.flag">
+    <div class="form-group row">
+
+      <label class="col-md-3 col-form-label text-right">
+        <xed:output i18n="mir.date.auto_publish"/>
+      </label>
+
+      <div class="col-md-6">
+        <div class="date-format" data-format="simple">
+          <div class="date-simple input-group mb-1">
+            <xed:bind xpath="../../../../service/servflags[@class='MCRMetaLangText']/servflag[@type='publish_date']">
+              <input type="text" class="form-control" autocomplete="off" placeholder="{i18n:mir.placeholder.date}">
+              </input>
+            </xed:bind>
+          </div>
+        </div>
+      </div>
+
+      <mir:help-pmud help-text="{i18n:mir.help.auto_publish}" pmud="false" />
+    </div>
+  </xed:template>
 
 </xed:template>
