@@ -8,24 +8,21 @@ import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.params.ModifiableSolrParams;
 import org.mycore.access.MCRAccessException;
 import org.mycore.common.MCRException;
-import org.mycore.common.MCRSystemUserInformation;
 import org.mycore.common.config.MCRConfiguration2;
-import org.mycore.common.events.MCRShutdownHandler;
 import org.mycore.datamodel.metadata.MCRMetadataManager;
 import org.mycore.datamodel.metadata.MCRObject;
 import org.mycore.datamodel.metadata.MCRObjectID;
 import org.mycore.mcr.cronjob.MCRCronjob;
 import org.mycore.solr.MCRSolrClientFactory;
-import org.mycore.util.concurrent.MCRFixedUserCallable;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Set;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.stream.Collectors;
+import java.time.temporal.TemporalAccessor;
+import java.util.ArrayList;
 
 public class LeopoldinaPublishCronjob extends MCRCronjob {
 
@@ -36,11 +33,10 @@ public class LeopoldinaPublishCronjob extends MCRCronjob {
 
     private void releaseDocument(MCRObjectID mcrObjectID) {
         if (MCRMetadataManager.exists(mcrObjectID)) {
-            LOGGER.info("Publish document {}", mcrObjectID);
             final MCRObject mcrObject = MCRMetadataManager.retrieveMCRObject(mcrObjectID);
             // just another check because we can not trust solr
-            if (mcrObject.getService().getState() != null
-                && !mcrObject.getService().getState().getID().equals(PUBLISHED_STATE)) {
+            if (isStatePublishable(mcrObject) && isPublishDatePastOrNotPresent(mcrObject)) {
+                LOGGER.info("Publish document {}", mcrObjectID);
                 mcrObject.getService().setState(PUBLISHED_STATE);
                 try {
                     MCRMetadataManager.update(mcrObject);
@@ -51,7 +47,28 @@ public class LeopoldinaPublishCronjob extends MCRCronjob {
         }
     }
 
+    private static boolean isPublishDatePastOrNotPresent(MCRObject mcrObject) {
+        final ArrayList<String> publishDate = mcrObject.getService().getFlags("publish_date");
+        if (publishDate.size() == 0) {
+            return true;
+        }
+        return publishDate.stream().anyMatch(LeopoldinaPublishCronjob::isPastDate);
+    }
 
+    private static boolean isPastDate(String s) {
+        final ZonedDateTime now = ZonedDateTime.now();
+        final TemporalAccessor parse = DateTimeFormatter.ISO_DATE.parse(s);
+        final ZonedDateTime zonedDateTime = LocalDate
+            .from(parse)
+            .atTime(0, 0, 0, 0)
+            .atZone(ZoneId.systemDefault());
+        return now.isAfter(zonedDateTime);
+    }
+
+    private boolean isStatePublishable(MCRObject mcrObject) {
+        return mcrObject.getService().getState() != null
+            && !mcrObject.getService().getState().getID().equals(PUBLISHED_STATE);
+    }
 
     @Override
     public void runJob() {
