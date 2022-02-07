@@ -10,6 +10,7 @@ import org.mycore.access.MCRAccessException;
 import org.mycore.common.MCRException;
 import org.mycore.common.MCRSystemUserInformation;
 import org.mycore.common.config.MCRConfiguration2;
+import org.mycore.common.events.MCRShutdownHandler;
 import org.mycore.datamodel.metadata.MCRMetadataManager;
 import org.mycore.datamodel.metadata.MCRObject;
 import org.mycore.datamodel.metadata.MCRObjectID;
@@ -30,9 +31,6 @@ public class LeopoldinaPublishCronjob extends MCRCronjob {
 
     private static final Logger LOGGER = LogManager.getLogger();
 
-    private static final int RELEASE_THREAD_COUNT = 3;
-
-    private static final ExecutorService EXECUTOR_SERVICE = Executors.newFixedThreadPool(RELEASE_THREAD_COUNT);
     private static final String PUBLISH_DATA_FIELD = "flag.publish.date";
     public static final String PUBLISHED_STATE = "published";
 
@@ -71,16 +69,12 @@ public class LeopoldinaPublishCronjob extends MCRCronjob {
 
             try {
                 final QueryResponse response = solrClient.query(params);
-                Set<MCRFixedUserCallable<Boolean>> releaseCallables = response.getResults().stream()
+                response.getResults().stream()
                         .map(result -> (String) result.get("id"))
                         .map(MCRObjectID::getInstance)
-                        .map(id -> new MCRFixedUserCallable<>(() -> {
-                            this.releaseDocument(id);
-                            return true;
-                        }, MCRSystemUserInformation.getSuperUserInstance())).collect(Collectors.toSet());
+                        .forEach(this::releaseDocument);
 
-                EXECUTOR_SERVICE.invokeAll(releaseCallables);
-            } catch (SolrServerException | IOException | InterruptedException e) {
+            } catch (SolrServerException | IOException e) {
                 LOGGER.error("Error while searching embargo documents!", e);
             }
         }
