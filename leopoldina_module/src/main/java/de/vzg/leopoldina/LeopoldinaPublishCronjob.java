@@ -34,16 +34,21 @@ public class LeopoldinaPublishCronjob extends MCRCronjob {
 
     private static final ExecutorService EXECUTOR_SERVICE = Executors.newFixedThreadPool(RELEASE_THREAD_COUNT);
     private static final String PUBLISH_DATA_FIELD = "flag.publish.date";
+    public static final String PUBLISHED_STATE = "published";
 
     private void releaseDocument(MCRObjectID mcrObjectID) {
         if (MCRMetadataManager.exists(mcrObjectID)) {
             LOGGER.info("Publish document {}", mcrObjectID);
             final MCRObject mcrObject = MCRMetadataManager.retrieveMCRObject(mcrObjectID);
-            mcrObject.getService().setState("published");
-            try {
-                MCRMetadataManager.update(mcrObject);
-            } catch (MCRAccessException e) {
-                throw new MCRException("Error while publishing " + mcrObjectID.toString() + "!", e);
+            // just another check because we can not trust solr
+            if (mcrObject.getService().getState() != null
+                && !mcrObject.getService().getState().getID().equals(PUBLISHED_STATE)) {
+                mcrObject.getService().setState(PUBLISHED_STATE);
+                try {
+                    MCRMetadataManager.update(mcrObject);
+                } catch (MCRAccessException e) {
+                    throw new MCRException("Error while publishing " + mcrObjectID.toString() + "!", e);
+                }
             }
         }
     }
