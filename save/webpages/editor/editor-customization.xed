@@ -401,6 +401,7 @@
       </div>
 
       <mir:help-pmud help-text="{i18n:mir.help.auto_publish}" pmud="false" />
+      <xed:validate xpath="//servflag[@type='publish_date']" matches="\d{4}(\-\d{2}(\-\d{2})?)?" type="datetime" format="yyyy;yyyy-MM;yyyy-MM-dd" i18n="mir.validation.date" />
       <xed:cleanup-rule xpath="//servflag[@type='publish_date']" relevant-if="string-length(text()) &gt; 0" />
       <xed:cleanup-rule xpath="//servflags" relevant-if="count(servflag) &gt; 0" />
     </div>
