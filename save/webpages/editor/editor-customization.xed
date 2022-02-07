@@ -384,26 +384,27 @@
   <!-- add publish_date which is just for unlocking the document -->
   <xed:template id="publish.date.flag">
     <div class="form-group row">
+      <xed:bind xpath="../../../../service/servflags[@class='MCRMetaLangText']/servflag[@type='publish_date']">
+        
+        <label class="col-md-3 col-form-label text-right {$xed-validation-marker}">
+          <xed:output i18n="mir.date.auto_publish"/>
+        </label>
 
-      <label class="col-md-3 col-form-label text-right {$xed-validation-marker}">
-        <xed:output i18n="mir.date.auto_publish"/>
-      </label>
-
-      <div class="col-md-6">
-        <div class="date-format" data-format="simple">
-          <div class="date-simple input-group mb-1">
-            <xed:bind xpath="../../../../service/servflags[@class='MCRMetaLangText']/servflag[@type='publish_date']">
+        <div class="col-md-6">
+          <div class="date-format" data-format="simple">
+            <div class="date-simple input-group mb-1">
               <input type="text" class="form-control" autocomplete="off" placeholder="{i18n:mir.placeholder.date}">
               </input>
-            </xed:bind>
+            </div>
           </div>
         </div>
-      </div>
 
-      <mir:help-pmud help-text="{i18n:mir.help.auto_publish}" pmud="false" />
-      <xed:validate display="global" xpath="//servflag[@type='publish_date']" matches="\d{4}(\-\d{2}(\-\d{2})?)?" type="datetime" format="yyyy;yyyy-MM;yyyy-MM-dd" i18n="mir.validation.date" />
-      <xed:cleanup-rule xpath="//servflag[@type='publish_date']" relevant-if="string-length(text()) &gt; 0" />
-      <xed:cleanup-rule xpath="//servflags" relevant-if="count(servflag) &gt; 0" />
+        <mir:help-pmud help-text="{i18n:mir.help.auto_publish}" pmud="false"/>
+        <xed:validate display="global" xpath="//servflag[@type='publish_date']" matches="\d{4}(\-\d{2}(\-\d{2})?)?"
+                      type="datetime" format="yyyy;yyyy-MM;yyyy-MM-dd" i18n="mir.validation.date"/>
+        <xed:cleanup-rule xpath="//servflag[@type='publish_date']" relevant-if="string-length(text()) &gt; 0"/>
+        <xed:cleanup-rule xpath="//servflags" relevant-if="count(servflag) &gt; 0"/>
+      </xed:bind>
     </div>
   </xed:template>
 
