@@ -44,10 +44,9 @@
   <section xml:lang="en" title="Welcome to Leopoldina">
     <div class="jumbotwo" id="leo-index-search" style="margin-top:50px;">
       <div class="row">
-        <div class="col-md-9 offset-md-2" lang="de">
+        <div class="col-md-9 offset-md-2" lang="en">
           <h1>
-            Digitale Bibliothek<br />
-            Der Publikations­server der Leopoldina
+            Institutional Repository of Leopoldina
           </h1>
           <form action="../servlets/solr/findPublic" id="leo-searchMainPage" class="form-inline" role="search">
             <div class="input-group input-group-lg w-100">
