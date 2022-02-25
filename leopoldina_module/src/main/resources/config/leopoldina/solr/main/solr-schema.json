@@ -1,7 +1,7 @@
 [
   {
     "add-field": {
-      "name": "mods.publish.date",
+      "name": "flag.publish.date",
       "type": "mods.date_range"
     }
   }
