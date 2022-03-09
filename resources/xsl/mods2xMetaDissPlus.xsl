@@ -770,7 +770,7 @@
   
   <xsl:template name="dateIssued">
     <xsl:variable name="dateIssued" select="$mods/mods:originInfo[@eventType='publication']/mods:dateIssued[@encoding='w3cdtf'] 
-                                            || $mods/mods:relatedItem[@type='host']/mods:originInfo[@eventType='publication']/mods:dateIssued[@encoding='w3cdtf']" / >
+                                            or $mods/mods:relatedItem[@type='host']/mods:originInfo[@eventType='publication']/mods:dateIssued[@encoding='w3cdtf']" / >
     <xsl:if test="$dateIssued">
       <dcterms:issued xsi:type="dcterms:W3CDTF">
         <xsl:value-of select="$dateIssued" />
