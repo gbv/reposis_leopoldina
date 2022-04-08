@@ -769,8 +769,16 @@
   </xsl:template>
   
   <xsl:template name="dateIssued">
-    <xsl:variable name="dateIssued" select="$mods/mods:originInfo[@eventType='publication']/mods:dateIssued[@encoding='w3cdtf'] 
-                                            or $mods/mods:relatedItem[@type='host']/mods:originInfo[@eventType='publication']/mods:dateIssued[@encoding='w3cdtf']" / >
+    <xsl:variable name="dateIssued"> 
+      <xsl:choose>
+        <xsl:when test="$mods/mods:originInfo[@eventType='publication']/mods:dateIssued[@encoding='w3cdtf']">
+          <xsl:value-of select="$mods/mods:originInfo[@eventType='publication']/mods:dateIssued[@encoding='w3cdtf']"/>
+        </xsl:when>
+        <xsl:when test="$mods/mods:relatedItem[@type='host']/mods:originInfo[@eventType='publication']/mods:dateIssued[@encoding='w3cdtf']">
+          <xsl:value-of select="$mods/mods:relatedItem[@type='host']/mods:originInfo[@eventType='publication']/mods:dateIssued[@encoding='w3cdtf']"/>
+        </xsl:when>  
+      </xsl:choose>
+    </xsl:variable>                                
     <xsl:if test="$dateIssued">
       <dcterms:issued xsi:type="dcterms:W3CDTF">
         <xsl:value-of select="$dateIssued" />
@@ -979,7 +987,6 @@
         </xsl:otherwise>
       </xsl:choose>
     </dc:language>
-    
   </xsl:template>
 
   <xsl:template name="relatedItem2ispartof">
@@ -990,24 +997,46 @@
           <dcterms:isPartOf xsi:type="ddb:ZSTitelID">
             <xsl:value-of select="$firstPeriodical/@xlink:href" />
           </dcterms:isPartOf>
-          <xsl:if test="$firstPeriodical/mods:part/mods:detail[@type='volume']">
-            <!-- To Do use ddb:ZS-Issue and ddb:ZS-Volume-->
-            <dcterms:isPartOf xsi:type="ddb:ZS-Ausgabe">
-              <xsl:choose>
-                <xsl:when test="$firstPeriodical/mods:part/mods:detail[@type='issue']">
-                  <xsl:value-of
-                    select="concat(normalize-space($firstPeriodical/mods:part/mods:detail[@type='volume']),
-                      ', ',
-                      i18n:translate('component.mods.metaData.dictionary.issue'),
-                      ' ',
-                      normalize-space($firstPeriodical/mods:part/mods:detail[@type='issue']))" />
-                </xsl:when>
-                <xsl:otherwise>
-                  <xsl:value-of select="normalize-space($firstPeriodical/mods:part/mods:detail[@type='volume'])" />
-                </xsl:otherwise>
-              </xsl:choose>
-            </dcterms:isPartOf>
-          </xsl:if>
+          <xsl:variable name="ZSIssue">
+            <xsl:value-of select="normalize-space($firstPeriodical/mods:part/mods:detail[@type='issue'])" />
+          </xsl:variable>
+          <xsl:variable name="ZSVolume">
+            <xsl:value-of select="normalize-space($firstPeriodical/mods:part/mods:detail[@type='volume'])" />
+          </xsl:variable>
+          <xsl:variable name="ZSAusgabe">
+            <!-- ToDO Name of journal-suplement -->
+            <xsl:if test="$firstPeriodical/mods:part/mods:detail[@type='volume']">
+              <xsl:value-of select="normalize-space($firstPeriodical/mods:part/mods:detail[@type='volume'])"/>
+            </xsl:if>
+            <xsl:if test="$firstPeriodical/mods:part/mods:detail[@type='volume'] and $firstPeriodical/mods:part/mods:detail[@type='issue']">
+              <xsl:value-of select="', '"/>
+            </xsl:if>
+            <xsl:if test="$firstPeriodical/mods:part/mods:detail[@type='issue']">
+              <xsl:value-of
+                select="concat(
+                  i18n:translate('component.mods.metaData.dictionary.issue'),
+                  ' ',
+                  normalize-space($firstPeriodical/mods:part/mods:detail[@type='issue']))" />
+            </xsl:if>
+            <xsl:if test="$mods/mods:originInfo[@eventType='publication']/mods:dateIssued[@encoding='w3cdtf']">
+              <xsl:value-of select="concat(' (',$mods/mods:originInfo[@eventType='publication']/mods:dateIssued[@encoding='w3cdtf'],')')" />
+            </xsl:if>
+          </xsl:variable>
+          <xsl:choose>
+            <xsl:when test="$ZSIssue or $ZSVolume">
+              <xsl:if test="$ZSIssue">
+                <dcterms:isPartOf xsi:type="ddb:ZS-Issue"><xsl:value-of select="$ZSIssue"/></dcterms:isPartOf>
+              </xsl:if>
+              <xsl:if test="$ZSVolume">
+                <dcterms:isPartOf xsi:type="ddb:ZS-Volume"><xsl:value-of select="$ZSVolume"/></dcterms:isPartOf>
+              </xsl:if>
+            </xsl:when>
+            <xsl:otherwise>
+              <dcterms:isPartOf xsi:type="ddb:ZS-Ausgabe">
+                <xsl:value-of select="$ZSAusgabe"/>
+              </dcterms:isPartOf>
+            </xsl:otherwise>
+          </xsl:choose>
         </xsl:when>
         <xsl:when test="$firstPeriodical/@type='series'">
           <dcterms:isPartOf xsi:type="ddb:noScheme">
@@ -1016,14 +1045,14 @@
             <xsl:if test="$firstPeriodical/mods:part/mods:detail[@type='volume']/mods:number">
               <xsl:value-of select="$firstPeriodical/mods:part/mods:detail[@type='volume']/mods:number" />
             </xsl:if>
-            <xsl:if test="$firstPeriodical/../mods:originInfo[@eventType='publication']/mods:dateIssued[@encoding='w3cdtf']">
-              <xsl:value-of select="concat(' (',$firstPeriodical/../mods:originInfo[@eventType='publication']/mods:dateIssued[@encoding='w3cdtf'],')')" />
+            <xsl:if test="$mods/mods:originInfo[@eventType='publication']/mods:dateIssued[@encoding='w3cdtf']">
+              <xsl:value-of select="concat(' (',$mods/mods:originInfo[@eventType='publication']/mods:dateIssued[@encoding='w3cdtf'],')')" />
             </xsl:if>
           </dcterms:isPartOf>
           <xsl:if test="$firstPeriodical/mods:identifier[@type='issn']">
             <dcterms:isPartOf xsi:type="ddb:ISSN">
               <xsl:value-of select="$firstPeriodical/mods:identifier[@type='issn']"/>
-          </dcterms:isPartOf>
+            </dcterms:isPartOf>
           </xsl:if>
         </xsl:when>
       </xsl:choose>
