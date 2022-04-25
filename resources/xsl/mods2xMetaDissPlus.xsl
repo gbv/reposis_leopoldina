@@ -449,12 +449,14 @@
        -->
     </dc:title>
     
-    <dcterms:alternative xsi:type="ddb:talternativeISO639-2">
-      <xsl:attribute name="lang">
-        <xsl:value-of select="$lang" />
-      </xsl:attribute>
-      <xsl:value-of select="$mainTitle/mods:subTitle" />
-    </dcterms:alternative>
+    <xsl:if test="$mainTitle/mods:subTitle">
+      <dcterms:alternative xsi:type="ddb:talternativeISO639-2">
+        <xsl:attribute name="lang">
+          <xsl:value-of select="$lang" />
+        </xsl:attribute>
+        <xsl:value-of select="$mainTitle/mods:subTitle" />
+      </dcterms:alternative>
+    </xsl:if>
     
     <xsl:for-each select="$mods/mods:titleInfo[@type='translated']" >
     <!-- There's multiple translation possible. -->
