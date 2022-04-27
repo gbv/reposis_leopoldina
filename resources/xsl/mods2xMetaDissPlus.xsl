@@ -364,7 +364,9 @@
     </xsl:call-template>
     <!-- Lizenzangaben und Rechtehinweise für das Originalobjekt -->
     <xsl:if test="not(contains($MIR.xMetaDissPlus.disabledTemplates,'license'))">
-      <xsl:call-template name="license" />
+      <xsl:call-template name="license">
+        <xsl:with-param name="derivateID" select="structure/derobjects/derobject/@xlink:href" />
+      </xsl:call-template>
     </xsl:if>
   </xsl:template>
   
@@ -1186,21 +1188,31 @@
   </xsl:template>
   
   <xsl:template name="license">
+    <xsl:param name="derivateID" />
+    <xsl:variable name="mods" select="metadata/def.modsContainer/modsContainer/mods:mods" />
     <xsl:choose>
-      <xsl:when test="$mods/mods:classification[contains(@authorityURI,'XMetaDissPlusAccessState')]">
-        <ddb:licence ddb:licenceType="access">
-          <xsl:value-of select="substring-after($mods/mods:classification[contains(@authorityURI,'XMetaDissPlusAccessState')]/@valueURI,'#')" />
-        </ddb:licence>
+      <xsl:when test="acl:checkPermission($derivateID,'read')">
+        <ddb:licence ddb:licenceType="access">OA</ddb:licence>
       </xsl:when>
+      <xsl:otherwise>
+        <ddb:licence ddb:licenceType="access">nOA</ddb:licence>
+      </xsl:otherwise>
     </xsl:choose>
-    <xsl:for-each select="$mods/mods:accessCondition[@type='use and reproduction' and contains(@xlink:href,'classifications/licenses#cc_')]">
-      <xsl:variable name="ccID" select="substring-after(./@xlink:href,'#')"/>
-      <ddb:licence ddb:licenceType="cc">
-        <xsl:value-of select="translate($ccID,'_','-')"/>
-      </ddb:licence>
-      <ddb:licence ddb:licenceType="URL">
-        <xsl:value-of select="$licenses/mycoreclass//category[@ID=$ccID]/url/@xlink:href"/>
-      </ddb:licence> 
+    <xsl:for-each select="$mods/mods:accessCondition[@type='use and reproduction' and @xlink:href]">
+      <xsl:variable name="licenseId" select="substring-after(@xlink:href,'#')"/>
+      <xsl:variable name="license" select="document(concat('classification:metadata:0:children:mir_licenses:',$licenseId))"/>
+      <xsl:for-each select="$license//label[starts-with(@xml:lang,'x-dnb-')]">
+        <xsl:if test="contains(@text,':')">
+          <ddb:licence ddb:licenceType="{substring-before(@text,':')}">
+            <xsl:value-of select="substring-after(@text,':')"/>
+          </ddb:licence>
+        </xsl:if>
+      </xsl:for-each>
+      <xsl:for-each select="$license//url[@xlink:href and @xlink:type='locator']">
+        <ddb:licence ddb:licenceType="URL">
+          <xsl:value-of select="@xlink:href"/>
+        </ddb:licence> 
+      </xsl:for-each>
     </xsl:for-each>
   </xsl:template>
 
