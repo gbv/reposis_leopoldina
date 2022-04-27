@@ -461,7 +461,7 @@
     <xsl:for-each select="$mods/mods:titleInfo[@type='translated']" >
     <!-- There's multiple translation possible. -->
       <xsl:if test="./@xml:lang">
-        <dcterms:alternative xsi:type="talternativeISO639-2" ddb:type="translated">
+        <dcterms:alternative xsi:type=""ddb:talternativeISO639-2" ddb:type="translated">
           <xsl:attribute name="lang">
             <xsl:call-template name="translate_Lang">
               <xsl:with-param name="lang_code" select="./@xml:lang" />
