@@ -25,6 +25,7 @@
     <xed:include ref="identifier.issn" />
     <xed:include ref="language" />
     <xed:include ref="lp.class.series" />
+    <xed:include ref="subject.simple" />
     <xed:include ref="abstract.repeated" />
     <xed:include ref="rights" />
     <xed:include ref="institutes.required" />
