@@ -34,7 +34,7 @@ public class LeopoldinaPublishCronjob extends MCRCronjob {
     public static final String PUBLISHED_STATE = "published";
 
     private void releaseDocument(MCRObjectID mcrObjectID) {
-        if (MCRMetadataManager.exists(mcrObjectID)) {
+        if (MCRMetadataManager.exists(mcrObjectID) && mcrObjectID.getTypeId().equals("mods")) {
             final MCRObject mcrObject = MCRMetadataManager.retrieveMCRObject(mcrObjectID);
             // just another check because we can not trust solr
             if (isStatePublishable(mcrObject) && isPublishDatePastOrNotPresent(mcrObject)) {
@@ -86,7 +86,7 @@ public class LeopoldinaPublishCronjob extends MCRCronjob {
                     params.set("rows", Integer.MAX_VALUE - 1);
                     params.set("fl", "id");
                     params.set("q", PUBLISH_DATA_FIELD + ":[* TO " + todayString + "] OR (*:* AND !" + PUBLISH_DATA_FIELD + ":*)");
-                    params.set("fq", "state:publishable");
+                    params.set("fq", "state:publishable", "objectKind:mycoreobject");
 
                     try {
                         final QueryResponse response = solrClient.query(params);
