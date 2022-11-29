@@ -1,0 +1,6 @@
+update classification from uri resource:classifications/lp_series.xml
+update classification from uri resource:classifications/mir_genres.xml
+update classification from uri resource:classifications/mir_institutes.xml
+update classification from uri resource:classifications/mir_licenses.xml
+update classification from uri resource:classifications/noteTypes.xml
+update classification from uri resource:classifications/state.xml
