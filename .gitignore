@@ -170,3 +170,5 @@ cmo-module/node/
 
 # fileupload workaround
 cmo-webapp/src/main/webapp/fileupload.xml
+dependency-reduced-pom.xml
+dependency-reduced-pom.xml.bak
