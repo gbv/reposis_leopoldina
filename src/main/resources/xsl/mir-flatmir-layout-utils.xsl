@@ -21,6 +21,9 @@
 
     <div id="header_box" class="clearfix container">
       <div id="options_nav_box" class="mir-prop-nav">
+        <xsl:if test="contains($MIR.TestInstance, 'true')">
+          <div id="watermark_testenvironment">Testumgebung</div>
+        </xsl:if>
         <nav>
           <ul class="navbar-nav ml-auto flex-row">
             <xsl:call-template name="mir.loginMenu" />
