@@ -8,6 +8,7 @@
 
   <xsl:import href="resource:xsl/layout/mir-common-layout.xsl" />
   <xsl:param name="piwikID" select="'0'" />
+  <xsl:param name="MIR.TestInstance" />
 
   <xsl:template name="mir.navigation">
 
