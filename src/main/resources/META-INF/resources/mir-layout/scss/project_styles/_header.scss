@@ -45,6 +45,17 @@
   }
 }
 
+#watermark_testenvironment {
+  position: fixed;
+  top: 105px;
+  left: 700px;
+  opacity: 0.5;
+  z-index: 200;
+  color: $danger;
+  font-size: 32px;
+  font-weight: bold;
+}
+
 // Large devices (desktops) and below: <= 1200px
 @include media-breakpoint-down(lg) {
   // add/overwrite styles for responsive level lg and lower
