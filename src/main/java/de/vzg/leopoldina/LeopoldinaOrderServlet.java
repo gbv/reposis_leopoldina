@@ -1,11 +1,22 @@
 package de.vzg.leopoldina;
 
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import net.logicsquad.nanocaptcha.audio.AudioCaptcha;
-import net.logicsquad.nanocaptcha.image.ImageCaptcha;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.StringReader;
+import java.io.StringWriter;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
+import java.util.Base64;
+import java.util.UUID;
+
+import javax.imageio.ImageIO;
+import javax.imageio.stream.ImageOutputStream;
+import jakarta.servlet.http.HttpServletResponse;
+import javax.sound.sampled.AudioFileFormat;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+
 import org.mycore.access.MCRAccessException;
-import org.mycore.common.MCRCrypt;
 import org.mycore.common.MCRException;
 import org.mycore.common.MCRMailer;
 import org.mycore.common.config.MCRConfiguration2;
@@ -19,25 +30,11 @@ import org.mycore.frontend.servlets.MCRServlet;
 import org.mycore.frontend.servlets.MCRServletJob;
 import org.mycore.services.i18n.MCRTranslation;
 
-import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageOutputStream;
-import javax.servlet.http.HttpServletResponse;
-import javax.sound.sampled.AudioFileFormat;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.spi.AudioFileWriter;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.StringReader;
-import java.io.StringWriter;
-import java.time.Instant;
-import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalUnit;
-import java.util.Base64;
-import java.util.Date;
-import java.util.UUID;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+
+import net.logicsquad.nanocaptcha.audio.AudioCaptcha;
+import net.logicsquad.nanocaptcha.image.ImageCaptcha;
 
 public class LeopoldinaOrderServlet extends MCRServlet {
 
