@@ -4,9 +4,11 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.text.MessageFormat;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.Base64;
+import java.util.Locale;
 import java.util.UUID;
 
 import javax.imageio.ImageIO;
@@ -53,6 +55,7 @@ public class LeopoldinaOrderServlet extends MCRServlet {
 
     public static final String INFO_EXPIRES = "expires";
     public static final String MAIL_SENDER = MCRConfiguration2.getStringOrThrow("MCR.Mail.Sender");
+    public static final String MAIL_LOCALE = MCRConfiguration2.getStringOrThrow("Leopoldina.Order.Mail.Locale");
     private static final String CAPTCHA_PARAM = "captcha";
 
     public static void order(MCRServletJob job) throws IOException {
@@ -160,7 +163,8 @@ public class LeopoldinaOrderServlet extends MCRServlet {
         String objectUrl = MCRFrontendUtil.getBaseURL() + "receive/" + objId;
 
         String mailText
-            = MCRTranslation.translate("leopoldina.order.mailto.body", objectUrl, name, address, amountStr, comment, confirmLink);
+            = MCRTranslation.translate("leopoldina.order.mailto.body", objectUrl, name, address, amountStr, comment,
+                confirmLink);
 
         MCRMailer.send(MAIL_SENDER, email, MCRTranslation.translate("leopoldina.order.mailto.subject", objIdStr),
             mailText);
@@ -303,7 +307,8 @@ public class LeopoldinaOrderServlet extends MCRServlet {
                 case INFO_EXPIRES:
                     long expires = reader.nextLong();
                     if (expires < Instant.now().toEpochMilli()) {
-                        job.getResponse().sendError(HttpServletResponse.SC_BAD_REQUEST, MCRTranslation.translate("leopoldina.order.mailto.expired"));
+                        job.getResponse().sendError(HttpServletResponse.SC_BAD_REQUEST,
+                            MCRTranslation.translate("leopoldina.order.mailto.expired"));
                         return;
                     }
                     break;
@@ -336,15 +341,21 @@ public class LeopoldinaOrderServlet extends MCRServlet {
 
         String objectUrl = MCRFrontendUtil.getBaseURL() + "receive/" + objIdStr;
 
+        Locale locale = MCRTranslation.getLocale(MAIL_LOCALE);
         String mailBody
-            = MCRTranslation.translate("leopoldina.order.mailto.body2", objectUrl, email, name, address, amount,
+            = translate("leopoldina.order.mailto.body2", locale, objectUrl, email, name, address, amount,
                 comment);
 
-        MCRMailer.send(MAIL_SENDER, targetMail, MCRTranslation.translate("leopoldina.order.mailto.subject", objIdStr),
+        MCRMailer.send(MAIL_SENDER, targetMail, translate("leopoldina.order.mailto.subject", locale, objIdStr),
             mailBody);
         LeopoldinaOrderUtil.markMailSend(mailId);
         job.getResponse().sendRedirect(MCRFrontendUtil.getBaseURL() + "receive/" + objIdStr
             + "?XSL.Status.Style=success&XSL.Status.Message=mir.order.success&refresh=" + UUID.randomUUID());
+    }
+
+    public static String translate(String key, Locale locale, Object... args) {
+        String translation = MCRTranslation.translate(key, locale);
+        return new MessageFormat(translation, locale).format(args);
     }
 
 }
