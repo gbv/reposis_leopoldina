@@ -38,6 +38,20 @@
               <br/><br/>
               Vielen Dank!</p>
           </xsl:when>
+          <xsl:when test="/mcr_error/@HttpError = '400' and @errorServlet and string-length(text()) &gt; 1">
+              <h2>Ungültige Anfrage</h2>
+              <p>
+                  <xsl:call-template name="lf2br">
+                      <xsl:with-param name="string" select="text()"/>
+                  </xsl:call-template>
+              </p>
+              <p>Wenn Sie der Meinung sind, dass dies ein Fehler ist,
+                  schreiben Sie bitte eine Mail an <span class="madress">dms-list [at] lists.gbv.de</span> und
+                  schildern kurz wie es dazu kam.</p>
+              <a href="javascript:history.back()" class="btn btn-secondary float-right">
+                  <xsl:value-of select="i18n:translate('leopoldina.error.back')"/>
+              </a>
+          </xsl:when>
           <xsl:otherwise>
               <h2><xsl:value-of select="."></xsl:value-of></h2>
               <p>Es ist leider ein Fehler aufgetreten. Sollte dies wiederholt der Fall sein,
