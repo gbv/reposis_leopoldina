@@ -28,18 +28,18 @@
           <!-- For host = series create a relItem with type series-->
           <xed:when test="$host='series'">
             <xed:bind xpath="mods:relatedItem[@type='series']" />
-            <xed:bind xpath="mods:relatedItem/mods:genre[@type='intern'][@authorityURI='http://www.mycore.org/classifications/mir_genres']/@valueURIxEditor" initially="{$host}" name="genre_host" />
+            <xed:bind xpath="mods:relatedItem/mods:genre[@type='intern'][contains(@authorityURI, 'mir_genres')]/@valueURIxEditor" initially="{$host}" name="genre_host" />
           </xed:when>
           <xed:when test="string-length($host) &gt;0 and $host!='standalone'">
             <xed:bind xpath="mods:relatedItem[@type='host']" />
-            <xed:bind xpath="mods:relatedItem/mods:genre[@type='intern'][@authorityURI='http://www.mycore.org/classifications/mir_genres']/@valueURIxEditor" initially="{$host}" name="genre_host" />
+            <xed:bind xpath="mods:relatedItem/mods:genre[@type='intern'][contains(@authorityURI, 'mir_genres')]/@valueURIxEditor" initially="{$host}" name="genre_host" />
           </xed:when>
           <xed:when test="mods:relatedItem">
             <xed:bind xpath="mods:relatedItem">
               <xed:bind xpath="@xlink:href" initially="{$relatedItemId}" />
               <xed:bind xpath="@type" initially="{$relatedItemType}" />
             </xed:bind>
-            <xed:bind xpath="mods:relatedItem/mods:genre[@type='intern'][@authorityURI='http://www.mycore.org/classifications/mir_genres']/@valueURIxEditor" name="genre_host" />
+            <xed:bind xpath="mods:relatedItem/mods:genre[@type='intern'][contains(@authorityURI, 'mir_genres')]/@valueURIxEditor" name="genre_host" />
           </xed:when>
           <xed:otherwise>
             <xed:param name="genre_host" default="standalone" />
@@ -62,7 +62,7 @@
 
         <xed:if test="not($genre_host='standalone')">
           <fieldset class="mir-relatedItem">
-            <div class="col-md-11 mir-relatedItem-head">
+            <div class="col-md-12 mir-relatedItem-head">
               <xed:output value="concat('erschienen in ',$mir_genres//category[@ID=$genre_host]/label[lang($CurrentLang)]/@text,':')" />
             </div>
             <div class="mir-relatedItem-body">
@@ -77,7 +77,7 @@
               <xed:if test="contains($mir_genres//category[@ID=$genre_host]/label[lang('x-hosts')]/@text,'series')">
                 <xed:bind xpath="mods:relatedItem[(@type='host')][1]">
                   <fieldset class="mir-relatedItem">
-                    <div class="col-md-11 mir-relatedItem-head">
+                    <div class="col-md-12 mir-relatedItem-head">
                       <xed:output value="concat($mir_genres//category[@ID=$genre_host]/label[lang($CurrentLang)]/@text,' erschienen in Serie:')" />
                     </div>
                     <div class="mir-relatedItem-body">
