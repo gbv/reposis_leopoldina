@@ -1,45 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mycoreclass xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="mir_institutes">
   <label xml:lang="de" text="Abteilungen und Kooperationspartner" description="Liste der Abteilungen und Kooperationspartner" />
-  <label xml:lang="x-uri" text="https://levana.leopoldina.org/api/v2/classifications/mir_institutes" />
   <label xml:lang="en" text="Institutions" description="A list of institutions" />
+  <label xml:lang="x-uri" text="https://levana.leopoldina.org/api/v2/classifications/mir_institutes" />
   <categories>
     <category ID="01_leopoldina_presidents_office">
       <label xml:lang="de" text="Präsidialbüro" />
+      <label xml:lang="x-mail" text="praesident@leopoldina.org" />
     </category>
     <category ID="02_leopoldina_office">
       <label xml:lang="de" text="Generalsekretariat" />
+      <label xml:lang="x-mail" text="generalsekretariat@leopoldina.org" />
     </category>
     <category ID="03_leopoldina_science_politics_society">
       <label xml:lang="de" text="Wissenschaft - Politik - Gesellschaft" />
+      <label xml:lang="x-mail" text="politikberatung@leopoldina.org" />
     </category>
     <category ID="04_leopoldina_international_relations">
       <label xml:lang="de" text="Internationale Beziehungen" />
+      <label xml:lang="x-mail" text="international@leopoldina.org" />
     </category>
     <category ID="05_leopoldina_press_public_relations">
       <label xml:lang="de" text="Presse- und Öffentlichkeitsarbeit" />
+      <label xml:lang="x-mail" text="presse@leopoldina.org" />
     </category>
     <category ID="06_leopoldina_archive_and_library">
       <label xml:lang="de" text="Archiv und Bibliothek" />
       <label xml:lang="en" text="Archive and Library" />
+      <label xml:lang="x-mail" text="bibliothek@leopoldina.org" />
     </category>
     <category ID="10_leopoldina_scientific_editor">
       <label xml:lang="de" text="Wissenschaftliche Redaktion" />
+      <label xml:lang="x-mail" text="redaktion@leopoldina.org" />
     </category>
     <category ID="11_JA">
       <label xml:lang="de" text="Die Junge Akademie" />
+      <label xml:lang="x-mail" text="office@diejungeakademie.de" />
     </category>
     <category ID="12_leopoldina_lzfw">
       <label xml:lang="de" text="Leopoldina-Zentrum für Wissenschaftsforschung" />
+      <label xml:lang="x-mail" text="lzfw@leopoldina.org" />
     </category>
     <category ID="14_GYA">
       <label xml:lang="de" text="Global Young Academy" />
+      <label xml:lang="x-mail" text="info@globalyoungacademy.net" />
     </category>
     <category ID="16_leopoldina_circle_of_friends">
       <label xml:lang="de" text="Freundeskreis der Leopoldina" />
+      <label xml:lang="x-mail" text="bibliothek@leopoldina.org" />
     </category>
     <category ID="17_leopoldina_easac">
       <label xml:lang="de" text="EASAC" />
+      <label xml:lang="x-mail" text="international@leopoldina.org" />
     </category>
   </categories>
 </mycoreclass>
