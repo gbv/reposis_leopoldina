@@ -48,7 +48,7 @@
         "facet.field": "mods.genre",
         "facet.mincount": "1",
         "fq": [
-          "state:published OR !state"
+          "state:published OR (*:* AND !state:*)"
         ]
       }
     }

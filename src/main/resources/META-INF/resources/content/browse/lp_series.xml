@@ -8,7 +8,7 @@
     <h3><i18n key="lp.browse.series" /></h3>
     <classificationbrowser classification="lp_series"
                                objecttype="mods"
-                              restriction="+category.top:&quot;state:published&quot;"
+                              restriction=""
                                     field="category.top"
                              countresults="true"
                                addclassid="true"
