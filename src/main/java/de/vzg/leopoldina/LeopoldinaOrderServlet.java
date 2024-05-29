@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.StringReader;
 import java.io.StringWriter;
-import java.text.MessageFormat;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.Base64;
@@ -13,7 +12,6 @@ import java.util.UUID;
 
 import javax.imageio.ImageIO;
 import javax.imageio.stream.ImageOutputStream;
-import jakarta.servlet.http.HttpServletResponse;
 import javax.sound.sampled.AudioFileFormat;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -35,6 +33,7 @@ import org.mycore.services.i18n.MCRTranslation;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
+import jakarta.servlet.http.HttpServletResponse;
 import net.logicsquad.nanocaptcha.audio.AudioCaptcha;
 import net.logicsquad.nanocaptcha.image.ImageCaptcha;
 
@@ -354,8 +353,7 @@ public class LeopoldinaOrderServlet extends MCRServlet {
     }
 
     public static String translate(String key, Locale locale, Object... args) {
-        String translation = MCRTranslation.translate(key, locale);
-        return new MessageFormat(translation, locale).format(args);
+        return MCRTranslation.translateToLocale(key, locale, args);
     }
 
 }
