@@ -9,6 +9,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.Base64;
 import java.util.Locale;
 import java.util.UUID;
+import java.util.regex.Pattern;
 
 import javax.imageio.ImageIO;
 import javax.imageio.stream.ImageOutputStream;
@@ -56,6 +57,11 @@ public class LeopoldinaOrderServlet extends MCRServlet {
     public static final String MAIL_SENDER = MCRConfiguration2.getStringOrThrow("MCR.Mail.Sender");
     public static final String MAIL_LOCALE = MCRConfiguration2.getStringOrThrow("Leopoldina.Order.Mail.Locale");
     private static final String CAPTCHA_PARAM = "captcha";
+
+    private static final String AGENT_REGEX = MCRConfiguration2.getStringOrThrow("MCR.Filter.UserAgent.BotPattern");
+    private static final Pattern AGENT_PATTERN = Pattern.compile(AGENT_REGEX);
+    private static final int MIN_USER_AGENT_LENGTH = MCRConfiguration2
+            .getOrThrow("MCR.Filter.UserAgent.MinLength", Integer::parseInt);
 
     public static void order(MCRServletJob job) throws IOException {
         String objIdStr = job.getRequest().getParameter(OBJ_ID_PARAM);
@@ -221,6 +227,14 @@ public class LeopoldinaOrderServlet extends MCRServlet {
             job.getResponse().sendError(HttpServletResponse.SC_BAD_REQUEST, "Missing action parameter!");
             return;
         }
+
+        if(isBotRequest(job)) {
+            // Disallow bot requests, because bing bot triggers order confirmations, right before the user can confirm
+            // via head request.
+            job.getResponse().sendError(HttpServletResponse.SC_FORBIDDEN, "Bot requests are not allowed!");
+            return;
+        }
+
         switch (action) {
         case "change":
             changeOrderableStatus(job);
@@ -241,6 +255,18 @@ public class LeopoldinaOrderServlet extends MCRServlet {
             job.getResponse().sendError(HttpServletResponse.SC_BAD_REQUEST, "Unknown action: " + action);
         }
 
+    }
+
+    /**
+     * Check if the request is a bot request
+     * @param job the job
+     * @return true if the request is a bot request
+     *
+     */
+    private boolean isBotRequest(MCRServletJob job) {
+        final String userAgent = job.getRequest().getHeader("User-Agent");
+        boolean isInvalid = userAgent == null || userAgent.length() < MIN_USER_AGENT_LENGTH;
+        return isInvalid || AGENT_PATTERN.matcher(userAgent).find();
     }
 
     private void captchaPlay(MCRServletJob job) throws IOException {
