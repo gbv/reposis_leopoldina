@@ -372,7 +372,7 @@
   </xed:template>
 
   <xed:template id="lp.findable">
-    <xed:bind xpath="mods:classification[@authorityURI='https://publications.leopoldina.org/api/v1/classifications/findable'][@displayLabel='findable']">
+    <xed:bind xpath="mods:classification[@authorityURI='https://publications.leopoldina.org/api/v1/classifications/lp_findable'][@displayLabel='findable']">
       <div class="form-group row {$xed-validation-marker}">
         <label class="col-md-3 col-form-label text-right">
           <xed:output i18n="editor.search.lp.findable" />
@@ -384,7 +384,7 @@
               <option value="">
                 <xed:output i18n="mir.select.optional" />
               </option>
-              <xed:include uri="xslStyle:items2options:classification:editor:-1:children:findable" />
+              <xed:include uri="xslStyle:items2options:classification:editor:-1:children:lp_findable" />
             </select>
           </xed:bind>
         </div>
