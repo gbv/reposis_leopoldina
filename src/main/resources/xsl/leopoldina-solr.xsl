@@ -20,7 +20,9 @@
 
         <field name="mods.findable">
           <xsl:choose>
-            <xsl:when test="mods:classification[@displayLabel='findable']"><xsl:value-of select="substring-after(mods:classification[@displayLabel='findable']/@valueURI,'#')" /></xsl:when>
+            <xsl:when test="metadata/def.modsContainer/modsContainer/mods:mods/mods:classification[@displayLabel='findable']">
+              <xsl:value-of select="substring-after(metadata/def.modsContainer/modsContainer/mods:mods/mods:classification[@displayLabel='findable']/@valueURI,'#')" />
+            </xsl:when>
             <xsl:otherwise>true</xsl:otherwise>
           </xsl:choose>
         </field>

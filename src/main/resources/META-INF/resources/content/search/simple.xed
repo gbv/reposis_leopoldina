@@ -62,6 +62,22 @@
                   </div>
                 </div>
               </div>
+              <!-- findable filter -->
+              <div class="form-group row">
+                <label for="inputFindable1" class="col-md-3 col-form-label text-right">
+                </label>
+                <div class="col-md-9">
+                  <div class="input-group">
+                    <xed:bind xpath="condition[@field='mods.findable']/@value"
+                              initially="false" default="mods.findabel:true">
+                      <input type="checkbox" value="true"/>
+                      <span class="pl-1">
+                        <xed:output i18n="editor.search.lp.findable"/>
+                      </span>
+                    </xed:bind>
+                  </div>
+                </div>
+              </div>
             </div>
             <!-- submit -->
             <div class="card-footer clearfix">

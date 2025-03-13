@@ -37,7 +37,7 @@
         var documentsFiltered = 0;
         $.ajax({
           type: "GET",
-          url: "../api/v1/search?q=objectType:mods AND state:published AND NOT(mods.findable:true)&amp;rows=0&amp;wt=json&amp;json.wrf=?",
+          url: "../api/v1/search?q=objectType:mods AND state:published AND mods.findable:true&amp;rows=0&amp;wt=json&amp;json.wrf=?",
           dataType: "jsonp",
           success: function (data) {
             documentsFiltered = $.number(data.response.numFound,0, ',', '.');
@@ -55,7 +55,7 @@
             documentsAll = $.number(data.response.numFound,0, ',', '.');
           },
         });
-        var findableFilter = '<input name="fq" type="hidden" value="NOT(mods.findable:true)" id="filterFindable" />';
+        var findableFilter = '<input name="fq" type="hidden" value="mods.findable:true" id="filterFindable" />';
         $("#leo-searchMainPage").append( findableFilter );
 
         $("#switchFindable").change(function() {
@@ -111,7 +111,7 @@
         var documentsFiltered = 0;
         $.ajax({
           type: "GET",
-          url: "../api/v1/search?q=objectType:mods AND state:published AND NOT(mods.findable:true)&amp;rows=0&amp;wt=json&amp;json.wrf=?",
+          url: "../api/v1/search?q=objectType:mods AND state:published AND mods.findable:true&amp;rows=0&amp;wt=json&amp;json.wrf=?",
           dataType: "jsonp",
           success: function (data) {
             documentsFiltered = $.number(data.response.numFound,0, ',', '.');
@@ -129,7 +129,7 @@
             documentsAll = $.number(data.response.numFound,0, ',', '.');
           },
         });
-        var findableFilter = '<input name="fq" type="hidden" value="NOT(mods.findable:true)" id="filterFindable" />';
+        var findableFilter = '<input name="fq" type="hidden" value="mods.findable:true" id="filterFindable" />';
         $("#leo-searchMainPage").append( findableFilter );
 
         $("#switchFindable").change(function() {
