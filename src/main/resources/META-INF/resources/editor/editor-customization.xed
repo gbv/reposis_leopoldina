@@ -32,6 +32,7 @@
     <xed:include ref="institutes.required" />
     <xed:include ref="validate.institutes.required" />
     <xed:include ref="lp.comment.byRole" />
+    <xed:include ref="lp.findable" />
   </xed:template>
 
   <xed:template id="hosts.issue">
@@ -60,6 +61,7 @@
     <xed:include ref="validate.institutes.required" after="rights" />
     <xed:include ref="embargo.datetimepicker"       after="rights" />
     <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:include ref="lp.findable"                  after="lp.comment.byRole" />
     <xed:remove  ref="comment" />
     <xed:include ref="abstract.repeated"            after="abstract.simple" />
     <xed:remove  ref="abstract.simple" />
@@ -87,6 +89,7 @@
     <xed:include ref="institutes.required"          after="rights"/>
     <xed:include ref="validate.institutes.required" after="rights" />
     <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:include ref="lp.findable"                  after="lp.comment.byRole" />
     <xed:remove  ref="comment" />
     <xed:include ref="publish.date.flag" after="embargo.datetimepicker"/>
   </xed:modify>
@@ -97,6 +100,7 @@
     <xed:include ref="institutes.required"          after="rights" />
     <xed:include ref="validate.institutes.required" after="rights" />
     <xed:include ref="lp.comment.byRole"            after="institutes.required" />
+    <xed:include ref="lp.findable"                  after="lp.comment.byRole" />
     <xed:include ref="abstract.repeated"            after="abstract.simple" />
     <xed:remove  ref="abstract.simple" />
   </xed:modify>
@@ -108,6 +112,7 @@
     <xed:include ref="institutes.required"          after="rights" />
     <xed:include ref="validate.institutes.required" after="rights" />
     <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:include ref="lp.findable"                  after="lp.comment.byRole" />
     <xed:remove  ref="comment" />
   </xed:modify>
 
@@ -118,6 +123,7 @@
     <xed:include ref="institutes.required"          after="rights" />
     <xed:include ref="validate.institutes.required" after="rights" />
     <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:include ref="lp.findable"                  after="lp.comment.byRole" />
     <xed:remove  ref="comment" />
     <xed:include ref="abstract.repeated"            after="abstract.simple" />
     <xed:remove  ref="abstract.simple" />
@@ -131,6 +137,7 @@
     <xed:include ref="institutes.required"          after="rights"/>
     <xed:include ref="validate.institutes.required" after="rights" />
     <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:include ref="lp.findable"                  after="lp.comment.byRole" />
     <xed:remove  ref="comment" />
     <xed:include ref="abstract.repeated"            after="abstract.simple" />
     <xed:remove  ref="abstract.simple" />
@@ -145,6 +152,7 @@
     <xed:include ref="institutes.required"          after="rights" />
     <xed:include ref="validate.institutes.required" after="rights" />
     <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:include ref="lp.findable"                  after="lp.comment.byRole" />
     <xed:remove  ref="comment" />
     <xed:include ref="abstract.repeated"            after="abstract.simple" />
     <xed:remove  ref="abstract.simple" />
@@ -165,6 +173,7 @@
     <xed:include ref="institutes.required"          after="rights" />
     <xed:include ref="validate.institutes.required" after="rights" />
     <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:include ref="lp.findable"                  after="lp.comment.byRole" />
     <xed:remove  ref="comment" />
     <xed:include ref="abstract.repeated"            after="abstract.simple" />
     <xed:remove  ref="abstract.simple" />
@@ -178,6 +187,7 @@
     <xed:include ref="institutes.required"          after="rights" />
     <xed:include ref="validate.institutes.required" after="rights" />
     <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:include ref="lp.findable"                  after="lp.comment.byRole" />
     <xed:remove  ref="comment" />
     <xed:include ref="abstract.repeated"            after="abstract.simple" />
     <xed:remove  ref="abstract.simple" />
@@ -190,6 +200,7 @@
     <xed:include ref="institutes.required"          after="rights" />
     <xed:include ref="validate.institutes.required" after="rights" />
     <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:include ref="lp.findable"                  after="lp.comment.byRole" />
     <xed:remove  ref="comment" />
     <xed:include ref="abstract.repeated"            after="abstract.simple" />
     <xed:remove  ref="abstract.simple" />
@@ -203,6 +214,7 @@
     <xed:include ref="institutes.required"          after="rights" />
     <xed:include ref="validate.institutes.required" after="rights" />
     <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:include ref="lp.findable"                  after="lp.comment.byRole" />
     <xed:remove  ref="comment" />
      <xed:include ref="publish.date.flag" after="embargo.datetimepicker"/>
    </xed:modify>
@@ -218,6 +230,7 @@
     <xed:include ref="institutes.required"          after="rights"/>
     <xed:include ref="validate.institutes.required" after="rights" />
     <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:include ref="lp.findable"                  after="lp.comment.byRole" />
     <xed:remove  ref="comment" />
     <xed:include ref="abstract.repeated"            after="abstract.simple" />
     <xed:remove  ref="abstract.simple" />
@@ -234,6 +247,7 @@
     <xed:include ref="institutes.required"          after="rights"/>
     <xed:include ref="validate.institutes.required" after="rights" />
     <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:include ref="lp.findable"                  after="lp.comment.byRole" />
     <xed:remove  ref="comment" />
     <xed:include ref="abstract.repeated"            after="abstract.simple" />
     <xed:remove  ref="abstract.simple" />
