@@ -8,6 +8,7 @@
       <xed:cleanup-rule xpath="//boolean" relevant-if="boolean|condition" />
       <xed:cleanup-rule xpath="//condition[@selectable='true']" relevant-if="@id = ../selectCondition/@keep" />
       <xed:cleanup-rule xpath="//*/@selectable|//selectCondition" relevant-if="false()" />
+      <xed:cleanup-rule xpath="//condition[@field='mods.findable']" relevant-if="@value=true" />
       <xed:source uri="searchInput:{$id}" />
       <xed:source uri="webapp:editor/search/template/simple.xml" />
       <xed:bind xpath="query">
@@ -69,10 +70,10 @@
                 <div class="col-md-9">
                   <div class="input-group">
                     <xed:bind xpath="condition[@field='mods.findable']/@value"
-                              initially="false" default="mods.findabel:true">
-                      <input type="checkbox" value="true"/>
+                              default="true">
+                      <input type="checkbox" value="false"/>
                       <span class="pl-1">
-                        <xed:output i18n="editor.search.lp.findable"/>
+                        <xed:output i18n="editor.search.lp.findable.select"/>
                       </span>
                     </xed:bind>
                   </div>
