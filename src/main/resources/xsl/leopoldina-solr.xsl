@@ -17,6 +17,12 @@
                 <xsl:value-of select="." />
             </field>
         </xsl:for-each>
+        <xsl:for-each select="mods:classification[@displayLabel='findable']">
+          <field name="mods.findable">
+            <xsl:value-of select="concat(substring-after(@valueURI,'#'),'.')" />
+          </field>
+        </xsl:for-each>
+        
     </xsl:template>
 
 </xsl:stylesheet>

@@ -22,20 +22,54 @@
                 </button>
               </div>
             </div>
+            <div class="custom-control custom-switch mt-3">
+              <input type="checkbox" class="custom-control-input" id="switchFindable" />
+              <label class="custom-control-label" for="switchFindable">Alle erfassten Daten (Pflichtabgabe, veraltete Versionen) einbeziehen</label>
+            </div>
           </form>
         </div>
       </div>
     </div>
     <script src="../js/jquery.number.js"></script>
-    <script>
+    <script type="text/javascript" >
       $( document ).ready(function() {
+        var documentsAll = 0;
+        var documentsFiltered = 0;
+        $.ajax({
+          type: "GET",
+          url: "../api/v1/search?q=objectType:mods AND state:published AND NOT(mods.findable:true)&amp;rows=0&amp;wt=json&amp;json.wrf=?",
+          dataType: "jsonp",
+          success: function (data) {
+            documentsFiltered = $.number(data.response.numFound,0, ',', '.');
+            if ( documentsFiltered ) {
+              $('#leo-searchInput').attr('placeholder', 'Suche in ' + documentsFiltered + ' Dokumenten');
+            }
+
+          },
+        });
         $.ajax({
           type: "GET",
           url: "../api/v1/search?q=objectType:mods AND state:published&amp;rows=0&amp;wt=json&amp;json.wrf=?",
           dataType: "jsonp",
           success: function (data) {
-            $('#leo-searchInput').attr('placeholder', 'Suche in ' + $.number(data.response.numFound,0, ',', '.') + ' Dokumenten');
+            documentsAll = $.number(data.response.numFound,0, ',', '.');
           },
+        });
+        var findableFilter = '<input name="fq" type="hidden" value="NOT(mods.findable:true)" id="filterFindable" />';
+        $("#leo-searchMainPage").append( findableFilter );
+
+        $("#switchFindable").change(function() {
+          if ( $("#switchFindable").prop("checked") === true ) {
+            $("#filterFindable").remove();
+            if ( documentsAll ) {
+              $('#leo-searchInput').attr('placeholder', 'Suche in ' + documentsAll + ' Dokumenten');
+            }
+          } else {
+            $("#leo-searchMainPage").append( findableFilter );
+            if ( documentsFiltered ) {
+              $('#leo-searchInput').attr('placeholder', 'Suche in ' + documentsFiltered + ' Dokumenten');
+            }
+          }
         });
       });
     </script>
@@ -62,27 +96,61 @@
                 </button>
               </div>
             </div>
+            <div class="custom-control custom-switch mt-3">
+              <input type="checkbox" class="custom-control-input" id="switchFindable" />
+              <label class="custom-control-label" for="switchFindable">Include all recorded data (mandatory submission, outdated versions)</label>
+            </div>
           </form>
         </div>
       </div>
     </div>
     <script src="../js/jquery.number.js"></script>
-    <script>
+    <script type="text/javascript" >
       $( document ).ready(function() {
+        var documentsAll = 0;
+        var documentsFiltered = 0;
+        $.ajax({
+          type: "GET",
+          url: "../api/v1/search?q=objectType:mods AND state:published AND NOT(mods.findable:true)&amp;rows=0&amp;wt=json&amp;json.wrf=?",
+          dataType: "jsonp",
+          success: function (data) {
+            documentsFiltered = $.number(data.response.numFound,0, ',', '.');
+            if ( documentsFiltered ) {
+              $('#leo-searchInput').attr('placeholder', 'Search in ' + documentsFiltered + ' documents');
+            }
+
+          },
+        });
         $.ajax({
           type: "GET",
           url: "../api/v1/search?q=objectType:mods AND state:published&amp;rows=0&amp;wt=json&amp;json.wrf=?",
           dataType: "jsonp",
           success: function (data) {
-            $('#leo-searchInput').attr('placeholder', 'Search in ' + $.number(data.response.numFound,0, ',', '.') + ' documents');
+            documentsAll = $.number(data.response.numFound,0, ',', '.');
           },
+        });
+        var findableFilter = '<input name="fq" type="hidden" value="NOT(mods.findable:true)" id="filterFindable" />';
+        $("#leo-searchMainPage").append( findableFilter );
+
+        $("#switchFindable").change(function() {
+          if ( $("#switchFindable").prop("checked") === true ) {
+            $("#filterFindable").remove();
+            if ( documentsAll ) {
+              $('#leo-searchInput').attr('placeholder', 'Search in ' + documentsAll + ' documents');
+            }
+          } else {
+            $("#leo-searchMainPage").append( findableFilter );
+            if ( documentsFiltered ) {
+              $('#leo-searchInput').attr('placeholder', 'Search in ' + documentsFiltered + ' documents');
+            }
+          }
         });
       });
     </script>
   </section>
 
   <meta>
-    <log lastEditor="administrator" date="2020-11-25" time="10:15"/>
+    <log lastEditor="administrator" date="2025-03-13" time="16:15"/>
   </meta>
 
 </MyCoReWebPage>

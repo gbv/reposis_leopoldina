@@ -4,11 +4,12 @@
 
   <!-- ========== extend editor-genres.xed ========== -->
   <xed:modify ref="admin.fields">
+    <xed:include ref="lp.findable"                  after="genre" />
     <xed:remove  ref="comment.complex" />
     <xed:include ref="lp.class.series"              before="subject.complex" />
     <xed:include ref="lp.comment.complex"           after="abstract.repeated" />
     <xed:remove  ref="institutes" />
-    <xed:include ref="institutes.admin.required"          after="rights"/>
+    <xed:include ref="institutes.admin.required"    after="rights"/>
     <xed:include ref="validate.institutes.required" after="rights" />
     <xed:include ref="publish.date.flag" after="embargo"/>
   </xed:modify>
@@ -369,7 +370,29 @@
       </xed:bind>
     </xed:bind>
   </xed:template>
-  
+
+  <xed:template id="lp.findable">
+    <xed:bind xpath="mods:classification[@authorityURI='https://publications.leopoldina.org/api/v1/classifications/findable'][@displayLabel='findable']">
+      <div class="form-group row {$xed-validation-marker}">
+        <label class="col-md-3 col-form-label text-right">
+          <xed:output i18n="editor.search.lp.findable" />
+          :
+        </label>
+        <div class="col-md-6">
+          <xed:bind xpath="@valueURIxEditor">
+            <select class="form-control form-control-inline">
+              <option value="">
+                <xed:output i18n="mir.select.optional" />
+              </option>
+              <xed:include uri="xslStyle:items2options:classification:editor:-1:children:findable" />
+            </select>
+          </xed:bind>
+        </div>
+        <mir:help-pmud help-text="{i18n:lp.help.findable}" pmud="false" />
+      </div>
+    </xed:bind>
+  </xed:template>
+
   <!-- ========== bug workaround -  remove required ========== -->
   
   <xed:template id="title.series.relItemsearch">
