@@ -4,5 +4,14 @@
       "name": "flag.publish.date",
       "type": "mods.date_range"
     }
+  },
+  {
+    "add-field": {
+      "name": "mods.findable",
+      "type": "string",
+      "indexed": true,
+      "stored": true,
+      "multiValued": true
+    }
   }
 ]
