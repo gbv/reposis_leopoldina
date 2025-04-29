@@ -10,7 +10,7 @@
         <h3><i18n key="browse.mods.institution.corporate" /></h3>
         <classificationbrowser classification="mir_institutes"
                                    objecttype="mods"
-                                  restriction=""
+                                  restriction="+mods.findable:true"
                                         field="category.top"
                                  countresults="true"
                                    addclassid="true"
