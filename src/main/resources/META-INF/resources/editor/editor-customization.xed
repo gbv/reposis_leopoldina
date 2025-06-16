@@ -76,6 +76,7 @@
     <xed:include ref="validate.institutes.required" after="rights" />
     <xed:include ref="lp.class.series"              before="subject.simple" />
     <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:include ref="lp.findable"                  after="lp.comment.byRole" />
     <xed:remove  ref="comment" />
     <xed:include ref="abstract.repeated"            after="abstract.simple" />
     <xed:remove  ref="abstract.simple" />
@@ -394,12 +395,7 @@
         </label>
         <div class="col-md-6">
           <xed:bind xpath="@valueURIxEditor">
-            <select class="form-control form-control-inline">
-              <option value="">
-                <xed:output i18n="mir.select.optional" />
-              </option>
-              <xed:include uri="xslStyle:items2options:classification:editor:-1:children:lp_findable" />
-            </select>
+            <input type="checkbox" value="false" name="lp.findable" /><xed:output i18n="lp.findable.false" />
           </xed:bind>
         </div>
         <mir:help-pmud help-text="{i18n:lp.help.findable}" pmud="false" />
