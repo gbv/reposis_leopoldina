@@ -27,11 +27,11 @@
       </div>
     </div>
     <script src="../js/jquery.number.js"></script>
-    <script>
+    <script type="text/javascript" >
       $( document ).ready(function() {
         $.ajax({
           type: "GET",
-          url: "../api/v1/search?q=objectType:mods AND state:published&amp;rows=0&amp;wt=json&amp;json.wrf=?",
+          url: "../api/v1/search?q=objectType:mods AND state:published AND mods.findable:true&amp;rows=0&amp;wt=json&amp;json.wrf=?",
           dataType: "jsonp",
           success: function (data) {
             $('#leo-searchInput').attr('placeholder', 'Suche in ' + $.number(data.response.numFound,0, ',', '.') + ' Dokumenten');
@@ -62,16 +62,20 @@
                 </button>
               </div>
             </div>
+            <div class="custom-control custom-switch mt-3">
+              <input type="checkbox" class="custom-control-input" id="switchFindable" />
+              <label class="custom-control-label" for="switchFindable">Include all recorded data (mandatory submission, outdated versions)</label>
+            </div>
           </form>
         </div>
       </div>
     </div>
     <script src="../js/jquery.number.js"></script>
-    <script>
+    <script type="text/javascript" >
       $( document ).ready(function() {
         $.ajax({
           type: "GET",
-          url: "../api/v1/search?q=objectType:mods AND state:published&amp;rows=0&amp;wt=json&amp;json.wrf=?",
+          url: "../api/v1/search?q=objectType:mods AND state:published AND mods.findable:true&amp;rows=0&amp;wt=json&amp;json.wrf=?",
           dataType: "jsonp",
           success: function (data) {
             $('#leo-searchInput').attr('placeholder', 'Search in ' + $.number(data.response.numFound,0, ',', '.') + ' documents');
@@ -82,7 +86,7 @@
   </section>
 
   <meta>
-    <log lastEditor="administrator" date="2020-11-25" time="10:15"/>
+    <log lastEditor="administrator" date="2025-03-13" time="16:15"/>
   </meta>
 
 </MyCoReWebPage>

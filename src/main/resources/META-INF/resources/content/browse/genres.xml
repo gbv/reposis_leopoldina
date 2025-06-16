@@ -10,7 +10,7 @@
         <h3><i18n key="browse.genre" /></h3>
         <classificationbrowser classification="mir_genres"
                                    objecttype="mods"
-                                  restriction=""
+                                  restriction="+mods.findable:true"
                                         field="category.top"
                                  countresults="true"
                                    addclassid="true"

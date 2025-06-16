@@ -17,14 +17,24 @@
     h1 {
       color: $leoMenu;
       margin-bottom: 0rem;
-      padding: 0.5rem 1rem;
-      background-color: rgba(255,255,255,.8);
+      padding: 1rem 1rem;
+      background-color: rgba(255,255,255,0.95);
     }
     form {
       margin-top: 0px;
+      background-color: rgba(255,255,255,.95);
+      padding-bottom: 2.5rem;
     }
     .input-group {
       border-color: white;
+      border-bottom: 1px dotted $gray-dark;
+      border-top: 1px dotted $gray-dark;
+    }
+    .custom-control {
+      padding-left: 3.25rem;
+      margin-bottom: .5rem;
+      margin-top: .5rem;
+      width: auto;
     }
     .btn,
     .form-control {

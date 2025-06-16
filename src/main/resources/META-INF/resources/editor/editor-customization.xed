@@ -4,11 +4,12 @@
 
   <!-- ========== extend editor-genres.xed ========== -->
   <xed:modify ref="admin.fields">
+    <xed:include ref="lp.findable"                  after="genre" />
     <xed:remove  ref="comment.complex" />
     <xed:include ref="lp.class.series"              before="subject.complex" />
     <xed:include ref="lp.comment.complex"           after="abstract.repeated" />
     <xed:remove  ref="institutes" />
-    <xed:include ref="institutes.admin.required"          after="rights"/>
+    <xed:include ref="institutes.admin.required"    after="rights"/>
     <xed:include ref="validate.institutes.required" after="rights" />
     <xed:include ref="publish.date.flag" after="embargo"/>
   </xed:modify>
@@ -31,6 +32,7 @@
     <xed:include ref="institutes.required" />
     <xed:include ref="validate.institutes.required" />
     <xed:include ref="lp.comment.byRole" />
+    <xed:include ref="lp.findable" />
   </xed:template>
 
   <xed:template id="hosts.issue">
@@ -59,6 +61,7 @@
     <xed:include ref="validate.institutes.required" after="rights" />
     <xed:include ref="embargo.datetimepicker"       after="rights" />
     <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:include ref="lp.findable"                  after="lp.comment.byRole" />
     <xed:remove  ref="comment" />
     <xed:include ref="abstract.repeated"            after="abstract.simple" />
     <xed:remove  ref="abstract.simple" />
@@ -73,6 +76,7 @@
     <xed:include ref="validate.institutes.required" after="rights" />
     <xed:include ref="lp.class.series"              before="subject.simple" />
     <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:include ref="lp.findable"                  after="lp.comment.byRole" />
     <xed:remove  ref="comment" />
     <xed:include ref="abstract.repeated"            after="abstract.simple" />
     <xed:remove  ref="abstract.simple" />
@@ -86,6 +90,7 @@
     <xed:include ref="institutes.required"          after="rights"/>
     <xed:include ref="validate.institutes.required" after="rights" />
     <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:include ref="lp.findable"                  after="lp.comment.byRole" />
     <xed:remove  ref="comment" />
     <xed:include ref="publish.date.flag" after="embargo.datetimepicker"/>
   </xed:modify>
@@ -96,6 +101,7 @@
     <xed:include ref="institutes.required"          after="rights" />
     <xed:include ref="validate.institutes.required" after="rights" />
     <xed:include ref="lp.comment.byRole"            after="institutes.required" />
+    <xed:include ref="lp.findable"                  after="lp.comment.byRole" />
     <xed:include ref="abstract.repeated"            after="abstract.simple" />
     <xed:remove  ref="abstract.simple" />
   </xed:modify>
@@ -107,6 +113,7 @@
     <xed:include ref="institutes.required"          after="rights" />
     <xed:include ref="validate.institutes.required" after="rights" />
     <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:include ref="lp.findable"                  after="lp.comment.byRole" />
     <xed:remove  ref="comment" />
   </xed:modify>
 
@@ -117,6 +124,7 @@
     <xed:include ref="institutes.required"          after="rights" />
     <xed:include ref="validate.institutes.required" after="rights" />
     <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:include ref="lp.findable"                  after="lp.comment.byRole" />
     <xed:remove  ref="comment" />
     <xed:include ref="abstract.repeated"            after="abstract.simple" />
     <xed:remove  ref="abstract.simple" />
@@ -130,6 +138,7 @@
     <xed:include ref="institutes.required"          after="rights"/>
     <xed:include ref="validate.institutes.required" after="rights" />
     <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:include ref="lp.findable"                  after="lp.comment.byRole" />
     <xed:remove  ref="comment" />
     <xed:include ref="abstract.repeated"            after="abstract.simple" />
     <xed:remove  ref="abstract.simple" />
@@ -144,6 +153,7 @@
     <xed:include ref="institutes.required"          after="rights" />
     <xed:include ref="validate.institutes.required" after="rights" />
     <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:include ref="lp.findable"                  after="lp.comment.byRole" />
     <xed:remove  ref="comment" />
     <xed:include ref="abstract.repeated"            after="abstract.simple" />
     <xed:remove  ref="abstract.simple" />
@@ -164,6 +174,7 @@
     <xed:include ref="institutes.required"          after="rights" />
     <xed:include ref="validate.institutes.required" after="rights" />
     <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:include ref="lp.findable"                  after="lp.comment.byRole" />
     <xed:remove  ref="comment" />
     <xed:include ref="abstract.repeated"            after="abstract.simple" />
     <xed:remove  ref="abstract.simple" />
@@ -177,6 +188,7 @@
     <xed:include ref="institutes.required"          after="rights" />
     <xed:include ref="validate.institutes.required" after="rights" />
     <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:include ref="lp.findable"                  after="lp.comment.byRole" />
     <xed:remove  ref="comment" />
     <xed:include ref="abstract.repeated"            after="abstract.simple" />
     <xed:remove  ref="abstract.simple" />
@@ -189,6 +201,7 @@
     <xed:include ref="institutes.required"          after="rights" />
     <xed:include ref="validate.institutes.required" after="rights" />
     <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:include ref="lp.findable"                  after="lp.comment.byRole" />
     <xed:remove  ref="comment" />
     <xed:include ref="abstract.repeated"            after="abstract.simple" />
     <xed:remove  ref="abstract.simple" />
@@ -202,6 +215,7 @@
     <xed:include ref="institutes.required"          after="rights" />
     <xed:include ref="validate.institutes.required" after="rights" />
     <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:include ref="lp.findable"                  after="lp.comment.byRole" />
     <xed:remove  ref="comment" />
      <xed:include ref="publish.date.flag" after="embargo.datetimepicker"/>
    </xed:modify>
@@ -217,6 +231,7 @@
     <xed:include ref="institutes.required"          after="rights"/>
     <xed:include ref="validate.institutes.required" after="rights" />
     <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:include ref="lp.findable"                  after="lp.comment.byRole" />
     <xed:remove  ref="comment" />
     <xed:include ref="abstract.repeated"            after="abstract.simple" />
     <xed:remove  ref="abstract.simple" />
@@ -233,6 +248,7 @@
     <xed:include ref="institutes.required"          after="rights"/>
     <xed:include ref="validate.institutes.required" after="rights" />
     <xed:include ref="lp.comment.byRole"            after="comment" />
+    <xed:include ref="lp.findable"                  after="lp.comment.byRole" />
     <xed:remove  ref="comment" />
     <xed:include ref="abstract.repeated"            after="abstract.simple" />
     <xed:remove  ref="abstract.simple" />
@@ -369,7 +385,24 @@
       </xed:bind>
     </xed:bind>
   </xed:template>
-  
+
+  <xed:template id="lp.findable">
+    <xed:bind xpath="mods:classification[@authorityURI='https://publications.leopoldina.org/api/v1/classifications/lp_findable'][@displayLabel='findable']">
+      <div class="form-group row {$xed-validation-marker}">
+        <label class="col-md-3 col-form-label text-right">
+          <xed:output i18n="editor.search.lp.findable" />
+          :
+        </label>
+        <div class="col-md-6 mt-2">
+          <xed:bind xpath="@valueURIxEditor">
+            <input type="checkbox" value="false" name="lp.findable" /><xed:output i18n="lp.findable.false" />
+          </xed:bind>
+        </div>
+        <mir:help-pmud help-text="{i18n:lp.help.findable}" pmud="false" />
+      </div>
+    </xed:bind>
+  </xed:template>
+
   <!-- ========== bug workaround -  remove required ========== -->
   
   <xed:template id="title.series.relItemsearch">
