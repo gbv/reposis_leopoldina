@@ -30,8 +30,10 @@
 
   <xsl:template match="mycoreobject" mode="email">
     <xsl:choose>
+      <!-- START LEO ADAPTION -->
       <xsl:when test="not(mcrxsl:isCurrentUserInRole('editor') or mcrxsl:isCurrentUserInRole('admin')) and mcrxsl:isCurrentUserInRole('submitter') and ($action='update') and
         service/servstates/servstate[@classid='state']/@categid='submitted'">
+        <!-- END LEO ADAPTION -->
         <!-- SEND EMAIL -->
         <xsl:apply-templates select="." mode="mailReceiver" />
         <subject>
@@ -50,9 +52,12 @@
               </xsl:otherwise>
             </xsl:choose>
           </xsl:variable>
+          <!-- START LEO ADAPTION -->
           <xsl:value-of select="concat($objectType,' zur Überprüfung eingereicht: ',@ID)" />
+          <!-- END LEO ADAPTION -->
         </subject>
         <body>
+          <!-- START LEO ADAPTION -->
           <xsl:value-of select="'Folgende Publikation wurde zur Überprüfung eingereicht:'" />
           <xsl:value-of select="$newline" />
           <xsl:apply-templates select="." mode="output" />
@@ -69,8 +74,10 @@
             <xsl:value-of select="'Der / Die Einreichende macht dazu folgende Anmerkung:'" />
             <xsl:value-of select="./metadata/def.modsContainer/modsContainer/mods:mods/mods:note[@type='author2editor']"/>
           </xsl:if>
+          <!-- END LEO ADAPTION -->
         </body>
       </xsl:when>
+      <!-- START LEO ADAPTION -->
       <xsl:when test="(mcrxsl:isCurrentUserInRole('editor') or mcrxsl:isCurrentUserInRole('admin')) and ($action='update') and service/servstates/servstate[@classid='state']/@categid='new'">
         <!-- SEND EMAIL -->
         <xsl:apply-templates select="." mode="mailReceiver" />
@@ -148,11 +155,14 @@
           <xsl:text>Falls eine Embargo-Frist angegeben wurde, wird die Publikation erst nach deren Ablauf öffentlich sichtbar.</xsl:text>
         </body>
       </xsl:when>
+      <!-- END LEO ADAPTION -->
       <xsl:otherwise>
         <!-- DO NOT SEND EMAIL -->
+        <!-- START LEO ADAPTION -->
         <xsl:message>
           <xsl:value-of select="'Do not send mail.'" />
         </xsl:message>
+        <!-- END LEO ADAPTION -->
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
@@ -177,7 +187,9 @@
         </xsl:if>
       </xsl:for-each>
     </xsl:variable>
+    <!-- START LEO ADAPTION -->
     <xsl:value-of select="concat('Eingereicht von : ',@name,' (',@realm,')',$newline)" />
+    <!-- END LEO ADAPTION -->
     <xsl:value-of select="concat('Name            : ',realName,$newline)" />
     <xsl:value-of select="concat('Institut        : ',$instNames,$newline)" />
     <xsl:value-of select="concat('E-Mail          : ',eMail,$newline)" />
@@ -211,12 +223,14 @@
       </xsl:for-each>
     </xsl:if>
     <xsl:if test="$MCR.mir-module.sendEditorMailToCurrentAuthor = 'true'">
+      <!-- START LEO ADAPTION -->
       <xsl:variable  name="user" select="document(concat('user:',service/servflags[@class='MCRMetaLangText']/servflag[@type='createdby']))" />
       <xsl:if test="$user/user/eMail">
         <to>
           <xsl:value-of select="$user/user/eMail" />
         </to>
       </xsl:if>
+      <!-- END LEO ADAPTION -->
     </xsl:if>
     <xsl:for-each select="$institutemember">
       <xsl:choose>
@@ -244,7 +258,7 @@
     <xsl:variable name="categurl">
       <xsl:if test="url">
         <xsl:choose>
-            <!-- MCRObjectID should not contain a ':' so it must be an external link then -->
+          <!-- MCRObjectID should not contain a ':' so it must be an external link then -->
           <xsl:when test="contains(url/@xlink:href,':')">
             <xsl:value-of select="url/@xlink:href" />
           </xsl:when>
@@ -308,7 +322,7 @@
     <xsl:value-of select="concat(' (',@valueURI,')')" />
   </xsl:template>
 
-<!-- Names -->
+  <!-- Names -->
   <xsl:template match="mods:name" mode="printName">
     <xsl:choose>
       <xsl:when test="mods:namePart">
