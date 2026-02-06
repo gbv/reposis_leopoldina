@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0"
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:i18n="xalan://org.mycore.services.i18n.MCRTranslation"
-    xmlns:mcrver="xalan://org.mycore.common.MCRCoreVersion"
-    xmlns:mcrxsl="xalan://org.mycore.common.xml.MCRXMLFunctions"
-    exclude-result-prefixes="i18n mcrver mcrxsl">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
   <xsl:import href="resource:xsl/layout/mir-common-layout.xsl" />
   <xsl:param name="piwikID" select="'0'" />
   <xsl:param name="MIR.TestInstance" />
 
-  <xsl:template name="mir.navigation">
+  <xsl:variable name="checkAdmin" select="document('userobjectrights:isCurrentUserInRole:admin')/boolean='true'"/>
+  <xsl:variable name="checkEditor" select="document('userobjectrights:isCurrentUserInRole:editor')/boolean='true'"/>
+  <xsl:variable name="checkSubmitter" select="document('userobjectrights:isCurrentUserInRole:submitter')/boolean='true'"/>
 
+  <xsl:template name="mir.navigation">
     <div class="leo-top-nav">
       <div class="container">
         <a href="https://www.leopoldina.org/">
@@ -19,7 +17,6 @@
         </a>
       </div>
     </div>
-
     <div id="header_box" class="clearfix container">
       <div id="options_nav_box" class="mir-prop-nav">
         <xsl:if test="contains($MIR.TestInstance, 'true')">
@@ -33,21 +30,17 @@
         </nav>
       </div>
       <div id="project_logo_box">
-        <a
-          href="https://www.leopoldina.org/"
-          class="leo-logo__link">
-          <img
-            src="{$WebApplicationBaseURL}images/logo-leopoldina-blue-1024.jpg"
-            class="leo-logo__figure"
-            alt="" />
+        <a href="https://www.leopoldina.org/" class="leo-logo__link">
+          <img src="{$WebApplicationBaseURL}images/logo-leopoldina-blue-1024.jpg" class="leo-logo__figure" alt="" />
         </a>
-        <a href="{concat($WebApplicationBaseURL,substring($loaded_navigation_xml/@hrefStartingPage,2),$HttpSession)}"
-           class="project-logo">Digitale Bibliothek<!-- <span style="color:#961432">Testumgebung</span>--></a>
+        <a
+          href="{concat($WebApplicationBaseURL,substring($loaded_navigation_xml/@hrefStartingPage,2),$HttpSession)}"
+          class="project-logo">
+          Digitale Bibliothek</a>
       </div>
-
       <div class="searchBox">
         <xsl:variable name="core">
-          <xsl:call-template name="getLayoutSearchSolrCore" />
+          <xsl:call-template name="get-layout-search-solr-core" />
         </xsl:variable>
         <form
           action="{$WebApplicationBaseURL}servlets/solr{$core}"
@@ -55,16 +48,16 @@
           role="search">
           <input
             name="condQuery"
-            placeholder="{i18n:translate('mir.navsearch.placeholder')}"
+            placeholder="{document('i18n:mir.navsearch.placeholder')/i18n/text()}"
             class="form-control search-query"
             id="searchInput"
             type="text"
             aria-label="Search" />
           <xsl:choose>
-            <xsl:when test="mcrxsl:isCurrentUserInRole('admin') or mcrxsl:isCurrentUserInRole('editor')">
+            <xsl:when test="$checkAdmin or $checkEditor">
               <input name="owner" type="hidden" value="createdby:*" />
             </xsl:when>
-            <xsl:when test="not(mcrxsl:isCurrentUserGuestUser())">
+            <xsl:when test="not($CurrentUser='guest')">
               <input name="owner" type="hidden" value="createdby:{$CurrentUser}" />
             </xsl:when>
           </xsl:choose>
@@ -74,12 +67,10 @@
         </form>
       </div>
     </div>
-
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="mir-main-nav bg-primary">
       <div class="container">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-
           <button
             class="navbar-toggler"
             type="button"
@@ -90,28 +81,26 @@
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-
           <div id="mir-main-nav__entries" class="collapse navbar-collapse mir-main-nav__entries">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
               <xsl:call-template name="leo.generate_single_menu_entry">
-                <xsl:with-param name="menuID" select="'brand'"/>
+                <xsl:with-param name="menuID" select="'brand'" />
               </xsl:call-template>
               <xsl:call-template name="leo.generate_single_menu_entry">
-                <xsl:with-param name="menuID" select="'current'"/>
+                <xsl:with-param name="menuID" select="'current'" />
               </xsl:call-template>
               <xsl:apply-templates select="$loaded_navigation_xml/menu[@id='search']" />
               <xsl:apply-templates select="$loaded_navigation_xml/menu[@id='publish']" />
               <xsl:call-template name="mir.basketMenu" />
             </ul>
           </div>
-
         </nav>
       </div>
     </div>
   </xsl:template>
 
   <xsl:template name="mir.jumbotwo">
-
+    <!-- ignore -->
   </xsl:template>
 
   <xsl:template name="mir.footer">
@@ -128,35 +117,71 @@
 
   <xsl:template name="leo.generate_single_menu_entry">
     <xsl:param name="menuID" />
+    <xsl:variable name="menu-item" select="$loaded_navigation_xml/menu[@id=$menuID]/item" />
     <li class="nav-item">
-      <xsl:variable name="activeClass">
+      <xsl:variable name="active-class">
         <xsl:choose>
-          <xsl:when test="$loaded_navigation_xml/menu[@id=$menuID]/item[@href = $browserAddress ]">
-          <xsl:text>active</xsl:text>
+          <xsl:when test="$menu-item/@href = $browserAddress">
+            <xsl:text>active</xsl:text>
           </xsl:when>
           <xsl:otherwise>
             <xsl:text>not-active</xsl:text>
           </xsl:otherwise>
         </xsl:choose>
       </xsl:variable>
-      <a id="{$menuID}" href="{$WebApplicationBaseURL}{$loaded_navigation_xml/menu[@id=$menuID]/item/@href}" class="nav-link {$activeClass}" >
-        <xsl:choose>
-          <xsl:when test="$loaded_navigation_xml/menu[@id=$menuID]/item/label[lang($CurrentLang)] != ''">
-            <xsl:value-of select="$loaded_navigation_xml/menu[@id=$menuID]/item/label[lang($CurrentLang)]" />
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:value-of select="$loaded_navigation_xml/menu[@id=$menuID]/item/label[lang($DefaultLang)]" />
-          </xsl:otherwise>
-        </xsl:choose>
+      <xsl:variable name="full-url">
+        <xsl:call-template name="resolve-full-url">
+          <xsl:with-param name="link" select="$menu-item/@href" />
+        </xsl:call-template>
+      </xsl:variable>
+      <a id="{$menuID}" href="{$full-url}" class="nav-link {$active-class}">
+        <xsl:apply-templates select="$menu-item" mode="linkText" />
       </a>
     </li>
   </xsl:template>
 
+  <xsl:template name="resolve-full-url">
+    <xsl:param name="link" />
+    <xsl:param name="base-url" select="$WebApplicationBaseURL" />
+    <xsl:choose>
+      <xsl:when test="starts-with($link,'http:')
+                      or starts-with($link,'https:')
+                      or starts-with($link,'mailto:')
+                      or starts-with($link,'ftp:')">
+        <xsl:value-of select="$link" />
+      </xsl:when>
+      <xsl:when test="starts-with($link,'/')">
+        <xsl:choose>
+          <xsl:when test="substring($base-url, string-length($base-url), 1) = '/'">
+            <xsl:value-of
+              select="concat(substring($base-url, 1, string-length($base-url) - 1), $link)" />
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="concat($base-url, $link)" />
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:choose>
+          <xsl:when test="substring($base-url, string-length($base-url), 1) = '/'">
+            <xsl:value-of select="concat($base-url, $link)" />
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="concat($base-url, '/', $link)" />
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+
   <xsl:template name="mir.powered_by">
-    <xsl:variable name="mcr_version" select="concat('MyCoRe ',mcrver:getCompleteVersion())" />
+    <xsl:variable name="mcr-version" select="document('version:full')/version/text()" />
     <div id="powered_by">
-      <a href="http://www.mycore.de">
-        <img src="{$WebApplicationBaseURL}mir-layout/images/mycore_logo_small_invert.png" title="{$mcr_version}" alt="powered by MyCoRe" />
+      <a href="https://www.mycore.de">
+        <img
+          src="{$WebApplicationBaseURL}mir-layout/images/mycore_logo_small_invert.png"
+          title="{$mcr-version}"
+          alt="powered by MyCoRe" />
       </a>
     </div>
 
@@ -180,14 +205,18 @@
         g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
         })();
       </script>
-      <noscript><p><img src="https://matomo.gbv.de/piwik.php?idsite={$piwikID}" style="border:0;" alt="" /></p></noscript>
+      <noscript>
+        <p>
+          <img src="https://matomo.gbv.de/piwik.php?idsite={$piwikID}" style="border:0;" alt="" />
+        </p>
+      </noscript>
     </xsl:if>
     <!-- End Piwik Code -->
   </xsl:template>
 
-  <xsl:template name="getLayoutSearchSolrCore">
+  <xsl:template name="get-layout-search-solr-core">
     <xsl:choose>
-      <xsl:when test="mcrxsl:isCurrentUserInRole('editor') or mcrxsl:isCurrentUserInRole('admin') or mcrxsl:isCurrentUserInRole('submitter')">
+      <xsl:when test="$checkAdmin or $checkEditor or $checkSubmitter">
         <xsl:text>/find</xsl:text>
       </xsl:when>
       <xsl:otherwise>
