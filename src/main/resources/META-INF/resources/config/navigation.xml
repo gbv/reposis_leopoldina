@@ -91,7 +91,7 @@
       <label xml:lang="de">Dokument einreichen (Admin)</label>
       <label xml:lang="en">Submit new document (admin)</label>
     </item>
-    <item href="/servlets/solr/select?q=createdby:USERNAME" type="intern" replaceMenu="false" constrainPopUp="false">
+    <item href="/servlets/solr/select?q=createdby:{CurrentUser}" type="intern" replaceMenu="false" constrainPopUp="false">
       <label xml:lang="de">Meine Publikationen</label>
       <label xml:lang="en">My documents</label>
     </item>
