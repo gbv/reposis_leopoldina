@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description>
+  <eprints
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://www.openarchives.org/OAI/1.1/eprints"
+    xsi:schemaLocation="http://www.openarchives.org/OAI/1.1/eprints http://www.openarchives.org/OAI/1.1/eprints.xsd">
+    <content>
+      <text>
+        The digital library serves as the Leopoldina's publication server. It provides the Academy and its cooperation
+        partners with the organizational and technical framework for the electronic publication of scientific works.
+        The publication server includes open access publications, electronic theses, and other documentary publications.
+      </text>
+      <URL>https://levana.leopoldina.org/</URL>
+    </content>
+    <metadataPolicy>
+      <text>
+        All bibliographic metadata provided via this interface, except abstracts, is hereby made available under CC0
+        license, free to share and re-use.
+      </text>
+      <URL>https://creativecommons.org/publicdomain/zero/1.0/deed.de</URL>
+    </metadataPolicy>
+    <dataPolicy>
+      <text>
+        The electronic documents published on the publication server are subject to applicable copyright law. All
+        exploitation rights remain with the authors, unless expressly stated otherwise. Users may only use the documents
+        within the scope of the statutory provisions. The publication server is operated by the University of Applied
+        Sciences and Arts in Berlin.
+      </text>
+      <URL>https://levana.leopoldina.org/content/publish/guidelines.xml</URL>
+    </dataPolicy>
+    <submissionPolicy>
+      <text>
+        The collection mandate of the publication server includes the storage, cataloging and provision of all
+        electronic documents published by the Leopoldina or jointly with its cooperation partners. The copyrights of the
+        authors remain fully preserved. Compliance with the copyrights and exploitation rights of third parties is
+        the responsibility of the submitter.
+      </text>
+      <URL>https://levana.leopoldina.org/content/publish/contract.xml</URL>
+    </submissionPolicy>
+    <comment>
+      This institutional repository is powered by the MyCoRe repository software, see http://www.mycore.org/ for more
+      information.
+    </comment>
+  </eprints>
+</description>
