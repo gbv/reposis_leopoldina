@@ -19,6 +19,7 @@ public class LeopoldinaCanOrderDAOTest extends MCRStoreTestCase {
 
     private void createObject(MCRObjectID id) throws MCRAccessException {
         MCRObject object = new MCRObject();
+        object.setSchema("noSchema");
         object.setId(id);
         MCRMetadataManager.create(object);
 
