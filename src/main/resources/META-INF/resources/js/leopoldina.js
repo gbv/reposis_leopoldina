@@ -9,14 +9,6 @@ $(document).ready(function() {
       $(this).remove();
   });
 
-  // activate empty search on start page
-  $("#leo-searchMainPage").submit(function (evt) {
-    $(this).find(":input").filter(function () {
-          return !this.value;
-      }).attr("disabled", true);
-    return true;
-  });
-
   // replace placeholder USERNAME with username
   var userID = $("#currentUser strong").html();
   var newHref = 'https://levana.leopoldina.org/servlets/solr/select?q=createdby:' + userID + '&fq=objectType:mods';
