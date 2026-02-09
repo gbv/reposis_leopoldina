@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mycoreclass xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="MCRClassification.xsd" ID="lp_findable">
-  <label xml:lang="x-uri" text="https://publications.leopoldina.org/api/v1/classifications/lp_findable" />
+<mycoreclass ID="lp_findable"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="MCRClassification.xsd">
   <label xml:lang="de" text="Standardmäßig findbare Publikation" />
+  <label xml:lang="x-uri" text="https://levana.leopoldina.org/api/v2/classifications/lp_findable" />
   <categories>
     <category ID="true">
       <label xml:lang="de" text="ja" />
