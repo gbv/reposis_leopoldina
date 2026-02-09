@@ -41,6 +41,9 @@
         <label xml:lang="de" text="Newsletter" />
       </category>
     </category>
+    <category ID="leopoldina_forum">
+      <label xml:lang="de" text="Leopoldina-Forum" />
+    </category>
     <category ID="discussion_papers">
       <label xml:lang="de" text="Diskussionspapiere" />
     </category>
