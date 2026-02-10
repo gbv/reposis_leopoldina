@@ -17,7 +17,7 @@ async function getDocumentCount() {
 
 document.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('leo-searchMainPage')?.addEventListener('submit', ignoreEmptyFieldsOnSubmit);
-  const input = document.getElementById('project-searchInput');
+  const input = document.getElementById('leo-searchInput');
   if (input) {
     try {
       const placeholder = await getTranslation(currentLang, 'leopoldina.index.search.placeholder');
