@@ -7,7 +7,8 @@ async function getTranslation(locale, name) {
 }
 
 async function getDocumentCount() {
-  const response = await fetch('../api/v1/search?q=objectType:mods AND state:published&rows=0&wt=json');
+  const response
+    = await fetch('../api/v1/search?q=objectType:mods AND state:published + AND mods.findable:true&rows=0&wt=json');
   if (!response.ok) {
     throw new Error(`HTTP error ${response.status}`);
   }
@@ -17,7 +18,7 @@ async function getDocumentCount() {
 
 document.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('leo-searchMainPage')?.addEventListener('submit', ignoreEmptyFieldsOnSubmit);
-  const input = document.getElementById('project-searchInput');
+  const input = document.getElementById('leo-searchInput');
   if (input) {
     try {
       const placeholder = await getTranslation(currentLang, 'leopoldina.index.search.placeholder');
