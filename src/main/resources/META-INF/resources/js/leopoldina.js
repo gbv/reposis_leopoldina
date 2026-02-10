@@ -1,31 +1,60 @@
-
-$(document).ready(function() {
-
-  // spam protection for mails
-  $('span.madress').each(function(i) {
-      var text = $(this).text();
-      var address = text.replace(" [at] ", "@");
-      $(this).after('<a href="mailto:'+address+'">'+ address +'</a>')
-      $(this).remove();
+function replaceMaskedEmails() {
+  document.querySelectorAll('span.madress').forEach(span => {
+    const address = span.textContent.replace(' [at] ', '@');
+    const link = document.createElement('a');
+    link.href = `mailto:${address}`;
+    link.textContent = address;
+    span.replaceWith(link);
   });
+}
 
-  // activate empty search on start page
-  $("#leo-searchMainPage").submit(function (evt) {
-    $(this).find(":input").filter(function () {
-          return !this.value;
-      }).attr("disabled", true);
-    return true;
+function ignoreEmptyFieldsOnSubmit(event) {
+  const form = event.currentTarget;
+  const inputs = form.querySelectorAll('input');
+  inputs.forEach(input => {
+    if (!input.value) {
+      input.dataset.nameBackup = input.name;
+      input.removeAttribute('name');
+    }
   });
+  // Restore field names after the form is submitted
+  // setTimeout ensures this runs after the submit event completes
+  setTimeout(() => {
+    inputs.forEach(input => {
+      if (input.dataset.nameBackup) {
+        input.name = input.dataset.nameBackup;
+        delete input.dataset.nameBackup;
+      }
+    });
+  }, 0);
+}
 
-  // replace placeholder USERNAME with username
-  var userID = $("#currentUser strong").html();
-  var newHref = 'https://levana.leopoldina.org/servlets/solr/select?q=createdby:' + userID + '&fq=objectType:mods';
-  $("a[href='https://levana.leopoldina.org/servlets/solr/select?q=createdby:USERNAME']").attr('href', newHref);
+function removeGenreOptions(values) {
+  const select = document.querySelector('select#genre');
+  if (!select) {
+    return;
+  }
+  Array.from(select.options).forEach(option => {
+    if (values.includes(option.value)) {
+      option.remove();
+    }
+  });
+}
 
-});
+function setupGenreObserver(values) {
+  const observer = new MutationObserver(() => {
+    removeGenreOptions(values);
+  });
+  observer.observe(document.body, {childList: true, subtree: true});
+  return observer;
+}
 
-$( document ).ajaxComplete(function() {
-  // remove series and journal as option from publish/index.xml
-  $("select#genre option[value='series']").remove();
-  $("select#genre option[value='journal']").remove();
-});
+function init() {
+  const genresToRemove = ['series', 'journal'];
+  setupGenreObserver(genresToRemove);
+  document.querySelector('form.searchfield_box')?.addEventListener('submit', ignoreEmptyFieldsOnSubmit);
+  replaceMaskedEmails();
+  removeGenreOptions(genresToRemove);
+}
+
+document.addEventListener('DOMContentLoaded', init);

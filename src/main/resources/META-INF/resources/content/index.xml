@@ -1,92 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MyCoReWebPage>
-
   <section xml:lang="de" title="Willkommen auf den Seiten der Leopoldina">
     <div class="jumbotwo" id="leo-index-search" style="margin-top:50px;">
       <div class="row">
         <div class="col-md-9 offset-md-2" lang="de">
-          <h1>
-            Der Publikations­server der Leopoldina
-          </h1>
-          <form action="../servlets/solr/findPublic" id="leo-searchMainPage" class="form-inline" role="search">
-            <div class="input-group input-group-lg w-100">
-              <input
-                name="condQuery"
-                placeholder="Suche in 160 Dokumenten"
-                class="form-control search-query"
-                id="leo-searchInput"
-                type="text" />
-              <div class="input-group-append">
-                <button type="submit" class="btn btn-primary">
-                  <i class="fa fa-search"></i>
-                </button>
-              </div>
-            </div>
-          </form>
+          <h1>Der Publikationsserver der Leopoldina</h1>
+          <index-search-form />
         </div>
       </div>
     </div>
-    <script src="../js/jquery.number.js"></script>
-    <script type="text/javascript" >
-      $( document ).ready(function() {
-        $.ajax({
-          type: "GET",
-          url: "../api/v1/search?q=objectType:mods AND state:published AND mods.findable:true&amp;rows=0&amp;wt=json&amp;json.wrf=?",
-          dataType: "jsonp",
-          success: function (data) {
-            $('#leo-searchInput').attr('placeholder', 'Suche in ' + $.number(data.response.numFound,0, ',', '.') + ' Dokumenten');
-          },
-        });
-      });
-    </script>
+    <script src="../js/index.js"></script>
   </section>
-
   <section xml:lang="en" title="Welcome to Leopoldina">
     <div class="jumbotwo" id="leo-index-search" style="margin-top:50px;">
       <div class="row">
         <div class="col-md-9 offset-md-2" lang="en">
-          <h1>
-            Institutional Repository of Leopoldina
-          </h1>
-          <form action="../servlets/solr/findPublic" id="leo-searchMainPage" class="form-inline" role="search">
-            <div class="input-group input-group-lg w-100">
-              <input
-                name="condQuery"
-                placeholder="Search in 160 documents"
-                class="form-control search-query"
-                id="leo-searchInput"
-                type="text" />
-              <div class="input-group-append">
-                <button type="submit" class="btn btn-primary">
-                  <i class="fa fa-search"></i>
-                </button>
-              </div>
-            </div>
-            <div class="custom-control custom-switch mt-3">
-              <input type="checkbox" class="custom-control-input" id="switchFindable" />
-              <label class="custom-control-label" for="switchFindable">Include all recorded data (mandatory submission, outdated versions)</label>
-            </div>
-          </form>
+          <h1>Institutional Repository of Leopoldina</h1>
+          <index-search-form />
         </div>
       </div>
     </div>
-    <script src="../js/jquery.number.js"></script>
-    <script type="text/javascript" >
-      $( document ).ready(function() {
-        $.ajax({
-          type: "GET",
-          url: "../api/v1/search?q=objectType:mods AND state:published AND mods.findable:true&amp;rows=0&amp;wt=json&amp;json.wrf=?",
-          dataType: "jsonp",
-          success: function (data) {
-            $('#leo-searchInput').attr('placeholder', 'Search in ' + $.number(data.response.numFound,0, ',', '.') + ' documents');
-          },
-        });
-      });
-    </script>
+    <script src="../js/index.js"></script>
   </section>
-
   <meta>
-    <log lastEditor="administrator" date="2025-03-13" time="16:15"/>
+    <log lastEditor="administrator" date="2025-03-13" time="16:15" />
   </meta>
-
 </MyCoReWebPage>
