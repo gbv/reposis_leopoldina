@@ -395,7 +395,8 @@
         </label>
         <div class="col-md-6 mt-2">
           <xed:bind xpath="@valueURIxEditor">
-            <input type="checkbox" value="false" name="lp.findable" /><xed:output i18n="lp.findable.false" />
+            <input type="checkbox" value="false" />
+            <xed:output i18n="lp.findable.false" />
           </xed:bind>
         </div>
         <mir:help-pmud help-text="{i18n:lp.help.findable}" pmud="false" />
