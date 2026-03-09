@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet version="1.0"
+  xmlns:mcri18n="xalan://org.mycore.services.i18n.MCRTranslation"
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  exclude-result-prefixes="mcri18n">
 
   <xsl:include href="MyCoReLayout.xsl" />
   <xsl:include href="response-utils.xsl" />
@@ -8,7 +11,7 @@
   <xsl:param name="WebApplicationBaseURL" />
 
   <xsl:variable name="PageTitle">
-    <xsl:value-of select="document('i18n:lp.newestObjects')/i18n/text()" />
+    <xsl:value-of select="mcri18n:translate('lp.newestObjects')" />
   </xsl:variable>
 
   <xsl:template match="/response/result|lst[@name='grouped']/lst[@name='returnId']" priority="20">

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0"
-  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:mcri18n="xalan://org.mycore.services.i18n.MCRTranslation"
   xmlns:order="xalan://de.vzg.leopoldina.LeopoldinaOrderUtil"
   xmlns:orderDAO="xalan://de.vzg.leopoldina.LeopoldinaCanOrderDAO"
-  exclude-result-prefixes="order orderDAO">
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  exclude-result-prefixes="mcri18n order orderDAO">
 
   <xsl:import href="xslImport:modsmeta:metadata/leopoldina-order.xsl" />
 
@@ -22,7 +23,7 @@
           </xsl:if>
           <xsl:if test="$can-order">
             <button type="button" class="btn btn-primary w-100" data-toggle="modal" data-target="#leopoldina-order-modal">
-              <xsl:value-of select="document('i18n:leopoldina.order')/i18n/text()" />
+              <xsl:value-of select="mcri18n:translate('leopoldina.order')" />
             </button>
             <xsl:call-template name="display-order-modal" />
           </xsl:if>
@@ -44,7 +45,7 @@
             type="submit"
             class="btn btn-secondary w-100"
             style="white-space: normal;"
-            value="{document('i18n:leopoldina.make.not.orderable')/i18n/text()}"  />
+            value="{mcri18n:translate('leopoldina.make.not.orderable')}"  />
         </xsl:when>
         <xsl:otherwise>
           <input type="hidden" name="canOrder" value="true" />
@@ -52,7 +53,7 @@
             type="submit"
             class="btn btn-secondary w-100"
             style="white-space: normal;"
-            value="{document('i18n:leopoldina.make.orderable')/i18n/text()}" />
+            value="{mcri18n:translate('leopoldina.make.orderable')}" />
         </xsl:otherwise>
       </xsl:choose>
     </form>
@@ -64,7 +65,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">
-              <xsl:value-of select="document('i18n:mir.metaData.panel.heading.leopoldina-order')/i18n/text()" />
+              <xsl:value-of select="mcri18n:translate('mir.metaData.panel.heading.leopoldina-order')" />
             </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&#215;</span>
@@ -73,21 +74,21 @@
           <div class="modal-body">
             <div class="row form-row mt-1">
               <div class="col-4">
-                <xsl:value-of select="document('i18n:leopoldina.order.modal.form.email')/i18n/text()" />
+                <xsl:value-of select="mcri18n:translate('leopoldina.order.modal.form.email')" />
               </div>
               <div class="col-8">
                 <input
                   type="email"
                   id="order-email"
                   class="form-control"
-                  placeholder="{document('i18n:leopoldina.order.modal.form.email.placeholder')/i18n/text()}"
+                  placeholder="{mcri18n:translate('leopoldina.order.modal.form.email.placeholder')}"
                   value="" />
                 <input type="hidden" id="order-object-id" value="{$object-id}" />
               </div>
             </div>
             <div class="row form-row mt-1">
               <div class="col-4">
-                <xsl:value-of select="document('i18n:leopoldina.order.modal.form.name')/i18n/text()" />
+                <xsl:value-of select="mcri18n:translate('leopoldina.order.modal.form.name')" />
               </div>
               <div class="col-8">
 
@@ -96,13 +97,13 @@
                   id="order-name"
                   class="form-control"
                   minlength="5"
-                  placeholder="{document('i18n:leopoldina.order.modal.form.name.placeholder')/i18n/text()}"
+                  placeholder="{mcri18n:translate('leopoldina.order.modal.form.name.placeholder')}"
                   value="" />
               </div>
             </div>
             <div class="row form-row mt-1">
               <div class="col-4">
-                <xsl:value-of select="document('i18n:leopoldina.order.modal.form.address')/i18n/text()" />
+                <xsl:value-of select="mcri18n:translate('leopoldina.order.modal.form.address')" />
               </div>
               <div class="col-8">
                 <textarea
@@ -112,12 +113,12 @@
                   rows="4"
                   minlength="0"
                   maxlength="500"
-                  placeholder="{document('i18n:leopoldina.order.modal.form.address.placeholder')/i18n/text()}" />
+                  placeholder="{mcri18n:translate('leopoldina.order.modal.form.address.placeholder')}" />
               </div>
             </div>
             <div class="row form-row mt-1">
               <div class="col-4">
-                <xsl:value-of select="document('i18n:leopoldina.order.modal.form.amount')/i18n/text()" />
+                <xsl:value-of select="mcri18n:translate('leopoldina.order.modal.form.amount')" />
               </div>
               <div class="col-8">
                 <input type="number" id="order-amount" class="form-control" value="1" min="1" max="99" />
@@ -125,19 +126,20 @@
             </div>
             <div class="row form-row mt-1">
               <div class="col-4">
-                <xsl:value-of select="document('i18n:leopoldina.order.modal.form.comment')/i18n/text()" />
+                <xsl:value-of select="mcri18n:translate('leopoldina.order.modal.form.comment')" />
               </div>
               <div class="col-8">
                 <textarea
                   id="order-comment"
                   class="form-control"
                   rows="3"
-                  placeholder="{document('i18n:leopoldina.order.modal.form.comment.placeholder')/i18n/text()}"></textarea>
+                  placeholder="{mcri18n:translate('leopoldina.order.modal.form.comment.placeholder')}">
+                </textarea>
               </div>
             </div>
             <div class="row form-row mt-1">
               <div class="col-4">
-                <xsl:value-of select="document('i18n:leopoldina.order.modal.form.captcha')/i18n/text()" />
+                <xsl:value-of select="mcri18n:translate('leopoldina.order.modal.form.captcha')" />
               </div>
               <div class="col-8">
                 <div class="row">
@@ -153,22 +155,22 @@
                       type="text"
                       id="captcha-input"
                       class="form-control"
-                      placeholder="{document('i18n:leopoldina.order.modal.form.captcha.placeholder')/i18n/text()}"
+                      placeholder="{mcri18n:translate('leopoldina.order.modal.form.captcha.placeholder')}"
                       value="" />
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-6">
                     <a href="#" id="captcha-refresh">
-                      <xsl:value-of select="document('i18n:leopoldina.order.modal.form.captcha.refresh')/i18n/text()" />
+                      <xsl:value-of select="mcri18n:translate('leopoldina.order.modal.form.captcha.refresh')" />
                     </a>
                   </div>
                   <div class="col-6">
                     <a href="#play" id="captcha-play">
-                      <xsl:value-of select="document('i18n:leopoldina.order.modal.form.captcha.play')/i18n/text()" />
+                      <xsl:value-of select="mcri18n:translate('leopoldina.order.modal.form.captcha.play')" />
                     </a>
                     <a href="#stop" id="captcha-stop" class="d-none">
-                      <xsl:value-of select="document('i18n:leopoldina.order.modal.form.captcha.stop')/i18n/text()" />
+                      <xsl:value-of select="mcri18n:translate('leopoldina.order.modal.form.captcha.stop')" />
                     </a>
                   </div>
                 </div>
@@ -177,22 +179,22 @@
             <div class="row mt-1">
               <div class="col-12">
                 <div class="alert alert-danger d-none" role="alert" id="order-error">
-                  <xsl:value-of select="document('i18n:leopoldina.order.modal.form.error')/i18n/text()" />
+                  <xsl:value-of select="mcri18n:translate('leopoldina.order.modal.form.error')" />
                 </div>
                 <div class="alert alert-success d-none" role="alert" id="order-success">
-                  <xsl:value-of select="document('i18n:leopoldina.order.modal.form.success')/i18n/text()" />
+                  <xsl:value-of select="mcri18n:translate('leopoldina.order.modal.form.success')" />
                 </div>
               </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal" id="order-cancel">
-                <xsl:value-of select="document('i18n:leopoldina.order.modal.form.cancel')/i18n/text()" />
+                <xsl:value-of select="mcri18n:translate('leopoldina.order.modal.form.cancel')" />
               </button>
               <button type="button" class="btn btn-primary" id="order-submit">
-                <xsl:value-of select="document('i18n:leopoldina.order.modal.form.submit')/i18n/text()" />
+                <xsl:value-of select="mcri18n:translate('leopoldina.order.modal.form.submit')" />
               </button>
               <button type="button" class="btn btn-primary d-none" data-dismiss="modal" id="order-close">
-                <xsl:value-of select="document('i18n:leopoldina.order.modal.form.close')/i18n/text()" />
+                <xsl:value-of select="mcri18n:translate('leopoldina.order.modal.form.close')" />
               </button>
             </div>
           </div>
