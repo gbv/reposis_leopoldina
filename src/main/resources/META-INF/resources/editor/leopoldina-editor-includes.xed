@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xed:template xmlns:xed="http://www.mycore.de/xeditor" xmlns:mir="http://www.mycore.de/mir">
+
+  <xed:template id="lp.class.series">
+    <div class="form-group row">
+      <label class="col-md-3 col-form-label text-right">
+        <xed:output i18n="lp.class.series" />
+      </label>
+      <xed:bind xpath="mods:classification[@authorityURI='https://publications.leopoldina.org/api/v1/classifications/lp_series']/@displayLabel" set="lp_series" />
+      <xed:bind xpath="mods:classification[@authorityURI='https://publications.leopoldina.org/api/v1/classifications/lp_series']/@valueURIxEditor">
+        <div class="col-md-6">
+          <div class="controls">
+            <select class="form-control form-control-inline">
+              <option value="">
+                <xed:output i18n="mir.select.optional" />
+              </option>
+              <xed:include uri="xslStyle:items2options:classification:editor:-1:children:lp_series" />
+            </select>
+          </div>
+        </div>
+        <mir:help-pmud help-text="{i18n:lp.help.class.series}" pmud="false" />
+      </xed:bind>
+    </div>
+  </xed:template>
+
+  <xed:template id="lp.comment.admin">
+    <mir:textarea xpath="mods:note[@type='admin']" label="mir.comment" help-text="{i18n:mir.help.comment}" rows="2" />
+  </xed:template>
+
+  <xed:template id="lp.comment.byRole">
+    <xed:if test="xed:call-java('org.mycore.common.xml.MCRXMLFunctions','isCurrentUserInRole','submitter')">
+      <xed:include ref="lp.comment.author2editor" />
+    </xed:if>
+    <xed:if test="xed:call-java('org.mycore.common.xml.MCRXMLFunctions','isCurrentUserInRole','editor')">
+      <xed:include ref="lp.comment.author2editor" />
+    </xed:if>
+    <xed:if test="xed:call-java('org.mycore.common.xml.MCRXMLFunctions','isCurrentUserInRole','editor') or xed:call-java('org.mycore.common.xml.MCRXMLFunctions','isCurrentUserInRole','admin')">
+      <xed:include ref="lp.comment.admin" />
+    </xed:if>
+  </xed:template>
+
+  <xed:template id="lp.comment.complex">
+    <fieldset>
+      <legend class="mir-fieldset-legend">
+        <xed:output i18n="lp.comment.complex" />
+      </legend>
+      <xed:repeat xpath="mods:note" min="1" max="5">
+        <div class="mir-fieldset-content">
+          <div class="form-group row">
+            <label class="col-md-3 col-form-label text-right">
+              <xed:output i18n="mir.comment.type" />
+            </label>
+            <div class="col-md-6">
+              <xed:bind xpath="@type">
+                <select class="form-control" style="font-weight:bold;">
+                  <xed:include uri="xslStyle:items2options,convertClassificationOptions:classification:editor:-1:children:noteTypes" />
+                </select>
+              </xed:bind>
+            </div>
+            <mir:help-pmud help-text="{i18n:mir.help.comment.type}" pmud="true" />
+          </div>
+          <mir:textarea xpath="." label="mir.comment" help-text="{i18n:mir.help.comment}" rows="3" />
+        </div>
+      </xed:repeat>
+    </fieldset>
+  </xed:template>
+
+  <xed:template id="lp.comment.editor2author">
+    <mir:textarea
+      xpath="mods:note[@type='editor2author']"
+      label="lp.comment.editor2author"
+      help-text="{i18n:mir.help.comment}"
+      rows="2" />
+  </xed:template>
+
+  <xed:template id="lp.comment.author2editor">
+    <mir:textarea
+      xpath="mods:note[@type='author2editor']"
+      label="lp.comment.author2editor"
+      help-text="{i18n:mir.help.comment}"
+      rows="2" />
+  </xed:template>
+
+  <xed:template id="lp.findable">
+    <xed:bind xpath="mods:classification[@authorityURI='https://publications.leopoldina.org/api/v1/classifications/lp_findable'][@displayLabel='findable']">
+      <div class="form-group row {$xed-validation-marker}">
+        <label class="col-md-3 col-form-label text-right">
+          <xed:output i18n="editor.search.lp.findable" />
+          :
+        </label>
+        <div class="col-md-6 mt-2">
+          <xed:bind xpath="@valueURIxEditor">
+            <input type="checkbox" value="false" />
+            <xed:output i18n="lp.findable.false" />
+          </xed:bind>
+        </div>
+        <mir:help-pmud help-text="{i18n:lp.help.findable}" pmud="false" />
+      </div>
+    </xed:bind>
+  </xed:template>
+
+  <xed:template id="institutes.admin.required">
+    <xed:load-resource name="mir_institutes" uri="classification:metadata:-1:children:mir_institutes" />
+    <xed:bind xpath="mods:name[@type='corporate'][@authorityURI=$mir_institutes/label[@xml:lang='x-uri']/@text]">
+      <xed:bind xpath="mods:role/mods:roleTerm[@authority='marcrelator'][@type='code']" initially="his" />
+      <xed:bind xpath="@valueURIxEditor">
+        <div class="form-group row required {$xed-validation-marker}">
+          <label class="col-md-3 col-form-label text-right">
+            <xed:output i18n="mir.institution" />
+            :
+          </label>
+          <div class="col-md-6">
+            <select class="form-control form-control-inline mir-form__js-select--large">
+              <option value="">
+                <xed:output i18n="mir.select.optional" />
+              </option>
+              <xed:include uri="xslStyle:items2options:classification:editor:-1:children:mir_institutes" />
+            </select>
+          </div>
+          <mir:help-pmud help-text="{i18n:mir.help.institutes}" />
+        </div>
+      </xed:bind>
+    </xed:bind>
+  </xed:template>
+
+  <xed:template id="institutes.required">
+    <xed:load-resource name="mir_institutes" uri="classification:metadata:-1:children:mir_institutes" />
+    <xed:bind xpath="mods:name[@type='corporate'][@authorityURI=$mir_institutes/label[@xml:lang='x-uri']/@text]">
+      <xed:bind xpath="mods:role/mods:roleTerm[@authority='marcrelator'][@type='code']" initially="his" />
+      <xed:bind xpath="@valueURIxEditor">
+        <xed:if test="xed:call-java('de.vzg.leopoldina.LeopoldinaEditorUtil', 'hasNoClassificationValue')">
+          <div class="form-group row required {$xed-validation-marker}">
+            <label class="col-md-3 col-form-label text-right">
+              <xed:output i18n="mir.institution" />
+              :
+            </label>
+            <div class="col-md-6">
+              <select class="form-control form-control-inline mir-form__js-select--large">
+                <option value="">
+                  <xed:output i18n="mir.select.optional" />
+                </option>
+                <xed:include uri="xslStyle:items2options:classification:editor:-1:children:mir_institutes" />
+              </select>
+            </div>
+            <mir:help-pmud help-text="{i18n:mir.help.institutes}" />
+          </div>
+        </xed:if>
+        <xed:if test="xed:call-java('de.vzg.leopoldina.LeopoldinaEditorUtil', 'hasClassificationValue')">
+          <input type="hidden" value="{xed:call-java('de.vzg.leopoldina.LeopoldinaEditorUtil', 'getClassificationValue')}" />
+        </xed:if>
+      </xed:bind>
+    </xed:bind>
+  </xed:template>
+
+  <!-- add publish_date which is just for unlocking the document -->
+  <xed:template id="publish.date.flag">
+    <xed:bind xpath="../../../../service/servflags[@class='MCRMetaLangText']/servflag[@type='publish_date']">
+      <div class="form-group row {$xed-validation-marker}">
+        <label class="col-md-3 col-form-label text-right">
+          <xed:output i18n="mir.date.auto_publish" />
+        </label>
+        <div class="col-md-6">
+          <div class="date-format" data-format="simple">
+            <div class="date-simple input-group mb-1">
+              <input type="text" class="form-control" autocomplete="off" placeholder="{i18n:mir.placeholder.date}">
+              </input>
+            </div>
+          </div>
+        </div>
+        <mir:help-pmud help-text="{i18n:mir.help.auto_publish}" pmud="false" />
+        <xed:validate display="global" xpath="//servflag[@type='publish_date']" matches="\d{4}(\-\d{2}(\-\d{2})?)?"
+          type="datetime" format="yyyy;yyyy-MM;yyyy-MM-dd" i18n="mir.validation.date" />
+        <xed:cleanup-rule xpath="//servflag[@type='publish_date']" relevant-if="string-length(text()) &gt; 0" />
+        <xed:cleanup-rule xpath="//servflags" relevant-if="count(servflag) &gt; 0" />
+      </div>
+    </xed:bind>
+  </xed:template>
+
+  <xed:template id="validate.institutes.required">
+    <xed:load-resource name="mir_institutes" uri="classification:metadata:-1:children:mir_institutes" />
+    <xed:validate
+      xpath="//mods:mods/mods:name[@type='corporate'][@authorityURI=$mir_institutes/label[@xml:lang='x-uri']/@text]/@valueURIxEditor"
+      test="string-length(//mods:mods/mods:name[@type='corporate'][@authorityURI=$mir_institutes/label[@xml:lang='x-uri']/@text]/@valueURIxEditor) &gt; 0"
+      i18n="mir.validation.institution"
+      display="global" />
+  </xed:template>
+
+</xed:template>
