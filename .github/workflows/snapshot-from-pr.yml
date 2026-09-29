@@ -25,5 +25,5 @@ jobs:
       payload: ${{ github.event.pull_request.body }}
       required-label: 'snapshot-deploy'
     secrets:
-      MAVEN_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
-      MAVEN_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
+      MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+      MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
